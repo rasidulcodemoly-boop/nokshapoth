@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/order.php", "destination": "/api/order.js" },
+    { "source": "/api/autosave.php", "destination": "/api/autosave.js" }
+  ]
+}

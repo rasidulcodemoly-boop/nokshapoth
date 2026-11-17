@@ -1,0 +1,7 @@
+node_modules/
+.gemini/
+*.log
+data/orders/
+data/leads/
+.DS_Store
+Thumbs.db
