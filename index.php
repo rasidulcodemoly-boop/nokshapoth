@@ -249,8 +249,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </nav>
 
   <!-- ৩. হিরো সেকশন (ডিপ গ্রিন) -->
-  <header id="hero" class="bg-green-deep text-white py-10 md:py-16 px-4 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+  <header id="hero" class="bg-green-deep text-white py-10 md:py-16 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
       <!-- বাম পাশের টেক্সট ও কল-টু-অ্যাকশন -->
       <div class="lg:col-span-7 space-y-5 order-2 lg:order-1">
@@ -348,8 +348,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </header>
 
   <!-- ৪. প্রবলেম / অ্যাজিটেশন সেকশন (বেইজ ব্যাকগ্রাউন্ড) -->
-  <section id="problem-section" class="py-12 md:py-16 px-4 bg-beige-ground">
-    <div class="max-w-5xl mx-auto text-center space-y-3">
+  <section id="problem-section" class="py-12 md:py-16 bg-beige-ground">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-3">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
         প্রতিদিন সকালে এই সমস্যাগুলো হয় না?
       </h2>
@@ -358,7 +358,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
       </p>
 
       <!-- ৩টি সমস্যার স্ট্যাকিং ওভারল্যাপিং কার্ড (ভার্টিক্যালি ৩টি রো, স্ক্রোলে ওভারল্যাপ স্লাইড করবে) -->
-      <div class="problem-stack-container max-w-4xl mx-auto pt-6 pb-4 space-y-8 md:space-y-12">
+      <div class="problem-stack-container w-full mx-auto pt-6 pb-4 space-y-8 md:space-y-12">
         
         <!-- কার্ড ১: সময় চলে যায় -->
         <div class="problem-card-sticky problem-card-sticky-1 problem-card-cinematic rounded-3xl p-6 md:p-8 transition-all duration-300">
@@ -437,8 +437,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ৫. ভ্যারিয়েন্ট সিলেকশন সেকশন ("আপনার পরিবারের জন্য কোনটা উপযুক্ত?") -->
-  <section id="pricing-variants" class="py-12 md:py-16 px-4 bg-green-deep text-white border-y border-white/10 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto">
+  <section id="pricing-variants" class="py-12 md:py-16 bg-green-deep text-white border-y border-white/10 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center space-y-2 mb-10">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           আপনার পরিবারের জন্য কোনটা উপযুক্ত?
@@ -589,8 +589,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ৬. কেন নকশাপথের বটি অ্যান্ড রুটি মেকার (৬টি গ্রিড বেনিফিট কার্ড) -->
-  <section id="features" class="py-12 md:py-16 px-4 bg-beige-ground">
-    <div class="max-w-5xl mx-auto">
+  <section id="features" class="py-12 md:py-16 bg-beige-ground">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center space-y-2 mb-10">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           কেন নকশাপথের বটি অ্যান্ড রুটি মেকার ব্যবহার করবেন?
@@ -685,8 +685,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ৭. ব্যবহার করা একদম সহজ, তিন ধাপে (রেফারেন্স ইমেজের মতো মিনিমাল ও মডার্ন লেআউট) -->
-  <section id="how-to-use" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white text-gray-900 border-y border-stone-200/80">
-    <div class="max-w-6xl mx-auto">
+  <section id="how-to-use" class="py-16 md:py-24 bg-white text-gray-900 border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <!-- সেকশন হেডিং (রেফারেন্স স্টাইলে মিনিমাল, বোল্ড ও মডার্ন) -->
       <div class="mb-12 md:mb-16">
@@ -787,7 +787,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   <!-- ৮. কাস্টমারদের মতামত (হরিজোন্টাল স্লাইড অ্যানিমেশন) -->
   <section id="testimonials" class="py-14 md:py-20 bg-beige-ground relative overflow-hidden">
     <!-- সেকশন হেডার -->
-    <div class="max-w-4xl mx-auto text-center space-y-2 mb-10 px-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-2 mb-10">
       <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-200/80 text-amber-900 text-xs font-bold uppercase tracking-wider mb-1">
         <span class="text-amber-500">★★★★★</span>
         <span>৪.৯/৫ রেটিং প্রাপ্ত</span>
@@ -1148,8 +1148,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ৯. এফএকিউ (FAQ Accordion - আপনার মনের প্রশ্নগুলো) -->
-  <section id="faq-section" class="py-12 md:py-16 px-4 bg-white border-y border-stone-200/80">
-    <div class="max-w-3xl mx-auto">
+  <section id="faq-section" class="py-12 md:py-16 bg-white border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center space-y-2 mb-10">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           আপনার মনের সাধারণ প্রশ্নগুলো
@@ -1209,9 +1209,9 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
     </div>
   </section>
 
-  <!-- ৯. অর্ডার চেকআউট ফর্ম সেকশন -->
-  <section id="order-form-section" class="py-12 md:py-20 px-4 bg-beige-ground">
-    <div class="max-w-4xl mx-auto">
+  <!-- ১০. অর্ডার চেকআউট ফর্ম সেকশন -->
+  <section id="order-form-section" class="py-12 md:py-20 bg-beige-ground">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center space-y-2 mb-8">
         <span class="bg-green-100 text-green-deep font-bold text-xs uppercase px-3 py-1 rounded-full">দ্রুত অর্ডার</span>
@@ -1465,8 +1465,8 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ১১. ফুটার (ডিপ গ্রিন) -->
-  <footer class="bg-green-deep text-white py-10 px-4 border-t border-white/10">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
+  <footer class="bg-green-deep text-white py-10 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
       <div class="flex items-center space-x-3 justify-center md:justify-start">
         <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow flex-shrink-0">
           <img src="assets/images/nokshapoth-icon.svg" alt="নকশাপথ লোগো" class="w-full h-full object-contain">
