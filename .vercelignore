@@ -1,0 +1,6 @@
+api/*.php
+index.php
+config.php
+server.js
+tools/
+*.log
