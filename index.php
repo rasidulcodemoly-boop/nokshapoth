@@ -434,7 +434,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (খ): নকশাপথের বটি ব্যবহারে সহজ জীবন -->
             <div class="group relative rounded-2xl overflow-hidden border border-emerald-300 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/boti-solution-table.jpg" alt="নকশাপথের বটি ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/boti-solution-table.jpg?v=3" alt="নকশাপথের বটি ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
               </div>
               <!-- টপ ব্যাজ -->
               <div class="absolute top-3.5 left-3.5">
@@ -532,7 +532,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-small.jpg?v=2" alt="ছোট সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-small.jpg?v=3" alt="ছোট সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
                 স্মল বটি
               </span>
@@ -564,7 +564,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-large.jpg?v=2" alt="বড় সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-large.jpg?v=3" alt="বড় সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
                 বিগ বটি
               </span>
