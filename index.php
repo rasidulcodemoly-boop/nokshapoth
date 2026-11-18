@@ -248,45 +248,31 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
     </div>
   </nav>
 
-  <!-- ৩. হিরো সেকশন (ডিপ গ্রিন) -->
-  <header id="hero" class="bg-green-deep text-white py-10 md:py-16 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      
-      <!-- বাম পাশের টেক্সট ও কল-টু-অ্যাকশন -->
-      <div class="lg:col-span-7 space-y-5 order-2 lg:order-1">
-        <div class="inline-flex items-center space-x-2 bg-white/15 border border-white/25 rounded-full px-4 py-1 text-xs md:text-sm text-green-200">
+  <!-- ৩. হিরো সেকশন (গুগল ডক রেফারেন্স ইমেজ ব্যাকগ্রাউন্ড) -->
+  <header id="hero" class="relative overflow-hidden bg-cover bg-[position:72%_center] md:bg-right py-14 sm:py-20 md:py-28 min-h-[520px] md:min-h-[580px] flex items-center" style="background-image: url('assets/images/hero-bg.jpg');">
+    <!-- সফিস্টিকেটেড গ্রেডিয়েন্ট ওভারলে: টেক্সট স্পষ্ট পড়ার জন্য মোবাইলে এবং ডেসকটপে সফট শ্যাডো, ডানে গৃহিণীর মাছ কাটার আসল ছবিকে সম্পূর্ণ স্বচ্ছ ও স্পষ্ট রাখা -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/35 md:from-black/85 md:via-black/45 md:to-transparent pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full">
+      <!-- বাম পাশের টেক্সট কন্টেন্ট ও বাটনসমূহ -->
+      <div class="max-w-xl lg:max-w-2xl space-y-5 text-white">
+        <div class="inline-flex items-center space-x-2 bg-black/40 backdrop-blur-md border border-white/20 rounded-full px-4 py-1 text-xs md:text-sm text-green-300">
           <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
           <span>নকশাপথ | কিচেন এসেনশিয়ালস</span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight drop-shadow-lg">
           রুটি বানানোর ঝামেলা <br class="hidden sm:inline">
-          <span class="text-[#bbee66]">এবার অর্ধেক সময়ে শেষ!</span>
+          <span class="text-[#bef264]">এবার অর্ধেক সময়ে শেষ!</span>
         </h1>
 
-        <p class="text-gray-200 text-base md:text-lg leading-relaxed max-w-xl">
+        <p class="text-stone-100 text-base sm:text-lg md:text-xl leading-relaxed font-normal drop-shadow">
           বটি অ্যান্ড রুটি মেকার দিয়ে হাতে বেলার কষ্ট ছাড়াই তৈরি করুন সমান, গোল আর নরম রুটি। সকালের নাস্তা নিয়ে আর তাড়াহুড়ো বা ক্লান্তি নয়।
         </p>
 
-        <!-- ৩টি মূল ফিচার বুলেট -->
-        <ul class="space-y-2.5 text-sm md:text-base text-gray-100 pt-1">
-          <li class="flex items-center space-x-2.5">
-            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-green-cta flex items-center justify-center text-white text-xs font-bold">✓</span>
-            <span>হাতে আটা না লাগিয়েই প্রতিবার একই মাপের রুটি</span>
-          </li>
-          <li class="flex items-center space-x-2.5">
-            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-green-cta flex items-center justify-center text-white text-xs font-bold">✓</span>
-            <span>রুটি, পরোটা আর লুচি — একই যন্ত্রে বহুমুখী ব্যবহার</span>
-          </li>
-          <li class="flex items-center space-x-2.5">
-            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-green-cta flex items-center justify-center text-white text-xs font-bold">✓</span>
-            <span>খুলে ধুয়ে নেওয়া যায়, পরিষ্কার করা একদম সহজ</span>
-          </li>
-        </ul>
-
-        <!-- কল-টু-অ্যাকশন বাটনসমূহ (উভয় বাটনের উইডথ হুবহু সমান) -->
-        <div class="pt-4 grid grid-cols-2 gap-3 sm:gap-4 max-w-sm sm:max-w-md">
-          <button onclick="scrollToCheckout()" class="pulse-cta bg-green-cta hover:bg-[#72a728] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 px-3 sm:px-6 rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center group w-full text-center" title="অর্ডার করুন">
+        <!-- কল-টু-অ্যাকশন বাটনসমূহ -->
+        <div class="pt-2 grid grid-cols-2 gap-3 sm:gap-4 max-w-sm sm:max-w-md">
+          <button onclick="scrollToCheckout()" class="pulse-cta bg-green-cta hover:bg-[#72a728] text-white font-bold text-sm sm:text-base md:text-lg py-3.5 px-3 sm:px-6 rounded-xl shadow-xl transition-all duration-200 flex items-center justify-center group w-full text-center" title="অর্ডার করুন">
             <span class="btn-roll-container">
               <span class="btn-roll-content btn-roll-original">
                 <span>অর্ডার করুন</span>
@@ -303,16 +289,16 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
             </span>
           </button>
 
-          <a href="https://wa.me/<?php echo STORE_WHATSAPP; ?>?text=I%20want%20to%20order%20Boti%20and%20Ruti%20Maker" target="_blank" class="bg-white/20 hover:bg-white/30 text-white font-semibold text-sm sm:text-base md:text-lg py-3.5 px-3 sm:px-6 rounded-xl transition border border-white/30 flex items-center justify-center space-x-2 group w-full text-center" title="WhatsApp মেসেজ দিন">
+          <a href="https://wa.me/<?php echo STORE_WHATSAPP; ?>?text=I%20want%20to%20order%20Boti%20and%20Ruti%20Maker" target="_blank" class="bg-black/40 hover:bg-black/60 text-white font-bold text-sm sm:text-base md:text-lg py-3.5 px-3 sm:px-6 rounded-xl border border-white/20 backdrop-blur-md transition-all duration-200 flex items-center justify-center space-x-2 group w-full text-center shadow-lg" title="WhatsApp মেসেজ দিন">
             <span class="btn-roll-container">
               <span class="btn-roll-content btn-roll-original">
-                <svg class="w-5 h-5 fill-current text-emerald-300 flex-shrink-0" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current text-emerald-400 flex-shrink-0" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
                 <span>মেসেজ দিন</span>
               </span>
               <span class="btn-roll-content btn-roll-duplicate" aria-hidden="true">
-                <svg class="w-5 h-5 fill-current text-emerald-300 flex-shrink-0" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current text-emerald-400 flex-shrink-0" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
                 <span>মেসেজ দিন</span>
@@ -322,28 +308,6 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
         </div>
 
       </div>
-
-      <!-- ডান পাশের ভিডিও কন্টেইনার (মোবাইলে সবার উপরে এবং ডেসকটপে ডানপাশে) -->
-      <div class="lg:col-span-5 order-1 lg:order-2">
-        <div class="relative bg-black/40 border-2 border-white/20 rounded-2xl p-2 shadow-2xl backdrop-blur-sm">
-          <div class="aspect-video sm:aspect-square md:aspect-[4/3] rounded-xl overflow-hidden relative flex items-center justify-center bg-stone-900 group cursor-pointer" onclick="scrollToCheckout()">
-            
-            <!-- ব্যাকগ্রাউন্ড পোস্টার ভিউ -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-60 transition duration-300" style="background-image: url('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80');"></div>
-            
-            <!-- প্রিমিয়াম ও প্রফেশনাল ভিডিও প্লে বাটন -->
-            <div class="relative z-10 play-btn-pulse">
-              <div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-white/95 group-hover:bg-white text-green-deep flex items-center justify-center shadow-[0_16px_36px_-6px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.8)_inset,0_8px_16px_rgba(44,83,19,0.3)] group-hover:shadow-[0_20px_45px_-4px_rgba(0,0,0,0.6),0_0_30px_rgba(130,186,50,0.45)] group-hover:scale-110 transition-all duration-300">
-                <svg class="w-9 h-9 text-[#2c5313] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 5.5v13a1 1 0 0 0 1.52.85l9.5-6.5a1 1 0 0 0 0-1.7l-9.5-6.5A1 1 0 0 0 7 5.5z"/>
-                </svg>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
   </header>
 
