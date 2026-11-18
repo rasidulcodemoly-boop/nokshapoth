@@ -206,6 +206,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     selectedItems[targetVariant] = 1;
                 }
                 updateOrderSummary();
+                // Meta Pixel AddToCart Event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'AddToCart', {
+                        content_name: productCatalog[targetVariant].name,
+                        currency: 'BDT',
+                        value: productCatalog[targetVariant].price
+                    });
+                }
             }
             scrollToCheckout();
         });
@@ -213,6 +221,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // স্ক্রোল টু চেকআউট
     window.scrollToCheckout = function () {
+        // Meta Pixel InitiateCheckout Event
+        if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+                content_category: 'Kitchen Essentials',
+                currency: 'BDT'
+            });
+        }
         const target = document.getElementById('order-form-section');
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
@@ -223,6 +238,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 600);
         }
     };
+
+    // Meta Pixel Contact Event (WhatsApp & Hotline)
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', function () {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Contact', { channel: 'WhatsApp' });
+            }
+        });
+    });
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function () {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Contact', { channel: 'Phone Hotline' });
+            }
+        });
+    });
 
     // ৮. FAQ একর্ডিয়ন টগল
     document.querySelectorAll('.faq-header').forEach(header => {
