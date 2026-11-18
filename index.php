@@ -330,15 +330,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
             </button>
           </div>
 
-          <!-- প্রিভিয়াস ও নেক্সট অ্যারো বাটন -->
-          <div class="flex items-center space-x-1 pl-1 border-l border-stone-300">
-            <button onclick="prevComparisonSlide()" aria-label="পূর্ববর্তী স্লাইড" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button onclick="nextComparisonSlide()" aria-label="পরবর্তী স্লাইড" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
+
         </div>
       </div>
 
