@@ -440,9 +440,30 @@ document.addEventListener('DOMContentLoaded', function () {
 // ==========================================
 let currentComparisonSlide = 0;
 const totalComparisonSlides = 3;
+let autoSlideTimer = null;
+const AUTO_SLIDE_INTERVAL = 3000; // প্রতি ৩ সেকেন্ড পর অটো চেঞ্জ
 
-window.setComparisonSlide = function (index) {
+function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(function () {
+        window.nextComparisonSlide(true);
+    }, AUTO_SLIDE_INTERVAL);
+}
+
+function stopAutoSlide() {
+    if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+    }
+}
+
+window.setComparisonSlide = function (index, isAuto = false) {
     currentComparisonSlide = (index + totalComparisonSlides) % totalComparisonSlides;
+
+    // ব্যবহারকারী নিজে ক্লিক করলে ৩ সেকেন্ডের টাইমার রিসেট হবে
+    if (!isAuto) {
+        startAutoSlide();
+    }
 
     // স্লাইড শো/হাইড লজিক
     for (let i = 0; i < totalComparisonSlides; i++) {
@@ -461,9 +482,9 @@ window.setComparisonSlide = function (index) {
         const tab = document.getElementById(`slide-tab-${i}`);
         if (tab) {
             if (i === currentComparisonSlide) {
-                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200';
+                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200 whitespace-nowrap';
             } else {
-                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900';
+                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 whitespace-nowrap';
             }
         }
 
@@ -479,26 +500,36 @@ window.setComparisonSlide = function (index) {
     }
 };
 
-window.nextComparisonSlide = function () {
-    window.setComparisonSlide(currentComparisonSlide + 1);
+window.nextComparisonSlide = function (isAuto = false) {
+    window.setComparisonSlide(currentComparisonSlide + 1, isAuto);
 };
 
-window.prevComparisonSlide = function () {
-    window.setComparisonSlide(currentComparisonSlide - 1);
+window.prevComparisonSlide = function (isAuto = false) {
+    window.setComparisonSlide(currentComparisonSlide - 1, isAuto);
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+// অটো-স্লাইড স্টার্ট এবং মাউস হোভার/সোয়াইপ ইন্টারঅ্যাকশন
+function initAutoSlider() {
+    startAutoSlide();
+
     const viewport = document.getElementById('comparison-slider-viewport');
     if (!viewport) return;
-    let startX = 0;
 
+    // কার্ডে মাউস নিলে সাময়িক পজ (পড়ার সুবিধার জন্য), সরালে আবার চালু
+    viewport.addEventListener('mouseenter', stopAutoSlide);
+    viewport.addEventListener('mouseleave', startAutoSlide);
+
+    // মোবাইল সোয়াইপ সাপোর্ট
+    let startX = 0;
     viewport.addEventListener('touchstart', function (e) {
+        stopAutoSlide();
         if (e.touches && e.touches.length > 0) {
             startX = e.touches[0].clientX;
         }
     }, { passive: true });
 
     viewport.addEventListener('touchend', function (e) {
+        startAutoSlide();
         if (e.changedTouches && e.changedTouches.length > 0) {
             const endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
@@ -509,4 +540,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }, { passive: true });
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAutoSlider);
+} else {
+    initAutoSlider();
+}
