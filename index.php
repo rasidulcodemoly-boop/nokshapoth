@@ -311,89 +311,312 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
     </div>
   </header>
 
-  <!-- ৪. প্রবলেম / অ্যাজিটেশন সেকশন (বেইজ ব্যাকগ্রাউন্ড) -->
-  <section id="problem-section" class="py-12 md:py-16 bg-beige-ground">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-3">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-        প্রতিদিন সকালে এই সমস্যাগুলো হয় না?
-      </h2>
-      <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
-        ঘরের রুটি সবাই চায়, কিন্তু সকালের ব্যস্ততায় সময় আর অতিরিক্ত পরিশ্রম দুটোই প্রধান বাধা হয়ে দাঁড়ায়।
-      </p>
-
-      <!-- ৩টি সমস্যার স্ট্যাকিং ওভারল্যাপিং কার্ড (ভার্টিক্যালি ৩টি রো, স্ক্রোলে ওভারল্যাপ স্লাইড করবে) -->
-      <div class="problem-stack-container w-full mx-auto pt-6 pb-4 space-y-8 md:space-y-12">
-        
-        <!-- কার্ড ১: সময় চলে যায় -->
-        <div class="problem-card-sticky problem-card-sticky-1 problem-card-cinematic rounded-3xl p-6 md:p-8 transition-all duration-300">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center text-left">
-            <!-- টেক্সট কন্টেন্ট (মোবাইলে নিচে, ডেসকটপে বামে) -->
-            <div class="md:col-span-7 space-y-3 order-2 md:order-1">
-              <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-snug drop-shadow-md">
-                সকালের মূল্যবান সময় রান্নাঘরেই নষ্ট হয়ে যায়
-              </h3>
-              <p class="text-sm sm:text-base text-stone-100 leading-relaxed drop-shadow-sm">
-                আটা মাখা, বারবার বেলন দিয়ে বেলা, চুলার তাওয়ায় সেঁকা—সব মিলিয়ে সকালের ব্যস্ত সময়ে ৪০-৫০ মিনিট শুধু রুটি বানাতেই কেটে যায়। অফিস বা সন্তানদের স্কুলের আগে তৈরি হয় তীব্র তাড়াহুড়ো ও চরম ক্লান্তি।
-              </p>
-            </div>
-            <!-- ছবি (মোবাইলে আগে সবার উপরে, ডেসকটপে ডানে) -->
-            <div class="md:col-span-5 order-1 md:order-2">
-              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl group">
-                <img src="assets/images/problem-time-consuming.jpg" alt="সকালে রুটি বানাতে গিয়ে সময় অপচয় ও ক্লান্তি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-              </div>
-            </div>
+  <!-- ৪. লাইফস্টাইল ও কম্প্যারিজন স্লাইডার সেকশন (৩টি আধুনিক স্লাইড) -->
+  <section id="problem-section" class="py-12 md:py-16 bg-beige-ground overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- সেকশন হেডার ও স্লাইডার কন্ট্রোলস -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div class="space-y-2">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>নকশাপথ লাইফস্টাইল</span>
           </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+            রান্নাঘর হোক আনন্দময় ও স্বস্তির
+          </h2>
+          <p class="text-gray-600 text-sm sm:text-base max-w-xl">
+            প্রচলিত কষ্টের বদলে নকশাপথের স্মার্ট সমাধান কীভাবে আপনার প্রতিদিনের জীবনে স্বস্তি এনে দেয় তা দেখুন।
+          </p>
         </div>
 
-        <!-- কার্ড ২: রুটি সমান হয় না -->
-        <div class="problem-card-sticky problem-card-sticky-2 problem-card-cinematic rounded-3xl p-6 md:p-8 transition-all duration-300">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center text-left">
-            <!-- টেক্সট কন্টেন্ট (মোবাইলে নিচে, ডেসকটপে বামে) -->
-            <div class="md:col-span-7 space-y-3 order-2 md:order-1">
-              <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-snug drop-shadow-md">
-                হাতে বেলে রুটি গোল বা সমান করা যায় না
-              </h3>
-              <p class="text-sm sm:text-base text-stone-100 leading-relaxed drop-shadow-sm">
-                হাতে নিখুঁত গোল ও পাতলা রুটি বানানো ভীষণ কঠিন। কখনো রুটি মাঝখানে অতিরিক্ত মোটা আর ধারে পাতলা হয়, আবার তাওয়ায় কোনোটা পুড়ে কয়লা হয় এবং কোনোটা শক্ত বিস্কুটের মতো হয়ে খাওয়ার অনুপযোগী থাকে।
-              </p>
-            </div>
-            <!-- ছবি (মোবাইলে আগে সবার উপরে, ডেসকটপে ডানে) -->
-            <div class="md:col-span-5 order-1 md:order-2">
-              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl group">
-                <img src="assets/images/problem-uneven-roti.jpg" alt="হাতে বেলার কারণে অসমান ও পোড়া রুটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-              </div>
-            </div>
+        <!-- স্লাইড নেভিগেশন কন্ট্রোলস (ট্যাবস + অ্যারো বাটন) -->
+        <div class="flex items-center space-x-2 self-start md:self-auto">
+          <!-- ৩টি স্লাইড ট্যাব পিল বাটন -->
+          <div class="inline-flex p-1 bg-stone-200/80 rounded-xl space-x-1" role="tablist">
+            <button onclick="setComparisonSlide(0)" id="slide-tab-0" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200" role="tab">
+              ১. নকশাপথ লাইফ
+            </button>
+            <button onclick="setComparisonSlide(1)" id="slide-tab-1" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
+              ২. বটি কম্প্যারিজন
+            </button>
+            <button onclick="setComparisonSlide(2)" id="slide-tab-2" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
+              ৩. রুটি মেকার কম্প্যারিজন
+            </button>
+          </div>
+
+          <!-- প্রিভিয়াস ও নেক্সট অ্যারো বাটন -->
+          <div class="hidden sm:flex items-center space-x-1 pl-2 border-l border-stone-300">
+            <button onclick="prevComparisonSlide()" aria-label="পূর্ববর্তী স্লাইড" class="w-9 h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button onclick="nextComparisonSlide()" aria-label="পরবর্তী স্লাইড" class="w-9 h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
-
-        <!-- কার্ড ৩: বাইরের নাস্তার খরচ -->
-        <div class="problem-card-sticky problem-card-sticky-3 problem-card-cinematic rounded-3xl p-6 md:p-8 transition-all duration-300">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center text-left">
-            <!-- টেক্সট কন্টেন্ট (মোবাইলে নিচে, ডেসকটপে বামে) -->
-            <div class="md:col-span-7 space-y-3 order-2 md:order-1">
-              <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-snug drop-shadow-md">
-                হোটেল বা বাইরের খাবারে হাজার টাকার ক্ষতি
-              </h3>
-              <p class="text-sm sm:text-base text-stone-100 leading-relaxed drop-shadow-sm">
-                সকালের কষ্ট বাঁচাতে বাইরের হোটেল থেকে পোড়া তেলে ভাজা পরোটা বা বাসি রুটি কিনে খেলে প্রতি মাসে ৩,০০০ টাকার বেশি বাড়তি খরচ হয়। একই সাথে গ্যাস্ট্রিক, এসিডিটি ও দীর্ঘস্থায়ী পেটের রোগের মারাত্মক ঝুঁকি বাড়ে।
-              </p>
-            </div>
-            <!-- ছবি (মোবাইলে আগে সবার উপরে, ডেসকটপে ডানে) -->
-            <div class="md:col-span-5 order-1 md:order-2">
-              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl group">
-                <img src="assets/images/problem-outside-food.jpg" alt="হোটেলের অস্বাস্থ্যকর পোড়া তেলের খাবার ও বাড়তি খরচ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- হাইলাইট করা সমাধান ব্যানার (ডার্ক ব্যাকগ্রাউন্ড) -->
-      <div class="mt-10 gradient-solution-banner border border-white/20 rounded-2xl p-5 md:p-6 shadow-xl flex items-center justify-center space-x-3 text-center">
+      <!-- স্লাইডার কন্টেইনার (হরিজোন্টাল স্লাইড ট্র্যাক) -->
+      <div id="comparison-slider-viewport" class="relative overflow-hidden rounded-3xl bg-white border border-stone-200 shadow-xl">
+        <div id="comparison-slides-track" class="flex transition-transform duration-500 ease-out will-change-transform" style="transform: translateX(0%);">
+          
+          <!-- ==================== স্লাইড ১: নকশাপথ কীভাবে জীবনকে সহজ করে ==================== -->
+          <div class="min-w-full w-full p-6 sm:p-8 md:p-12 flex-shrink-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- বাম পাশের মূল মেসেজ ও হাইলাইটস -->
+              <div class="lg:col-span-7 space-y-6 text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lime-100 text-lime-900 text-xs font-extrabold uppercase">
+                  <span>✨ গৃহিণীদের প্রতিদিনের স্বস্তি</span>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
+                  নকশাপথ কীভাবে প্রতিদিনের জীবন ও রান্নাঘরের কাজকে <span class="text-[#2c5313]">সহজ করে তোলে?</span>
+                </h3>
+
+                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                  সকালের তাড়াহুড়োয় রান্নাঘরের দীর্ঘ খাটুনি আর ক্লান্তি নয়। নকশাপথের স্মার্ট কিচেন এসেনশিয়ালস তৈরি করা হয়েছে ঐতিহ্যবাহী বাঙালি রান্নাকে আধুনিক, গতিশীল ও আরামদায়ক রূপ দিতে।
+                </p>
+
+                <!-- ৩টি কী-বেনিফিট ফিচার কার্ড -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">⏱️</div>
+                    <div class="font-bold text-gray-900 text-sm">৫০% সময় সাশ্রয়</div>
+                    <div class="text-xs text-gray-500 leading-normal">সকালের রান্নার সব প্রস্তুতি শেষ হবে মাত্র কয়েক মিনিটেই।</div>
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
+                    <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">🛡️</div>
+                    <div class="font-bold text-gray-900 text-sm">১০০% নিরাপদ ডিজাইন</div>
+                    <div class="text-xs text-gray-500 leading-normal">হাতে কাটার বা আঘাত পাওয়ার ভয় ছাড়া নিশ্চিন্ত কাটাকাটি।</div>
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
+                    <div class="w-8 h-8 rounded-xl bg-lime-100 text-lime-900 flex items-center justify-center font-bold text-sm">🫓</div>
+                    <div class="font-bold text-gray-900 text-sm">নিখুঁত নরম রুটি</div>
+                    <div class="text-xs text-gray-500 leading-normal">বেলন ছাড়া প্রতিবার একই মাপের গোল ও নরম ফুলকো রুটি।</div>
+                  </div>
+                </div>
+
+                <!-- অ্যাকশন বাটন -->
+                <div class="pt-2 flex flex-wrap items-center gap-3">
+                  <button onclick="scrollToCheckout()" class="btn-navbar-cta px-6 py-3 rounded-xl text-white font-bold text-sm shadow-md inline-flex items-center space-x-2">
+                    <span>প্যাকেজ ও দাম দেখুন</span>
+                    <span>→</span>
+                  </button>
+                  <button onclick="nextComparisonSlide()" class="px-5 py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-gray-800 font-bold text-sm transition">
+                    বটি ও রুটি মেকারের তুলনা দেখুন
+                  </button>
+                </div>
+              </div>
+
+              <!-- ডান পাশের লাইফস্টাইল ফিচার ফটো ফ্রেম -->
+              <div class="lg:col-span-5">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-square lg:aspect-[4/5] shadow-xl border border-stone-200 group">
+                  <img src="assets/images/how-to-use-lifestyle.jpg" alt="নকশাপথ দিয়ে সহজ ও আধুনিক রান্নাঘরের জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 backdrop-blur-md shadow-lg border border-black/5 text-left">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-emerald-800 mb-1">
+                      <span class="text-amber-500">★★★★★</span>
+                      <span>১০,০০০+ পরিবারের নির্ভরতা</span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-semibold text-gray-800 leading-snug">
+                      "রান্নাঘরের কাজ এখন আর ক্লান্তি নয়, বরং আরাম ও আনন্দের।"
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ==================== স্লাইড ২: বটি কম্প্যারিজন ==================== -->
+          <div class="min-w-full w-full p-6 sm:p-8 md:p-10 flex-shrink-0">
+            <div class="text-left space-y-6">
+              
+              <!-- হেডিং -->
+              <div>
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold uppercase">স্লাইড ২ • বটি কম্প্যারিজন</span>
+                <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
+                  বটি ব্যবহারের পার্থক্য: <span class="text-red-600">প্রচলিত কষ্ট</span> বনাম <span class="text-green-deep">নকশাপথের স্বস্তি</span>
+                </h3>
+              </div>
+
+              <!-- পাশাপাশি ২টি কম্প্যারিজন কার্ড -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- কার্ড (ক): বটি ছাড়া কাটাকাটির ঝামেলা ও সময় নষ্ট -->
+                <div class="rounded-2xl border-2 border-red-200 bg-red-50/40 p-5 sm:p-6 space-y-4 text-left">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 font-bold text-xs">
+                      <span>✕</span>
+                      <span>(ক) সাধারণ বটিতে সমস্যা ও ঝামেলা</span>
+                    </span>
+                    <span class="text-xs font-bold text-red-500">ঝুঁকিপূর্ণ ও সময়সাপেক্ষ</span>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-red-200 shadow-sm">
+                    <img src="assets/images/problem-time-consuming.jpg" alt="সাধারণ পদ্ধতিতে কাটাকাটির ঝামেলা ও ক্লান্তি" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="space-y-2">
+                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">মাটিতে বসে দীর্ঘ সময় নষ্ট ও পিঠের ব্যথা</h4>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>মাটিতে নিচু হয়ে পা দিয়ে চেপে ধরতে গিয়ে কোমর ও পিঠে তীব্র ব্যথা।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>ব্লেড পিছলে আঙুল বা হাত কেটে যাওয়ার সার্বক্ষণিক মারাত্মক ঝুঁকি।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>মেঝেতে মাছের আঁশ ও রক্ত ছিটকে মেঝে নোংরা ও দুর্গন্ধ তৈরি হয়।</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- কার্ড (খ): নকশাপথের বটি ব্যবহারে নিরাপদ ও সহজ জীবনের ছবি -->
+                <div class="rounded-2xl border-2 border-emerald-300 bg-emerald-50/50 p-5 sm:p-6 space-y-4 text-left shadow-md">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">
+                      <span>✓</span>
+                      <span>(খ) নকশাপথ বটিতে নিরাপদ ও সহজ জীবন</span>
+                    </span>
+                    <span class="text-xs font-bold text-emerald-700 bg-white px-2 py-0.5 rounded shadow-xs">১০০% সমাধান</span>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-emerald-200 shadow-sm">
+                    <img src="assets/images/boti-large.jpg" alt="নকশাপথের বটি ব্যবহারে নিরাপদ ও সহজ জীবনের ছবি" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="space-y-2">
+                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">টেবিলে বা মেঝেতে স্বাচ্ছন্দ্যে দ্রুত কাটাকাটি</h4>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>শক্ত কাঠের ভারি বেস—টেবিলে বা মেঝেতে একদম অনড় ও ব্যালেন্সড থাকে।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>লেজার-শার্প হাই-কার্বন স্টিল ব্লেডে বড় মাছ, মাংস ও শাকসবজি কাটে চোখের পলকে।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>পরিষ্কার করা অত্যন্ত সহজ, বছরের পর বছর নিশ্চিন্তে স্থায়ী সার্ভিস।</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== স্লাইড ৩: রুটি মেকার কম্প্যারিজন ==================== -->
+          <div class="min-w-full w-full p-6 sm:p-8 md:p-10 flex-shrink-0">
+            <div class="text-left space-y-6">
+              
+              <!-- হেডিং -->
+              <div>
+                <span class="px-3 py-1 rounded-full bg-lime-100 text-lime-900 text-xs font-extrabold uppercase">স্লাইড ৩ • রুটি মেকার কম্প্যারিজন</span>
+                <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
+                  রুটি তৈরির পার্থক্য: <span class="text-red-600">হাতে বেলার ক্লান্তি</span> বনাম <span class="text-green-deep">নকশাপথের ফুলকো রুটি</span>
+                </h3>
+              </div>
+
+              <!-- পাশাপাশি ২টি কম্প্যারিজন কার্ড -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- কার্ড (ক): রুটি মেকার ছাড়া বেলার ক্লান্তি ও সকালের অস্বাস্থ্যকর তাড়াহুড়ো -->
+                <div class="rounded-2xl border-2 border-red-200 bg-red-50/40 p-5 sm:p-6 space-y-4 text-left">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 font-bold text-xs">
+                      <span>✕</span>
+                      <span>(ক) রুটি মেকার ছাড়া বেলার ক্লান্তি</span>
+                    </span>
+                    <span class="text-xs font-bold text-red-500">ক্লান্তিকর ও সময় নষ্ট</span>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-red-200 shadow-sm">
+                    <img src="assets/images/problem-uneven-roti.jpg" alt="রুটি মেকার ছাড়া অস্বাস্থ্যকর তাড়াহুড়ো ও অসমান রুটি" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="space-y-2">
+                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">ঘণ্টার পর ঘণ্টা বেলন দিয়ে বেলার ঘাম ও ক্লান্তি</h4>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>হাতে বেলে রুটি গোল বা পাতলা করা ভীষণ কঠিন—মাঝে মোটা, ধারে পাতলা হয়।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>আটা ছিটকে মেঝে ও কিচেন স্ল্যাব নোংরা হয়ে সকালের ব্যস্ততা দ্বিগুণ বাড়িয়ে দেয়।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
+                        <span>সময় বাঁচাতে বাধ্য হয়ে হোটেল থেকে পোড়া তেলের বাসি খাবার কিনে খাওয়া।</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- কার্ড (খ): নকশাপথের রুটি মেকার ব্যবহারে মাত্র কয়েক মিনিটেই পারফেক্ট রুটি তৈরির স্বস্তি -->
+                <div class="rounded-2xl border-2 border-emerald-300 bg-emerald-50/50 p-5 sm:p-6 space-y-4 text-left shadow-md">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">
+                      <span>✓</span>
+                      <span>(খ) নকশাপথ রুটি মেকারে পারফেক্ট রুটি</span>
+                    </span>
+                    <span class="text-xs font-bold text-emerald-700 bg-white px-2 py-0.5 rounded shadow-xs">১ মিনিটে নাস্তা</span>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-emerald-200 shadow-sm">
+                    <img src="assets/images/roti-maker-large.jpg" alt="নকশাপথের রুটি মেকার ব্যবহারে কয়েক মিনিটেই পারফেক্ট রুটি তৈরির স্বস্তি" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="space-y-2">
+                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">শুধু হ্যান্ডেল চাপুন—তৈরি পারফেক্ট ফুলকো রুটি</h4>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>আটার লেচি দিয়ে শুধু চাপ দিন—প্রতিবার সমান, পাতলা ও গোল রুটি তৈরি হয়।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>হাতে আটা লাগাতে হয় না, কোনো আটা ছিটকায় না, রান্নাঘর থাকে একদম পরিষ্কার।</span>
+                      </li>
+                      <li class="flex items-start space-x-2">
+                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
+                        <span>সাধারণ রুটির পাশাপাশি লুচি ও পরোটাও একই যন্ত্রে ঝটপট তৈরি করা যায়।</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- মোবাইল সোয়াইপ / নেভিগেশন ডটস -->
+        <div class="flex sm:hidden items-center justify-center space-x-2 py-4 bg-stone-50 border-t border-stone-100">
+          <button onclick="setComparisonSlide(0)" id="mobile-dot-0" class="w-3 h-3 rounded-full transition-all duration-300 bg-green-deep scale-125" aria-label="Slide 1"></button>
+          <button onclick="setComparisonSlide(1)" id="mobile-dot-1" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 2"></button>
+          <button onclick="setComparisonSlide(2)" id="mobile-dot-2" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 3"></button>
+        </div>
+      </div>
+
+      <!-- হাইলাইট করা সমাধান ব্যানার -->
+      <div class="mt-8 gradient-solution-banner border border-white/20 rounded-2xl p-5 md:p-6 shadow-xl flex items-center justify-center space-x-3 text-center">
         <span class="w-8 h-8 rounded-full bg-lime-400 text-stone-950 flex items-center justify-center text-sm font-extrabold flex-shrink-0 shadow-md">✓</span>
         <span class="text-base sm:text-lg md:text-xl font-extrabold text-white">
-          সমাধান একটাই: <span class="text-[#bef264]">বটি অ্যান্ড রুটি মেকার</span>। আটা দিন, চাপ দিন, রুটি তৈরি!
+          রান্নাঘরে আনুন স্মার্ট স্বস্তি: <span class="text-[#bef264]">নকশাপথ বটি অ্যান্ড রুটি মেকার</span>। আটা দিন, চাপ দিন, রুটি তৈরি!
         </span>
       </div>
 

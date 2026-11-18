@@ -434,3 +434,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// ==========================================
+// ৩টি স্লাইডের আধুনিক কম্প্যারিশন স্লাইডার লজিক
+// ==========================================
+let currentComparisonSlide = 0;
+const totalComparisonSlides = 3;
+
+window.setComparisonSlide = function (index) {
+    currentComparisonSlide = (index + totalComparisonSlides) % totalComparisonSlides;
+    const track = document.getElementById('comparison-slides-track');
+    if (track) {
+        track.style.transform = `translateX(-${currentComparisonSlide * 100}%)`;
+    }
+
+    // আপডেট ডেস্কটপ ট্যাব বাটন
+    for (let i = 0; i < totalComparisonSlides; i++) {
+        const tab = document.getElementById(`slide-tab-${i}`);
+        if (tab) {
+            if (i === currentComparisonSlide) {
+                tab.className = 'slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200';
+            } else {
+                tab.className = 'slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900';
+            }
+        }
+
+        // আপডেট মোবাইল ডটস
+        const dot = document.getElementById(`mobile-dot-${i}`);
+        if (dot) {
+            if (i === currentComparisonSlide) {
+                dot.className = 'w-3 h-3 rounded-full transition-all duration-300 bg-green-deep scale-125';
+            } else {
+                dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300';
+            }
+        }
+    }
+};
+
+window.nextComparisonSlide = function () {
+    window.setComparisonSlide(currentComparisonSlide + 1);
+};
+
+window.prevComparisonSlide = function () {
+    window.setComparisonSlide(currentComparisonSlide - 1);
+};
+
+// মোবাইল সোয়াইপ ইভেন্ট সাপোর্ট
+document.addEventListener('DOMContentLoaded', function () {
+    const viewport = document.getElementById('comparison-slider-viewport');
+    if (!viewport) return;
+    let startX = 0;
+
+    viewport.addEventListener('touchstart', function (e) {
+        if (e.touches && e.touches.length > 0) {
+            startX = e.touches[0].clientX;
+        }
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', function (e) {
+        if (e.changedTouches && e.changedTouches.length > 0) {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            if (diff > 50) {
+                window.nextComparisonSlide();
+            } else if (diff < -50) {
+                window.prevComparisonSlide();
+            }
+        }
+    }, { passive: true });
+});
