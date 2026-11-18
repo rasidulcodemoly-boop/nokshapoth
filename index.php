@@ -111,7 +111,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
           <a href="#features" class="px-3.5 py-2 rounded-xl hover:text-green-deep hover:bg-stone-100 transition duration-150">সুবিধাসমূহ</a>
           <a href="#how-to-use" class="px-3.5 py-2 rounded-xl hover:text-green-deep hover:bg-stone-100 transition duration-150">ব্যবহার পদ্ধতি</a>
           <a href="#pricing-variants" class="px-3.5 py-2 rounded-xl hover:text-green-deep hover:bg-stone-100 transition duration-150">প্যাকেজ ও দাম</a>
-          <a href="#testimonials" class="px-3.5 py-2 rounded-xl hover:text-green-deep hover:bg-stone-100 transition duration-150">রিভিউ</a>
+          
           <a href="#faq-section" class="px-3.5 py-2 rounded-xl hover:text-green-deep hover:bg-stone-100 transition duration-150">প্রশ্নোত্তর</a>
         </div>
 
@@ -209,15 +209,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
             <svg class="w-4 h-4 text-stone-500 group-hover:text-lime-400 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
 
-          <a href="#testimonials" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 active:bg-white/15 transition group">
-            <div class="flex items-center space-x-3">
-              <span class="w-8 h-8 rounded-lg bg-amber-400/15 text-amber-400 border border-amber-400/25 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              </span>
-              <span class="text-sm font-semibold text-stone-100 group-hover:text-lime-300 transition">কাস্টমার রিভিউ</span>
-            </div>
-            <svg class="w-4 h-4 text-stone-500 group-hover:text-lime-400 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
+
 
           <a href="#faq-section" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 active:bg-white/15 transition group">
             <div class="flex items-center space-x-3">
@@ -311,313 +303,184 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
     </div>
   </header>
 
-  <!-- ৪. লাইফস্টাইল ও কম্প্যারিজন স্লাইডার সেকশন (৩টি আধুনিক স্লাইড) -->
+  <!-- ৪. লাইফস্টাইল ও কম্প্যারিজন স্লাইডার সেকশন (মিনিমাল ৩টি স্লাইড) -->
   <section id="problem-section" class="py-12 md:py-16 bg-beige-ground overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <!-- সেকশন হেডার ও স্লাইডার কন্ট্রোলস -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-        <div class="space-y-2">
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>নকশাপথ লাইফস্টাইল</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-            রান্নাঘর হোক আনন্দময় ও স্বস্তির
+      <!-- সেকশন হেডার ও মিনিমাল স্লাইডার ট্যাব কন্ট্রোলস -->
+      <div class="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center sm:text-left">
+            নকশাপথ কীভাবে জীবনকে সহজ করে?
           </h2>
-          <p class="text-gray-600 text-sm sm:text-base max-w-xl">
-            প্রচলিত কষ্টের বদলে নকশাপথের স্মার্ট সমাধান কীভাবে আপনার প্রতিদিনের জীবনে স্বস্তি এনে দেয় তা দেখুন।
-          </p>
         </div>
 
         <!-- স্লাইড নেভিগেশন কন্ট্রোলস (ট্যাবস + অ্যারো বাটন) -->
-        <div class="flex items-center space-x-2 self-start md:self-auto">
+        <div class="flex items-center space-x-2">
           <!-- ৩টি স্লাইড ট্যাব পিল বাটন -->
           <div class="inline-flex p-1 bg-stone-200/80 rounded-xl space-x-1" role="tablist">
-            <button onclick="setComparisonSlide(0)" id="slide-tab-0" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200" role="tab">
+            <button onclick="setComparisonSlide(0)" id="slide-tab-0" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200" role="tab">
               ১. নকশাপথ লাইফ
             </button>
-            <button onclick="setComparisonSlide(1)" id="slide-tab-1" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
-              ২. বটি কম্প্যারিজন
+            <button onclick="setComparisonSlide(1)" id="slide-tab-1" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
+              ২. বটি
             </button>
-            <button onclick="setComparisonSlide(2)" id="slide-tab-2" class="slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
-              ৩. রুটি মেকার কম্প্যারিজন
+            <button onclick="setComparisonSlide(2)" id="slide-tab-2" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900" role="tab">
+              ৩. রুটি মেকার
             </button>
           </div>
 
           <!-- প্রিভিয়াস ও নেক্সট অ্যারো বাটন -->
-          <div class="hidden sm:flex items-center space-x-1 pl-2 border-l border-stone-300">
-            <button onclick="prevComparisonSlide()" aria-label="পূর্ববর্তী স্লাইড" class="w-9 h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
+          <div class="flex items-center space-x-1 pl-1 border-l border-stone-300">
+            <button onclick="prevComparisonSlide()" aria-label="পূর্ববর্তী স্লাইড" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button onclick="nextComparisonSlide()" aria-label="পরবর্তী স্লাইড" class="w-9 h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
+            <button onclick="nextComparisonSlide()" aria-label="পরবর্তী স্লাইড" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white hover:bg-stone-100 text-gray-700 flex items-center justify-center border border-stone-200 shadow-sm transition active:scale-95">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- স্লাইডার কন্টেইনার (হরিজোন্টাল স্লাইড ট্র্যাক) -->
-      <div id="comparison-slider-viewport" class="relative overflow-hidden rounded-3xl bg-white border border-stone-200 shadow-xl">
-        <div id="comparison-slides-track" class="flex transition-transform duration-500 ease-out will-change-transform" style="transform: translateX(0%);">
-          
-          <!-- ==================== স্লাইড ১: নকশাপথ কীভাবে জীবনকে সহজ করে ==================== -->
-          <div class="min-w-full w-full p-6 sm:p-8 md:p-12 flex-shrink-0">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              <!-- বাম পাশের মূল মেসেজ ও হাইলাইটস -->
-              <div class="lg:col-span-7 space-y-6 text-left">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-lime-100 text-lime-900 text-xs font-extrabold uppercase">
-                  <span>✨ গৃহিণীদের প্রতিদিনের স্বস্তি</span>
-                </div>
+            <!-- স্লাইডার কন্টেইনার (৩টি সক্রিয় স্লাইড ভিউ) -->
+      <div id="comparison-slider-viewport" class="relative rounded-3xl bg-white border border-stone-200 shadow-xl overflow-hidden">
+        
+        <!-- ==================== স্লাইড ১: নকশাপথ লাইফ ==================== -->
+        <div id="comparison-slide-0" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 block">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+            
+            <!-- বাম পাশের মিনিমাল টেক্সট -->
+            <div class="md:col-span-6 space-y-4 text-left">
+              <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                ✨ সহজ জীবন, আরামদায়ক রান্নাঘর
+              </span>
 
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
-                  নকশাপথ কীভাবে প্রতিদিনের জীবন ও রান্নাঘরের কাজকে <span class="text-[#2c5313]">সহজ করে তোলে?</span>
-                </h3>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
+                নকশাপথ দিয়ে রান্নাঘরের প্রতিটি মুহূর্ত হোক <span class="text-green-deep">সহজ ও আনন্দময়</span>
+              </h3>
 
-                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
-                  সকালের তাড়াহুড়োয় রান্নাঘরের দীর্ঘ খাটুনি আর ক্লান্তি নয়। নকশাপথের স্মার্ট কিচেন এসেনশিয়ালস তৈরি করা হয়েছে ঐতিহ্যবাহী বাঙালি রান্নাকে আধুনিক, গতিশীল ও আরামদায়ক রূপ দিতে।
+              <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                সকালের কাটাকাটি আর রুটি বেলার দীর্ঘ খাটুনি শেষ হবে মাত্র কয়েক মিনিটেই। নকশাপথ আপনার রান্নাঘরকে করে তুলবে আধুনিক, নিরাপদ ও দ্রুততম।
+              </p>
+
+              <div class="pt-2">
+                <button onclick="scrollToCheckout()" class="btn-navbar-cta px-6 py-3 rounded-xl text-white font-bold text-sm shadow-md inline-flex items-center space-x-2">
+                  <span>প্যাকেজ ও দাম দেখুন</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ডান পাশের লাইফস্টাইল ফটো -->
+            <div class="md:col-span-6">
+              <div class="relative rounded-2xl overflow-hidden aspect-[16/11] shadow-lg border border-stone-200 group">
+                <img src="assets/images/how-to-use-lifestyle.jpg" alt="নকশাপথ দিয়ে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==================== স্লাইড ২: বটি (২টি ইমেজ কম্প্যারিজন) ==================== -->
+        <div id="comparison-slide-1" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            
+            <!-- ইমেজ (ক): বটি ছাড়া কাটাকাটির ঝামেলা -->
+            <div class="group relative rounded-2xl overflow-hidden border border-red-200 bg-stone-900 shadow-md">
+              <div class="aspect-[16/11] overflow-hidden">
+                <img src="assets/images/problem-time-consuming.jpg" alt="বটি ছাড়া কাটাকাটির ঝামেলা" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+              </div>
+              <!-- টপ ব্যাজ -->
+              <div class="absolute top-3.5 left-3.5">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-600 text-white font-bold text-xs shadow-md">
+                  <span>✕</span>
+                  <span>বটি ছাড়া কাটাকাটির ঝামেলা</span>
+                </span>
+              </div>
+              <!-- বটম মিনিমাল ক্যাপশন -->
+              <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
+                <p class="text-white text-xs sm:text-sm font-semibold drop-shadow">
+                  মাটিতে বসে দীর্ঘ সময় নষ্ট ও পিঠের ব্যথা
                 </p>
-
-                <!-- ৩টি কী-বেনিফিট ফিচার কার্ড -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
-                    <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">⏱️</div>
-                    <div class="font-bold text-gray-900 text-sm">৫০% সময় সাশ্রয়</div>
-                    <div class="text-xs text-gray-500 leading-normal">সকালের রান্নার সব প্রস্তুতি শেষ হবে মাত্র কয়েক মিনিটেই।</div>
-                  </div>
-
-                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
-                    <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">🛡️</div>
-                    <div class="font-bold text-gray-900 text-sm">১০০% নিরাপদ ডিজাইন</div>
-                    <div class="text-xs text-gray-500 leading-normal">হাতে কাটার বা আঘাত পাওয়ার ভয় ছাড়া নিশ্চিন্ত কাটাকাটি।</div>
-                  </div>
-
-                  <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 space-y-1.5">
-                    <div class="w-8 h-8 rounded-xl bg-lime-100 text-lime-900 flex items-center justify-center font-bold text-sm">🫓</div>
-                    <div class="font-bold text-gray-900 text-sm">নিখুঁত নরম রুটি</div>
-                    <div class="text-xs text-gray-500 leading-normal">বেলন ছাড়া প্রতিবার একই মাপের গোল ও নরম ফুলকো রুটি।</div>
-                  </div>
-                </div>
-
-                <!-- অ্যাকশন বাটন -->
-                <div class="pt-2 flex flex-wrap items-center gap-3">
-                  <button onclick="scrollToCheckout()" class="btn-navbar-cta px-6 py-3 rounded-xl text-white font-bold text-sm shadow-md inline-flex items-center space-x-2">
-                    <span>প্যাকেজ ও দাম দেখুন</span>
-                    <span>→</span>
-                  </button>
-                  <button onclick="nextComparisonSlide()" class="px-5 py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-gray-800 font-bold text-sm transition">
-                    বটি ও রুটি মেকারের তুলনা দেখুন
-                  </button>
-                </div>
-              </div>
-
-              <!-- ডান পাশের লাইফস্টাইল ফিচার ফটো ফ্রেম -->
-              <div class="lg:col-span-5">
-                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-square lg:aspect-[4/5] shadow-xl border border-stone-200 group">
-                  <img src="assets/images/how-to-use-lifestyle.jpg" alt="নকশাপথ দিয়ে সহজ ও আধুনিক রান্নাঘরের জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                  <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 backdrop-blur-md shadow-lg border border-black/5 text-left">
-                    <div class="flex items-center space-x-2 text-xs font-bold text-emerald-800 mb-1">
-                      <span class="text-amber-500">★★★★★</span>
-                      <span>১০,০০০+ পরিবারের নির্ভরতা</span>
-                    </div>
-                    <p class="text-xs sm:text-sm font-semibold text-gray-800 leading-snug">
-                      "রান্নাঘরের কাজ এখন আর ক্লান্তি নয়, বরং আরাম ও আনন্দের।"
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ==================== স্লাইড ২: বটি কম্প্যারিজন ==================== -->
-          <div class="min-w-full w-full p-6 sm:p-8 md:p-10 flex-shrink-0">
-            <div class="text-left space-y-6">
-              
-              <!-- হেডিং -->
-              <div>
-                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold uppercase">স্লাইড ২ • বটি কম্প্যারিজন</span>
-                <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
-                  বটি ব্যবহারের পার্থক্য: <span class="text-red-600">প্রচলিত কষ্ট</span> বনাম <span class="text-green-deep">নকশাপথের স্বস্তি</span>
-                </h3>
-              </div>
-
-              <!-- পাশাপাশি ২টি কম্প্যারিজন কার্ড -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- কার্ড (ক): বটি ছাড়া কাটাকাটির ঝামেলা ও সময় নষ্ট -->
-                <div class="rounded-2xl border-2 border-red-200 bg-red-50/40 p-5 sm:p-6 space-y-4 text-left">
-                  <div class="flex items-center justify-between">
-                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 font-bold text-xs">
-                      <span>✕</span>
-                      <span>(ক) সাধারণ বটিতে সমস্যা ও ঝামেলা</span>
-                    </span>
-                    <span class="text-xs font-bold text-red-500">ঝুঁকিপূর্ণ ও সময়সাপেক্ষ</span>
-                  </div>
-
-                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-red-200 shadow-sm">
-                    <img src="assets/images/problem-time-consuming.jpg" alt="সাধারণ পদ্ধতিতে কাটাকাটির ঝামেলা ও ক্লান্তি" class="w-full h-full object-cover">
-                  </div>
-
-                  <div class="space-y-2">
-                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">মাটিতে বসে দীর্ঘ সময় নষ্ট ও পিঠের ব্যথা</h4>
-                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>মাটিতে নিচু হয়ে পা দিয়ে চেপে ধরতে গিয়ে কোমর ও পিঠে তীব্র ব্যথা।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>ব্লেড পিছলে আঙুল বা হাত কেটে যাওয়ার সার্বক্ষণিক মারাত্মক ঝুঁকি।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>মেঝেতে মাছের আঁশ ও রক্ত ছিটকে মেঝে নোংরা ও দুর্গন্ধ তৈরি হয়।</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- কার্ড (খ): নকশাপথের বটি ব্যবহারে নিরাপদ ও সহজ জীবনের ছবি -->
-                <div class="rounded-2xl border-2 border-emerald-300 bg-emerald-50/50 p-5 sm:p-6 space-y-4 text-left shadow-md">
-                  <div class="flex items-center justify-between">
-                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">
-                      <span>✓</span>
-                      <span>(খ) নকশাপথ বটিতে নিরাপদ ও সহজ জীবন</span>
-                    </span>
-                    <span class="text-xs font-bold text-emerald-700 bg-white px-2 py-0.5 rounded shadow-xs">১০০% সমাধান</span>
-                  </div>
-
-                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-emerald-200 shadow-sm">
-                    <img src="assets/images/boti-large.jpg" alt="নকশাপথের বটি ব্যবহারে নিরাপদ ও সহজ জীবনের ছবি" class="w-full h-full object-cover">
-                  </div>
-
-                  <div class="space-y-2">
-                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">টেবিলে বা মেঝেতে স্বাচ্ছন্দ্যে দ্রুত কাটাকাটি</h4>
-                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>শক্ত কাঠের ভারি বেস—টেবিলে বা মেঝেতে একদম অনড় ও ব্যালেন্সড থাকে।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>লেজার-শার্প হাই-কার্বন স্টিল ব্লেডে বড় মাছ, মাংস ও শাকসবজি কাটে চোখের পলকে।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>পরিষ্কার করা অত্যন্ত সহজ, বছরের পর বছর নিশ্চিন্তে স্থায়ী সার্ভিস।</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
               </div>
             </div>
-          </div>
 
-          <!-- ==================== স্লাইড ৩: রুটি মেকার কম্প্যারিজন ==================== -->
-          <div class="min-w-full w-full p-6 sm:p-8 md:p-10 flex-shrink-0">
-            <div class="text-left space-y-6">
-              
-              <!-- হেডিং -->
-              <div>
-                <span class="px-3 py-1 rounded-full bg-lime-100 text-lime-900 text-xs font-extrabold uppercase">স্লাইড ৩ • রুটি মেকার কম্প্যারিজন</span>
-                <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mt-2">
-                  রুটি তৈরির পার্থক্য: <span class="text-red-600">হাতে বেলার ক্লান্তি</span> বনাম <span class="text-green-deep">নকশাপথের ফুলকো রুটি</span>
-                </h3>
+            <!-- ইমেজ (খ): নকশাপথের বটি ব্যবহারে সহজ জীবন -->
+            <div class="group relative rounded-2xl overflow-hidden border border-emerald-300 bg-stone-900 shadow-md">
+              <div class="aspect-[16/11] overflow-hidden">
+                <img src="assets/images/boti-large.jpg" alt="নকশাপথের বটি ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
               </div>
-
-              <!-- পাশাপাশি ২টি কম্প্যারিজন কার্ড -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- কার্ড (ক): রুটি মেকার ছাড়া বেলার ক্লান্তি ও সকালের অস্বাস্থ্যকর তাড়াহুড়ো -->
-                <div class="rounded-2xl border-2 border-red-200 bg-red-50/40 p-5 sm:p-6 space-y-4 text-left">
-                  <div class="flex items-center justify-between">
-                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 font-bold text-xs">
-                      <span>✕</span>
-                      <span>(ক) রুটি মেকার ছাড়া বেলার ক্লান্তি</span>
-                    </span>
-                    <span class="text-xs font-bold text-red-500">ক্লান্তিকর ও সময় নষ্ট</span>
-                  </div>
-
-                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-red-200 shadow-sm">
-                    <img src="assets/images/problem-uneven-roti.jpg" alt="রুটি মেকার ছাড়া অস্বাস্থ্যকর তাড়াহুড়ো ও অসমান রুটি" class="w-full h-full object-cover">
-                  </div>
-
-                  <div class="space-y-2">
-                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">ঘণ্টার পর ঘণ্টা বেলন দিয়ে বেলার ঘাম ও ক্লান্তি</h4>
-                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>হাতে বেলে রুটি গোল বা পাতলা করা ভীষণ কঠিন—মাঝে মোটা, ধারে পাতলা হয়।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>আটা ছিটকে মেঝে ও কিচেন স্ল্যাব নোংরা হয়ে সকালের ব্যস্ততা দ্বিগুণ বাড়িয়ে দেয়।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-red-500 font-bold flex-shrink-0 mt-0.5">✕</span>
-                        <span>সময় বাঁচাতে বাধ্য হয়ে হোটেল থেকে পোড়া তেলের বাসি খাবার কিনে খাওয়া।</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- কার্ড (খ): নকশাপথের রুটি মেকার ব্যবহারে মাত্র কয়েক মিনিটেই পারফেক্ট রুটি তৈরির স্বস্তি -->
-                <div class="rounded-2xl border-2 border-emerald-300 bg-emerald-50/50 p-5 sm:p-6 space-y-4 text-left shadow-md">
-                  <div class="flex items-center justify-between">
-                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">
-                      <span>✓</span>
-                      <span>(খ) নকশাপথ রুটি মেকারে পারফেক্ট রুটি</span>
-                    </span>
-                    <span class="text-xs font-bold text-emerald-700 bg-white px-2 py-0.5 rounded shadow-xs">১ মিনিটে নাস্তা</span>
-                  </div>
-
-                  <div class="rounded-xl overflow-hidden aspect-[16/10] bg-stone-200 border border-emerald-200 shadow-sm">
-                    <img src="assets/images/roti-maker-large.jpg" alt="নকশাপথের রুটি মেকার ব্যবহারে কয়েক মিনিটেই পারফেক্ট রুটি তৈরির স্বস্তি" class="w-full h-full object-cover">
-                  </div>
-
-                  <div class="space-y-2">
-                    <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">শুধু হ্যান্ডেল চাপুন—তৈরি পারফেক্ট ফুলকো রুটি</h4>
-                    <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>আটার লেচি দিয়ে শুধু চাপ দিন—প্রতিবার সমান, পাতলা ও গোল রুটি তৈরি হয়।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>হাতে আটা লাগাতে হয় না, কোনো আটা ছিটকায় না, রান্নাঘর থাকে একদম পরিষ্কার।</span>
-                      </li>
-                      <li class="flex items-start space-x-2">
-                        <span class="text-emerald-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                        <span>সাধারণ রুটির পাশাপাশি লুচি ও পরোটাও একই যন্ত্রে ঝটপট তৈরি করা যায়।</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
+              <!-- টপ ব্যাজ -->
+              <div class="absolute top-3.5 left-3.5">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-md">
+                  <span>✓</span>
+                  <span>নকশাপথের বটি ব্যবহারে সহজ জীবন</span>
+                </span>
+              </div>
+              <!-- বটম মিনিমাল ক্যাপশন -->
+              <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
+                <p class="text-white text-xs sm:text-sm font-semibold drop-shadow">
+                  টেবিলে বা মেঝেতে দ্রুত, নিখুঁত ও নিরাপদ কাটাকাটি
+                </p>
               </div>
             </div>
-          </div>
 
+          </div>
+        </div>
+
+        <!-- ==================== স্লাইড ৩: রুটি মেকার (২টি ইমেজ কম্প্যারিজন) ==================== -->
+        <div id="comparison-slide-2" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            
+            <!-- ইমেজ (ক): রুটি মেকার ছাড়া অস্বাস্থ্যকর তাড়াহুড়ো -->
+            <div class="group relative rounded-2xl overflow-hidden border border-red-200 bg-stone-900 shadow-md">
+              <div class="aspect-[16/11] overflow-hidden">
+                <img src="assets/images/problem-uneven-roti.jpg" alt="রুটি মেকার ছাড়া বেলার ক্লান্তি ও ঝামেলা" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+              </div>
+              <!-- টপ ব্যাজ -->
+              <div class="absolute top-3.5 left-3.5">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-red-600 text-white font-bold text-xs shadow-md">
+                  <span>✕</span>
+                  <span>রুটি মেকার ছাড়া বেলার ক্লান্তি</span>
+                </span>
+              </div>
+              <!-- বটম মিনিমাল ক্যাপশন -->
+              <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
+                <p class="text-white text-xs sm:text-sm font-semibold drop-shadow">
+                  ঘণ্টার পর ঘণ্টা হাতে বেলা ও সকালের অস্বাস্থ্যকর তাড়াহুড়ো
+                </p>
+              </div>
+            </div>
+
+            <!-- ইমেজ (খ): নকশাপথ রুটি মেকারে সহজ জীবন -->
+            <div class="group relative rounded-2xl overflow-hidden border border-emerald-300 bg-stone-900 shadow-md">
+              <div class="aspect-[16/11] overflow-hidden">
+                <img src="assets/images/roti-maker-large.jpg" alt="নকশাপথের রুটি মেকার ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+              </div>
+              <!-- টপ ব্যাজ -->
+              <div class="absolute top-3.5 left-3.5">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-md">
+                  <span>✓</span>
+                  <span>নকশাপথ রুটি মেকারে সহজ জীবন</span>
+                </span>
+              </div>
+              <!-- বটম মিনিমাল ক্যাপশন -->
+              <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
+                <p class="text-white text-xs sm:text-sm font-semibold drop-shadow">
+                  হ্যান্ডেল চাপলেই ১ মিনিটে পারফেক্ট গোল ও নরম রুটি
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <!-- মোবাইল সোয়াইপ / নেভিগেশন ডটস -->
-        <div class="flex sm:hidden items-center justify-center space-x-2 py-4 bg-stone-50 border-t border-stone-100">
+        <div class="flex sm:hidden items-center justify-center space-x-2 py-3 bg-stone-50 border-t border-stone-100">
           <button onclick="setComparisonSlide(0)" id="mobile-dot-0" class="w-3 h-3 rounded-full transition-all duration-300 bg-green-deep scale-125" aria-label="Slide 1"></button>
           <button onclick="setComparisonSlide(1)" id="mobile-dot-1" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 2"></button>
           <button onclick="setComparisonSlide(2)" id="mobile-dot-2" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 3"></button>
         </div>
-      </div>
-
-      <!-- হাইলাইট করা সমাধান ব্যানার -->
-      <div class="mt-8 gradient-solution-banner border border-white/20 rounded-2xl p-5 md:p-6 shadow-xl flex items-center justify-center space-x-3 text-center">
-        <span class="w-8 h-8 rounded-full bg-lime-400 text-stone-950 flex items-center justify-center text-sm font-extrabold flex-shrink-0 shadow-md">✓</span>
-        <span class="text-base sm:text-lg md:text-xl font-extrabold text-white">
-          রান্নাঘরে আনুন স্মার্ট স্বস্তি: <span class="text-[#bef264]">নকশাপথ বটি অ্যান্ড রুটি মেকার</span>। আটা দিন, চাপ দিন, রুটি তৈরি!
-        </span>
       </div>
 
     </div>
@@ -972,367 +835,7 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   </section>
 
   <!-- ৮. কাস্টমারদের মতামত (হরিজোন্টাল স্লাইড অ্যানিমেশন) -->
-  <section id="testimonials" class="py-14 md:py-20 bg-beige-ground relative overflow-hidden">
-    <!-- সেকশন হেডার -->
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-2 mb-10">
-      <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-200/80 text-amber-900 text-xs font-bold uppercase tracking-wider mb-1">
-        <span class="text-amber-500">★★★★★</span>
-        <span>৪.৯/৫ রেটিং প্রাপ্ত</span>
-      </div>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-        কাস্টমাররা যা বলছেন
-      </h2>
-      <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-        আমাদের সন্তুষ্ট গ্রাহকদের আসল অনুভূতি ও প্রতিক্রিয়া।
-      </p>
-    </div>
-
-    <!-- হরিজোন্টাল স্লাইড মারকিউ কন্টেইনার -->
-    <div class="testimonial-marquee-container relative w-full overflow-hidden">
-      <!-- বাম ও ডানের গ্রেডিয়েন্ট ফেইড মাস্ক (সফট ট্রানজিশন) -->
-      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-r from-beige-ground to-transparent z-10"></div>
-      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-l from-beige-ground to-transparent z-10"></div>
-
-      <!-- স্লাইডিং ট্র‍্যাক র‍্যাপার -->
-      <div class="testimonial-marquee-wrapper flex">
-        
-        <!-- ট্র্যাক ১ (প্রথম ৬টি কার্ড) -->
-        <div class="testimonial-track flex items-stretch gap-5 sm:gap-6 flex-shrink-0">
-          
-          <!-- কার্ড ১ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "সকালে বাচ্চাদের স্কুলে যাওয়ার সময় রুটি বানাতে অনেক কষ্ট হতো। এই মেশিনটা নেওয়ার পর থেকে মাত্র ১০ মিনিটেই নাস্তার সব কাজ শেষ হয়ে যায়।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-700 to-emerald-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                রা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">রাবেয়া খাতুন</div>
-                <div class="text-[11px] text-gray-500">মিরপুর, ঢাকা</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- কার্ড ২ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "আমি বিগ সাইজটা অর্ডার করেছিলাম। মেটাল কোয়ালিটি খুব ভালো এবং রুটি একদম পারফেক্ট গোল হয়। ডেলিভারিও মাত্র ২ দিনে পেয়েছি।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-600 to-green-700 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                শ
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">শারমিন আক্তার</div>
-                <div class="text-[11px] text-gray-500">চট্টগ্রাম সদর</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- কার্ড ৩ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "প্রথমে ভেবেছিলাম হয়তো শক্ত হয়ে যাবে, কিন্তু ভিডিও দেখে ঠিকঠাক ব্যবহার করার পর এখন রুটি একদম নরম আর পারফেক্ট ফুলছে। ধন্যবাদ নকশাপথ।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-teal-700 to-green-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                না
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">নাজমুল হাসান</div>
-                <div class="text-[11px] text-gray-500">বগুড়া</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- কার্ড ৪ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "আমার শাশুড়ি মায়ের হাতের ব্যথার কারণে রুটি বেলতে পারতেন না। এই রুটি মেকার ও বটি পাওয়ার পর উনি নিজেই খুব সহজে সব কাজ করতে পারছেন।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-600 to-lime-700 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                ফা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">ফারহানা চৌধুরী</div>
-                <div class="text-[11px] text-gray-500">উত্তরা, ঢাকা</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- কার্ড ৫ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "বটিটা অসম্ভব ধারালো আর রুটি মেকার দিয়ে খুব দ্রুত পরোটা ও রুটি বানানো যায়। খাঁটি কাঠের কাজ, সত্যি অসাধারণ!"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-700 to-teal-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                আ
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">মোহাম্মদ আরিফ</div>
-                <div class="text-[11px] text-gray-500">সিলেট সদর</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- কার্ড ৬ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "প্যাকেজিং অনেক ভালো ছিল। ডেলিভারি বয় সামনে রেখেই চেক করতে দিয়েছে। বটি ও রুটি মেকার দুটোই খুব কাজে দিচ্ছে।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-800 to-emerald-900 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                তা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">তানজিলা জাহান</div>
-                <div class="text-[11px] text-gray-500">রাজশাহী</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ট্র্যাক ২ (ডুপ্লিকেট ট্র্যাক - সিমলেস ইনফিনিট লুপের জন্য) -->
-        <div class="testimonial-track flex items-stretch gap-5 sm:gap-6 flex-shrink-0" aria-hidden="true">
-          
-          <!-- ডুপ্লিকেট কার্ড ১ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "সকালে বাচ্চাদের স্কুলে যাওয়ার সময় রুটি বানাতে অনেক কষ্ট হতো। এই মেশিনটা নেওয়ার পর থেকে মাত্র ১০ মিনিটেই নাস্তার সব কাজ শেষ হয়ে যায়।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-700 to-emerald-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                রা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">রাবেয়া খাতুন</div>
-                <div class="text-[11px] text-gray-500">মিরপুর, ঢাকা</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ডুপ্লিকেট কার্ড ২ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "আমি বিগ সাইজটা অর্ডার করেছিলাম। মেটাল কোয়ালিটি খুব ভালো এবং রুটি একদম পারফেক্ট গোল হয়। ডেলিভারিও মাত্র ২ দিনে পেয়েছি।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-600 to-green-700 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                শ
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">শারমিন আক্তার</div>
-                <div class="text-[11px] text-gray-500">চট্টগ্রাম সদর</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ডুপ্লিকেট কার্ড ৩ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "প্রথমে ভেবেছিলাম হয়তো শক্ত হয়ে যাবে, কিন্তু ভিডিও দেখে ঠিকঠাক ব্যবহার করার পর এখন রুটি একদম নরম আর পারফেক্ট ফুলছে। ধন্যবাদ নকশাপথ।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-teal-700 to-green-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                না
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">নাজমুল হাসান</div>
-                <div class="text-[11px] text-gray-500">বগুড়া</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ডুপ্লিকেট কার্ড ৪ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "আমার শাশুড়ি মায়ের হাতের ব্যথার কারণে রুটি বেলতে পারতেন না। এই রুটি মেকার ও বটি পাওয়ার পর উনি নিজেই খুব সহজে সব কাজ করতে পারছেন।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-600 to-lime-700 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                ফা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">ফারহানা চৌধুরী</div>
-                <div class="text-[11px] text-gray-500">উত্তরা, ঢাকা</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ডুপ্লিকেট কার্ড ৫ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "বটিটা অসম্ভব ধারালো আর রুটি মেকার দিয়ে খুব দ্রুত পরোটা ও রুটি বানানো যায়। খাঁটি কাঠের কাজ, সত্যি অসাধারণ!"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-700 to-teal-800 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                আ
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">মোহাম্মদ আরিফ</div>
-                <div class="text-[11px] text-gray-500">সিলেট সদর</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ডুপ্লিকেট কার্ড ৬ -->
-          <div class="w-[290px] sm:w-[350px] md:w-[380px] bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between flex-shrink-0 group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-1 text-amber-400 text-sm">
-                  ★★★★★
-                </div>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full flex items-center space-x-1">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  <span>ভেরিফায়েড ক্রেতা</span>
-                </span>
-              </div>
-              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic mb-4">
-                "প্যাকেজিং অনেক ভালো ছিল। ডেলিভারি বয় সামনে রেখেই চেক করতে দিয়েছে। বটি ও রুটি মেকার দুটোই খুব কাজে দিচ্ছে।"
-              </p>
-            </div>
-            <div class="flex items-center space-x-3 pt-3 border-t border-gray-100">
-              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-800 to-emerald-900 text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
-                তা
-              </div>
-              <div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">তানজিলা জাহান</div>
-                <div class="text-[11px] text-gray-500">রাজশাহী</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ৯. এফএকিউ (FAQ Accordion - আপনার মনের প্রশ্নগুলো) -->
   <section id="faq-section" class="py-12 md:py-16 bg-white border-y border-stone-200/80">

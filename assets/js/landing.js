@@ -443,19 +443,27 @@ const totalComparisonSlides = 3;
 
 window.setComparisonSlide = function (index) {
     currentComparisonSlide = (index + totalComparisonSlides) % totalComparisonSlides;
-    const track = document.getElementById('comparison-slides-track');
-    if (track) {
-        track.style.transform = `translateX(-${currentComparisonSlide * 100}%)`;
-    }
 
-    // আপডেট ডেস্কটপ ট্যাব বাটন
+    // স্লাইড শো/হাইড লজিক
     for (let i = 0; i < totalComparisonSlides; i++) {
+        const slide = document.getElementById(`comparison-slide-${i}`);
+        if (slide) {
+            if (i === currentComparisonSlide) {
+                slide.classList.remove('hidden');
+                slide.classList.add('block');
+            } else {
+                slide.classList.add('hidden');
+                slide.classList.remove('block');
+            }
+        }
+
+        // আপডেট ডেস্কটপ ট্যাব বাটন
         const tab = document.getElementById(`slide-tab-${i}`);
         if (tab) {
             if (i === currentComparisonSlide) {
-                tab.className = 'slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200';
+                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200';
             } else {
-                tab.className = 'slide-nav-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 text-gray-600 hover:text-gray-900';
+                tab.className = 'slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900';
             }
         }
 
@@ -479,7 +487,6 @@ window.prevComparisonSlide = function () {
     window.setComparisonSlide(currentComparisonSlide - 1);
 };
 
-// মোবাইল সোয়াইপ ইভেন্ট সাপোর্ট
 document.addEventListener('DOMContentLoaded', function () {
     const viewport = document.getElementById('comparison-slider-viewport');
     if (!viewport) return;
