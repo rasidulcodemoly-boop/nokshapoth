@@ -11,6 +11,12 @@ require_once __DIR__ . '/config.php';
 // মেটা পিক্সেল ও CAPI ডিডুপ্লিকেশনের জন্য ইউনিক ইভেন্ট আইডি জেনারেশন
 $pageview_event_id = 'FRc_PV_' . bin2hex(random_bytes(6)) . '_' . time();
 $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
+
+// ওপেন গ্রাফ (OG) সোশ্যাল শেয়ারিং ডাইনামিক URL
+$site_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? "https://" : "http://";
+$site_host = $_SERVER['HTTP_HOST'] ?? 'nokshapoth.com';
+$og_canonical_url = $site_protocol . $site_host . ($_SERVER['REQUEST_URI'] ?? '/');
+$og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="bn" class="scroll-smooth">
@@ -19,6 +25,34 @@ $purchase_event_id = 'FRc_PUR_' . bin2hex(random_bytes(6)) . '_' . time();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>বটি অ্যান্ড রুটি মেকার - নকশাপথ কিচেন এসেনশিয়ালস</title>
   <meta name="description" content="রুটি বানানোর ঝামেলা এবার অর্ধেক সময়ে শেষ! বটি অ্যান্ড রুটি মেকার দিয়ে তৈরি করুন নরম তুলতুলে গোল রুটি। ক্যাশ অন ডেলিভারি সারা দেশে।">
+
+  <!-- Favicon Links (Browser Tab & Mobile Bookmark) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/images/nokshapoth-icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#39681A">
+
+  <!-- Open Graph / Facebook / WhatsApp (Social Link Sharing Preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="নকশাপথ | Nokshapoth">
+  <meta property="og:url" content="<?php echo htmlspecialchars($og_canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta property="og:title" content="নকশাপথ - বটি অ্যান্ড রুটি মেকার | প্রিমিয়াম কিচেন কম্বো">
+  <meta property="og:description" content="হাতে বেলার ঝামেলা ছাড়াই নরম তুলতুলে গোল রুটি এবং নিরাপদ ও দ্রুত কাটাকাটির আধুনিক কাঠের বটি ও রুটি মেকার। সারা দেশে ক্যাশ অন ডেলিভারি।">
+  <meta property="og:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta property="og:image:secure_url" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="নকশাপথ বটি অ্যান্ড রুটি মেকার কম্বো অফার">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="<?php echo htmlspecialchars($og_canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+  <meta name="twitter:title" content="নকশাপথ - বটি অ্যান্ড রুটি মেকার | প্রিমিয়াম কিচেন কম্বো">
+  <meta name="twitter:description" content="হাতে বেলার ঝামেলা ছাড়াই নরম তুলতুলে গোল রুটি এবং নিরাপদ ও দ্রুত কাটাকাটির আধুনিক কাঠের বটি ও রুটি মেকার। সারা দেশে ক্যাশ অন ডেলিভারি।">
+  <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
 
   <!-- Google Fonts: Hind Siliguri for Bengali -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

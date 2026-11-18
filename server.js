@@ -52,6 +52,8 @@ function renderPhpTemplate(filePath) {
   content = content.replace(/<\?php\s*echo\s*STORE_PHONE;\s*\?>/g, '01707856728');
   content = content.replace(/<\?php\s*echo\s*STORE_WHATSAPP;\s*\?>/g, '8801356012857');
   content = content.replace(/<\?php\s*echo\s*date\([^)]+\);\s*\?>/g, new Date().getFullYear().toString());
+  content = content.replace(/<\?php\s*echo\s*htmlspecialchars\(\$og_canonical_url[^)]*\);\s*\?>/g, 'https://nokshapoth.com/');
+  content = content.replace(/<\?php\s*echo\s*htmlspecialchars\(\$og_image_url[^)]*\);\s*\?>/g, 'https://nokshapoth.com/assets/images/og-share-banner.jpg');
 
   return content;
 }
