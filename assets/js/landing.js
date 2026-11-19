@@ -578,3 +578,47 @@ if (document.readyState === 'loading') {
 } else {
     initAutoSlider();
 }
+
+// ব্যবহার পদ্ধতি (How To Use) ট্যাব সুইচিং লজিক
+window.setHowToUseTab = function (tab) {
+    const rutiPanel = document.getElementById('how-content-ruti');
+    const botiPanel = document.getElementById('how-content-boti');
+    const rutiTab = document.getElementById('how-tab-ruti');
+    const botiTab = document.getElementById('how-tab-boti');
+
+    if (tab === 'ruti') {
+        if (rutiPanel) {
+            rutiPanel.classList.remove('hidden');
+            rutiPanel.classList.add('block');
+        }
+        if (botiPanel) {
+            botiPanel.classList.add('hidden');
+            botiPanel.classList.remove('block');
+        }
+        if (rutiTab) {
+            rutiTab.className = "how-nav-tab px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200/90 flex items-center space-x-2";
+            rutiTab.setAttribute('aria-selected', 'true');
+        }
+        if (botiTab) {
+            botiTab.className = "how-nav-tab px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 border border-transparent flex items-center space-x-2";
+            botiTab.setAttribute('aria-selected', 'false');
+        }
+    } else {
+        if (rutiPanel) {
+            rutiPanel.classList.add('hidden');
+            rutiPanel.classList.remove('block');
+        }
+        if (botiPanel) {
+            botiPanel.classList.remove('hidden');
+            botiPanel.classList.add('block');
+        }
+        if (botiTab) {
+            botiTab.className = "how-nav-tab px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200/90 flex items-center space-x-2";
+            botiTab.setAttribute('aria-selected', 'true');
+        }
+        if (rutiTab) {
+            rutiTab.className = "how-nav-tab px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 border border-transparent flex items-center space-x-2";
+            rutiTab.setAttribute('aria-selected', 'false');
+        }
+    }
+};
