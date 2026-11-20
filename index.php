@@ -778,192 +778,114 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
     </div>
   </section>
 
-  <!-- ৭. ব্যবহার করা একদম সহজ, তিন ধাপে (রুটি মেকার ও বটি ব্যবহারের পদ্ধতি) -->
-  <section id="how-to-use" class="py-16 md:py-24 bg-white text-gray-900 border-y border-stone-200/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <!-- ৭. ব্যবহার পদ্ধতি (কমপ্যাক্ট ২-কলাম ভিউ - রুটি মেকার ও বটি একসাথে) -->
+  <section id="how-to-use" class="py-8 sm:py-10 md:py-12 bg-white text-gray-900 border-y border-stone-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <!-- সেকশন হেডিং ও প্রোডাক্ট ট্যাব সুইচার -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-14 gap-5">
-        <div>
-          <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
-            ✨ অতি সহজ ব্যবহার পদ্ধতি
-          </span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            ব্যবহার করা একদম সহজ, তিন ধাপে
-          </h2>
-          <p class="text-gray-500 text-base sm:text-lg mt-3 max-w-2xl leading-relaxed">
-            প্রথমবার ব্যবহার করলেই আপনি বুঝতে পারবেন দুটি পণ্যই চালানো কতটা স্বাচ্ছন্দ্যময় ও ঝামেলাহীন।
-          </p>
+      <!-- কমপ্যাক্ট সেকশন হেডার -->
+      <div class="text-center space-y-1.5 mb-6 sm:mb-8">
+        <div class="inline-flex items-center space-x-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200/60 rounded-full px-3 py-0.5 text-xs font-bold">
+          <span>✨ সহজ ৩ ধাপের ব্যবহার পদ্ধতি</span>
         </div>
-
-        <!-- প্রডাক্ট সুইচিং ট্যাব পিলস -->
-        <div class="inline-flex p-1.5 bg-stone-100 border border-stone-200/90 rounded-2xl space-x-1.5 self-start sm:self-auto shadow-sm" role="tablist">
-          <button onclick="setHowToUseTab('ruti')" id="how-tab-ruti" class="how-nav-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200/90 flex items-center space-x-2" role="tab" aria-selected="true">
-            <span class="text-base">🫓</span>
-            <span>রুটি মেকার</span>
-          </button>
-          <button onclick="setHowToUseTab('boti')" id="how-tab-boti" class="how-nav-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 border border-transparent flex items-center space-x-2" role="tab" aria-selected="false">
-            <span class="text-base">🔪</span>
-            <span>মডার্ন বটি</span>
-          </button>
-        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+          কীভাবে ব্যবহার করবেন?
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500">
+          কোনো পূর্ব অভিজ্ঞতা ছাড়াই যে কেউ প্রথম দিন থেকেই অনায়াসে ব্যবহার করতে পারবেন।
+        </p>
       </div>
 
-      <!-- কনটেন্ট ১: রুটি মেকার ব্যবহার পদ্ধতি (সক্রিয়) -->
-      <div id="how-content-ruti" class="how-to-use-panel transition-all duration-300 block">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          <!-- বাম সাইড: ৩টি স্টেপ লিস্ট -->
-          <div class="lg:col-span-7 space-y-10 md:space-y-12">
-            
-            <!-- স্টেপ ০১ -->
-            <div class="how-to-use-step group" data-step="1">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="12" cy="18" rx="8" ry="3"></ellipse>
-                  <circle cx="12" cy="10" r="5" fill="currentColor" fill-opacity="0.35"></circle>
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ১. আটার বল মেকারে রাখুন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                সাধারণ নিয়মে আটা মেখে ছোট একটি গোল লেচি বানিয়ে মেকারের মাঝখানে প্লাস্টিক পেপারের ওপর রাখুন। কোনো বাড়তি শুকনো আটা ছিটানোর প্রয়োজন নেই।
-              </p>
+      <!-- ২-কলাম গ্রিড: রুটি মেকার ও বটি পাশাপাশি দুটি ইমেজ সহ -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        
+        <!-- কার্ড ১: রুটি মেকার -->
+        <div class="bg-stone-50/80 rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-sm flex flex-col justify-between hover:border-green-300 transition-all duration-200">
+          <div>
+            <!-- প্রোডাক্ট ইমেজ -->
+            <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-100 border border-stone-200/70 mb-4 group">
+              <img src="assets/images/use-ruti-step.jpg" alt="রুটি মেকার ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+              <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-lg flex items-center space-x-1 shadow">
+                <span>🫓</span>
+                <span>রুটি মেকার</span>
+              </span>
             </div>
 
-            <!-- স্টেপ ০২ -->
-            <div class="how-to-use-step group" data-step="2">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="18" width="18" height="3" rx="1.5" fill="currentColor" fill-opacity="0.3"></rect>
-                  <path d="M5 14h14"></path>
-                  <path d="M12 3v7m-3.5-3.5L12 10l3.5-3.5"></path>
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ২. হ্যান্ডেল দিয়ে আলতো চাপ দিন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                হ্যান্ডেলটি ধরে সামনের দিকে একবার আলতো চাপ দিন। চোখের পলকে নিখুঁত গোলাকার ও সমান পাতলা রুটি নিমেষেই প্রস্তুত হয়ে যাবে।
-              </p>
-            </div>
+            <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center justify-center">১</span>
+              <span>রুটি মেকার ব্যবহারের ৩ ধাপ</span>
+            </h3>
 
-            <!-- স্টেপ ০৩ -->
-            <div class="how-to-use-step group" data-step="3">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="11" cy="16" rx="8" ry="3.5" fill="currentColor" fill-opacity="0.3"></ellipse>
-                  <path d="M18 16l4 3"></path>
-                  <path d="M8 5c1 1 1 2 0 3"></path>
-                  <path d="M12 3c1 1.5 1 3 0 4.5"></path>
-                  <path d="M16 5c1 1 1 2 0 3"></path>
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ৩. তাওয়ায় সেঁকে গরম পরিবেশন করুন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                গরম তাওয়ায় রুটি দিয়ে কয়েক সেকেন্ডেই উল্টে দিন। সাথে সাথে সুন্দর ফুলে উঠবে ধোঁয়া ওঠা তুলতুলে নরম সুস্বাদু রুটি।
-              </p>
-            </div>
-
-          </div>
-
-          <!-- ডান সাইড: রুটি মেকার ইমেজ -->
-          <div class="lg:col-span-5">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/80 aspect-[3/4] bg-stone-100 group">
-              <img src="assets/images/how-to-use-lifestyle.jpg" alt="সহজ তিন ধাপে রুটি তৈরির পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" loading="lazy">
-              
-              <!-- ফ্লোটিং ইনফো কার্ড -->
-              <div class="absolute bottom-5 left-5 right-5 p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 shadow-lg flex items-center space-x-3.5">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#1b4b08] to-[#3d9213] text-white flex items-center justify-center flex-shrink-0 font-bold shadow-md">
-                  ✓
-                </div>
+            <!-- ৩টি কমপ্যাক্ট স্টেপ -->
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">১</span>
                 <div>
-                  <div class="text-sm font-bold text-gray-900 leading-tight">মাত্র ৫ সেকেন্ডে পারফেক্ট রুটি</div>
-                  <div class="text-xs text-gray-500 mt-0.5">কোনো পরিশ্রম ও বেলার ঝামেলা ছাড়াই</div>
+                  <span class="font-bold text-gray-900">লেচি রাখুন:</span>
+                  <span class="text-gray-600"> মেকারের মাঝে প্লাস্টিক পেপারে আটার বল রাখুন (বাড়তি আটা ছাড়াই)।</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- কনটেন্ট ২: বটি ব্যবহার পদ্ধতি -->
-      <div id="how-content-boti" class="how-to-use-panel transition-all duration-300 hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          <!-- বাম সাইড: ৩টি স্টেপ লিস্ট -->
-          <div class="lg:col-span-7 space-y-10 md:space-y-12">
-            
-            <!-- স্টেপ ০১ -->
-            <div class="how-to-use-step group" data-step="1">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6h16M4 6v4a2 2 0 002 2h12a2 2 0 002-2V6M9 12v6m6-6v6M7 18h10"></path>
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ১. কাউন্টার বা টেবিলে ক্ল্যাম্প করুন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                রান্নাঘরের কাউন্টার স্ল্যাব, বেসিন বা ডাইনিং টেবিলের কিনারায় বটিটি বসিয়ে নিচের গোল্ডেন স্ক্রু ঘুরিয়ে মাত্র কয়েক সেকেন্ডে শক্তভাবে লক করে নিন। একটুও নড়াচড়া করবে না।
-              </p>
-            </div>
-
-            <!-- স্টেপ ০২ -->
-            <div class="how-to-use-step group" data-step="2">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.828 2.828a2 2 0 01-2.828 0L3.515 14.12a2 2 0 010-2.828L6.343 8.464" />
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ২. ব্লেড সোজা করে প্রস্তুত করুন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                কাঠের ফ্রেমের খাঁজ থেকে ব্লেডটি সোজা করে তুলুন। খাঁটি ফোর্জড স্প্রিং স্টিলের ধারালো ক্রিসেন্ট ব্লেড শাকসবজি ও মাছ-মাংস যেকোনো কিছু কাটার জন্য মজবুতভাবে প্রস্তুত।
-              </p>
-            </div>
-
-            <!-- স্টেপ ০৩ -->
-            <div class="how-to-use-step group" data-step="3">
-              <div class="step-icon-box">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 class="step-title text-xl sm:text-2xl font-bold text-gray-900 leading-snug transition-colors">
-                ৩. দাঁড়িয়ে বা বসে দ্রুত কাটাকাটি করুন
-              </h3>
-              <p class="text-gray-500 text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-                মেঝেতে বসার কষ্ট ছাড়াই দাঁড়িয়ে বা চেয়ারে বসে দ্রুত মাছ, মাংস ও সবজি কাটুন। কাজ শেষে ব্লেডটি আবার সহজে ভাঁজ করে ড্রয়ারে নিরাপদে গুছিয়ে রাখুন।
-              </p>
-            </div>
-
-          </div>
-
-          <!-- ডান সাইড: বটি ইমেজ -->
-          <div class="lg:col-span-5">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/80 aspect-[3/4] bg-stone-100 group">
-              <img src="assets/images/how-to-use-boti.jpg" alt="সহজ তিন ধাপে নকশাপথ বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" loading="lazy">
-              
-              <!-- ফ্লোটিং ইনফো কার্ড -->
-              <div class="absolute bottom-5 left-5 right-5 p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 shadow-lg flex items-center space-x-3.5">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#1b4b08] to-[#3d9213] text-white flex items-center justify-center flex-shrink-0 font-bold shadow-md">
-                  ✓
-                </div>
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">২</span>
                 <div>
-                  <div class="text-sm font-bold text-gray-900 leading-tight">কোমর ব্যথা ছাড়াই কাটাকাটি</div>
-                  <div class="text-xs text-gray-500 mt-0.5">টেবিল ক্ল্যাম্পে সুপার স্ট্রং ও নিরাপদ</div>
+                  <span class="font-bold text-gray-900">আলতো চাপ দিন:</span>
+                  <span class="text-gray-600"> হ্যান্ডেলে সামনের দিকে একবার চাপ দিতেই তৈরি পাতলা গোল রুটি।</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">৩</span>
+                <div>
+                  <span class="font-bold text-gray-900">তাওয়ায় সেঁকুন:</span>
+                  <span class="text-gray-600"> গরম তাওয়ায় দিতেই সাথে সাথে ফুলে উঠবে তুলতুলে নরম রুটি।</span>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
+
+        <!-- কার্ড ২: মডার্ন বটি -->
+        <div class="bg-stone-50/80 rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-sm flex flex-col justify-between hover:border-green-300 transition-all duration-200">
+          <div>
+            <!-- প্রোডাক্ট ইমেজ -->
+            <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-100 border border-stone-200/70 mb-4 group">
+              <img src="assets/images/use-boti-step.jpg" alt="মডার্ন বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+              <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-lg flex items-center space-x-1 shadow">
+                <span>🔪</span>
+                <span>মডার্ন বটি</span>
+              </span>
+            </div>
+
+            <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center justify-center">২</span>
+              <span>মডার্ন বটি ব্যবহারের ৩ ধাপ</span>
+            </h3>
+
+            <!-- ৩টি কমপ্যাক্ট স্টেপ -->
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">১</span>
+                <div>
+                  <span class="font-bold text-gray-900">টেবিলে ক্ল্যাম্প করুন:</span>
+                  <span class="text-gray-600"> কাউন্টার বা টেবিলের কিনারায় স্ক্রু ঘুরিয়ে দৃঢ়ভাবে লক করুন।</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">২</span>
+                <div>
+                  <span class="font-bold text-gray-900">ব্লেড সোজা করুন:</span>
+                  <span class="text-gray-600"> খাঁজ থেকে ফোর্জড স্প্রিং স্টিল ব্লেডটি তুলে সোজা পজিশনে রাখুন।</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-2.5">
+                <span class="w-5 h-5 rounded-md bg-white border border-stone-200 text-gray-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">৩</span>
+                <div>
+                  <span class="font-bold text-gray-900">স্বাচ্ছন্দ্যে কাটুন:</span>
+                  <span class="text-gray-600"> দাঁড়িয়ে বা বসে দ্রুত মাছ, মাংস ও সবজি কাটুন। কাজ শেষে ভাঁজ করে রাখুন।</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
