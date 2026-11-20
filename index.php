@@ -54,9 +54,20 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
   <meta name="twitter:description" content="হাতে বেলার ঝামেলা ছাড়াই নরম তুলতুলে গোল রুটি এবং নিরাপদ ও দ্রুত কাটাকাটির আধুনিক কাঠের বটি ও রুটি মেকার। সারা দেশে ক্যাশ অন ডেলিভারি।">
   <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image_url, ENT_QUOTES, 'UTF-8'); ?>">
 
-  <!-- Google Fonts: Hind Siliguri for Bengali -->
+  <!-- Preload Critical Hero Background Image -->
+  <link rel="preload" as="image" href="assets/images/hero-bg.jpg?v=7" fetchpriority="high">
+
+  <!-- Resource Hints (DNS Prefetch & Preconnect) -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+  <!-- Google Fonts: Hind Siliguri for Bengali -->
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN (High performance standalone utility) -->
@@ -275,7 +286,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
   </nav>
 
   <!-- ৩. হিরো সেকশন (কম্বো কিচেন লাইফস্টাইল ব্যাকগ্রাউন্ড) -->
-  <header id="hero" class="relative overflow-hidden bg-cover bg-[position:72%_center] md:bg-right py-14 sm:py-20 md:py-28 min-h-[520px] md:min-h-[580px] flex items-center" style="background-image: url('assets/images/hero-bg.jpg?v=6');">
+  <header id="hero" class="relative overflow-hidden bg-cover bg-[position:72%_center] md:bg-right py-14 sm:py-20 md:py-28 min-h-[520px] md:min-h-[580px] flex items-center" style="background-image: url('assets/images/hero-bg.jpg?v=7');">
     <!-- সফিস্টিকেটেড গ্রেডিয়েন্ট ওভারলে: টেক্সট স্পষ্ট পড়ার জন্য ডার্ক গ্রেডিয়েন্ট এবং ডানে কম্বো প্রোডাক্ট ও গৃহিণীর দৃশ্য সম্পূর্ণ স্বচ্ছ ও স্পষ্ট -->
     <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/35 md:from-black/85 md:via-black/45 md:to-transparent pointer-events-none"></div>
 
@@ -373,7 +384,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (ক): বটি ছাড়া কাটাকাটির ঝামেলা -->
             <div class="group relative rounded-2xl overflow-hidden border border-red-200 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/boti-problem-cutting.jpg?v=5" alt="বটি ছাড়া কাটাকাটির ঝামেলা" class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/boti-problem-cutting.jpg?v=6" alt="বটি ছাড়া কাটাকাটির ঝামেলা" class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy" decoding="async">
               </div>
               <!-- বটম মিনিমাল ক্যাপশন -->
               <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
@@ -386,7 +397,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (খ): নকশাপথের বটি ব্যবহারে সহজ জীবন -->
             <div class="group relative rounded-2xl overflow-hidden border border-emerald-300 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/boti-solution-table.jpg?v=4" alt="নকশাপথের বটি ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/boti-solution-table.jpg?v=6" alt="নকশাপথের বটি ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy" decoding="async">
               </div>
               <!-- বটম মিনিমাল ক্যাপশন -->
               <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
@@ -406,7 +417,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (ক): রুটি মেকার ছাড়া অস্বাস্থ্যকর তাড়াহুড়ো -->
             <div class="group relative rounded-2xl overflow-hidden border border-red-200 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/problem-uneven-roti.jpg" alt="রুটি মেকার ছাড়া বেলার ক্লান্তি ও ঝামেলা" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/problem-uneven-roti.jpg?v=6" alt="রুটি মেকার ছাড়া বেলার ক্লান্তি ও ঝামেলা" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy" decoding="async">
               </div>
               <!-- বটম মিনিমাল ক্যাপশন -->
               <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
@@ -419,7 +430,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (খ): নকশাপথ রুটি মেকারে সহজ জীবন -->
             <div class="group relative rounded-2xl overflow-hidden border border-emerald-300 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/roti-maker-large.jpg" alt="নকশাপথের রুটি মেকার ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/roti-maker-large.jpg?v=6" alt="নকশাপথের রুটি মেকার ব্যবহারে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" loading="lazy" decoding="async">
               </div>
               <!-- বটম মিনিমাল ক্যাপশন -->
               <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left">
@@ -462,7 +473,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-floor.jpg" alt="12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-floor.jpg?v=6" alt="12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
                 ২২% ছাড়
               </span>
@@ -494,7 +505,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-clamp.jpg" alt="ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-clamp.jpg?v=6" alt="ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
                 ২৭% ছাড়
               </span>
@@ -526,7 +537,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/roti-maker-small.jpg" alt="ছোট সাইজের রুটি মেকার" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/roti-maker-small.jpg?v=6" alt="ছোট সাইজের রুটি মেকার" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
                 স্মল মেকার
               </span>
@@ -564,7 +575,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/roti-maker-large.jpg" alt="বড় সাইজের রুটি মেকার" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/roti-maker-large.jpg?v=6" alt="বড় সাইজের রুটি মেকার" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-amber-500 text-white shadow-sm">
                 বিগ মেকার
               </span>
@@ -735,7 +746,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ইমেজ -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 border border-stone-200/70 mb-4 group">
-              <img src="assets/images/use-ruti-step.jpg?v=2" alt="রুটি মেকার ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/use-ruti-step.jpg?v=3" alt="রুটি মেকার ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy" decoding="async">
             </div>
 
             <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
@@ -775,7 +786,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <div>
             <!-- প্রোডাক্ট ইমেজ -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 border border-stone-200/70 mb-4 group">
-              <img src="assets/images/use-boti-step.jpg?v=2" alt="মডার্ন বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/use-boti-step.jpg?v=3" alt="মডার্ন বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy" decoding="async">
             </div>
 
             <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
