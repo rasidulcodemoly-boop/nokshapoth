@@ -349,66 +349,25 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           </h2>
         </div>
 
-        <!-- স্লাইড নেভিগেশন কন্ট্রোলস (ট্যাবস + অ্যারো বাটন) -->
+        <!-- স্লাইড নেভিগেশন কন্ট্রোলস (ট্যাবস) -->
         <div class="flex items-center space-x-2">
-          <!-- ৩টি স্লাইড ট্যাব পিল বাটন -->
+          <!-- ২টি স্লাইড ট্যাব পিল বাটন (বটি ও রুটি মেকার) -->
           <div class="inline-flex p-1 bg-stone-200/80 rounded-xl space-x-1" role="tablist">
-            <button onclick="setComparisonSlide(0)" id="slide-tab-0" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200 whitespace-nowrap" role="tab">
-              ১. নকশাপথ লাইফ
+            <button onclick="setComparisonSlide(0)" id="slide-tab-0" class="slide-nav-tab px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-gray-900 shadow-sm border border-stone-200 whitespace-nowrap" role="tab" aria-selected="true">
+              ১. বটি
             </button>
-            <button onclick="setComparisonSlide(1)" id="slide-tab-1" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 whitespace-nowrap" role="tab">
-              ২. বটি
-            </button>
-            <button onclick="setComparisonSlide(2)" id="slide-tab-2" class="slide-nav-tab px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 whitespace-nowrap" role="tab">
-              ৩. রুটি মেকার
+            <button onclick="setComparisonSlide(1)" id="slide-tab-1" class="slide-nav-tab px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 hover:text-gray-900 whitespace-nowrap" role="tab" aria-selected="false">
+              ২. রুটি মেকার
             </button>
           </div>
-
-
         </div>
       </div>
 
-            <!-- স্লাইডার কন্টেইনার (৩টি সক্রিয় স্লাইড ভিউ) -->
+      <!-- স্লাইডার কন্টেইনার (২টি সক্রিয় স্লাইড ভিউ) -->
       <div id="comparison-slider-viewport" class="relative rounded-3xl bg-white border border-stone-200 shadow-xl overflow-hidden">
         
-        <!-- ==================== স্লাইড ১: নকশাপথ লাইফ ==================== -->
+        <!-- ==================== স্লাইড ১: বটি (২টি ইমেজ কম্প্যারিজন) ==================== -->
         <div id="comparison-slide-0" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 block">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
-            
-            <!-- বাম পাশের মিনিমাল টেক্সট -->
-            <div class="md:col-span-6 space-y-4 text-left">
-              <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-                ✨ সহজ জীবন, আরামদায়ক রান্নাঘর
-              </span>
-
-              <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
-                নকশাপথ দিয়ে রান্নাঘরের প্রতিটি মুহূর্ত হোক <span class="text-green-deep">সহজ ও আনন্দময়</span>
-              </h3>
-
-              <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-                সকালের কাটাকাটি আর রুটি বেলার দীর্ঘ খাটুনি শেষ হবে মাত্র কয়েক মিনিটেই। নকশাপথ আপনার রান্নাঘরকে করে তুলবে আধুনিক, নিরাপদ ও দ্রুততম।
-              </p>
-
-              <div class="pt-2">
-                <button onclick="scrollToCheckout()" class="btn-navbar-cta px-6 py-3 rounded-xl text-white font-bold text-sm shadow-md inline-flex items-center space-x-2">
-                  <span>প্যাকেজ ও দাম দেখুন</span>
-                  <span>→</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- ডান পাশের লাইফস্টাইল ফটো -->
-            <div class="md:col-span-6">
-              <div class="relative rounded-2xl overflow-hidden aspect-[16/11] shadow-lg border border-stone-200 group">
-                <img src="assets/images/how-to-use-lifestyle.jpg" alt="নকশাপথ দিয়ে সহজ জীবন" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ==================== স্লাইড ২: বটি (২টি ইমেজ কম্প্যারিজন) ==================== -->
-        <div id="comparison-slide-1" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 hidden">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             
             <!-- ইমেজ (ক): বটি ছাড়া কাটাকাটির ঝামেলা -->
@@ -454,8 +413,8 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           </div>
         </div>
 
-        <!-- ==================== স্লাইড ৩: রুটি মেকার (২টি ইমেজ কম্প্যারিজন) ==================== -->
-        <div id="comparison-slide-2" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 hidden">
+        <!-- ==================== স্লাইড ২: রুটি মেকার (২টি ইমেজ কম্প্যারিজন) ==================== -->
+        <div id="comparison-slide-1" class="comparison-slide p-6 sm:p-8 md:p-10 transition-opacity duration-300 hidden">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             
             <!-- ইমেজ (ক): রুটি মেকার ছাড়া অস্বাস্থ্যকর তাড়াহুড়ো -->
@@ -505,7 +464,6 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
         <div class="flex sm:hidden items-center justify-center space-x-2 py-3 bg-stone-50 border-t border-stone-100">
           <button onclick="setComparisonSlide(0)" id="mobile-dot-0" class="w-3 h-3 rounded-full transition-all duration-300 bg-green-deep scale-125" aria-label="Slide 1"></button>
           <button onclick="setComparisonSlide(1)" id="mobile-dot-1" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 2"></button>
-          <button onclick="setComparisonSlide(2)" id="mobile-dot-2" class="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-stone-300" aria-label="Slide 3"></button>
         </div>
       </div>
 

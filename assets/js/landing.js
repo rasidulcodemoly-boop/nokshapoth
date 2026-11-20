@@ -467,10 +467,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ==========================================
-// ৩টি স্লাইডের আধুনিক কম্প্যারিশন স্লাইডার লজিক
+// ২টি স্লাইডের আধুনিক কম্প্যারিশন স্লাইডার লজিক (বটি ও রুটি মেকার)
 // ==========================================
 let currentComparisonSlide = 0;
-const totalComparisonSlides = 3;
+const totalComparisonSlides = 2;
 let autoSlideTimer = null;
 const AUTO_SLIDE_INTERVAL = 3000; // প্রতি ৩ সেকেন্ড পর অটো চেঞ্জ
 
