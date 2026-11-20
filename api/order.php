@@ -70,12 +70,12 @@ if (is_array($items) && count($items) > 0) {
     if ($variant === 'small') {
         $variantTitle = 'ছোট সাইজের রুটি মেকার';
         $productPrice = 1390;
-    } elseif ($variant === 'boti_small') {
-        $variantTitle = 'ছোট সাইজের বটি';
-        $productPrice = 690;
-    } elseif ($variant === 'boti_large') {
-        $variantTitle = 'বড় সাইজের বটি';
-        $productPrice = 890;
+    } elseif ($variant === 'boti_small' || $variant === 'boti_floor') {
+        $variantTitle = '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি';
+        $productPrice = 1490;
+    } elseif ($variant === 'boti_large' || $variant === 'boti_clamp') {
+        $variantTitle = 'ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]';
+        $productPrice = 1390;
     }
 }
 

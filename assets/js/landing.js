@@ -11,8 +11,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     // ১. ক্যাটালগ ও ডাটা ডেফিনিশন
     const productCatalog = {
-        boti_small: { name: 'ছোট সাইজের বটি', price: 690 },
-        boti_large: { name: 'বড় সাইজের বটি', price: 890 },
+        boti_small: { name: '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি', price: 1490 },
+        boti_large: { name: 'ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]', price: 1390 },
+        boti_floor: { name: '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি', price: 1490 },
+        boti_clamp: { name: 'ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]', price: 1390 },
         small: { name: 'ছোট সাইজের রুটি মেকার', price: 1390 },
         big: { name: 'বড় সাইজের রুটি মেকার', price: 1490 }
     };

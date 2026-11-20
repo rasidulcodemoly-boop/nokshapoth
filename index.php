@@ -485,30 +485,30 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
       <!-- ৪টি মিনিমাল প্রোডাক্ট কার্ড -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         
-        <!-- কার্ড ১: ছোট সাইজের বটি -->
+        <!-- কার্ড ১: ফ্লোর মহারানী বটি -->
         <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative text-gray-800 border border-white/20 group">
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-small.jpg?v=3" alt="ছোট সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-floor.jpg" alt="12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
-                স্মল বটি
+                ২২% ছাড়
               </span>
             </div>
 
-            <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug">ছোট সাইজের বটি</h3>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug">12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি</h3>
             <p class="text-xs text-gray-500 mt-1.5 leading-relaxed">
-              শাকসবজি, ফলমূল ও সালাদ দ্রুত ও নিখুঁতভাবে কাটার জন্য হালকা ও ধারালো বটি।
+              মেঝে বা সমতলে বসে আরামদায়ক ও নিখুঁত কাটিংয়ের জন্য প্রিমিয়াম ফোল্ডিং বটি।
             </p>
           </div>
 
           <div class="mt-4 pt-3 border-t border-gray-100">
             <div class="flex items-baseline justify-between mb-3">
               <div class="flex items-baseline space-x-1.5">
-                <span class="text-lg sm:text-xl font-extrabold text-green-deep">৳৬৯০</span>
-                <span class="text-xs line-through text-gray-400">৳৯৫০</span>
+                <span class="text-lg sm:text-xl font-extrabold text-green-deep">৳১,৪৯০</span>
+                <span class="text-xs line-through text-gray-400">৳১,৯০০</span>
               </div>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">সেভ ৳২৬০</span>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">সেভ ৳৪১০</span>
             </div>
             <button data-variant="boti_small" class="btn-select-variant btn-navbar-cta w-full py-2.5 px-3 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 group/b">
               <span>অর্ডার করুন</span>
@@ -517,30 +517,30 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           </div>
         </div>
 
-        <!-- কার্ড ২: বড় সাইজের বটি -->
+        <!-- কার্ড ২: টেবিল ক্ল্যাম্প মহারানী বটি -->
         <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative text-gray-800 border border-white/20 group">
           <div>
             <!-- প্রোডাক্ট ছবি -->
             <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-4 border border-stone-100">
-              <img src="assets/images/boti-large.jpg?v=3" alt="বড় সাইজের বটি" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              <img src="assets/images/boti-clamp.jpg" alt="ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
               <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/95 backdrop-blur-sm text-stone-700 shadow-sm border border-black/5">
-                বিগ বটি
+                ২৭% ছাড়
               </span>
             </div>
 
-            <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug">বড় সাইজের বটি</h3>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 leading-snug">ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]</h3>
             <p class="text-xs text-gray-500 mt-1.5 leading-relaxed">
-              মাছ, মাংস, মিষ্টি কুমড়া ও শক্ত তরকারি সহজে কাটার মজবুত ও ধারালো বটি।
+              কিচেন স্ল্যাব বা ডাইনিং টেবিলে ক্ল্যাম্প দিয়ে সহজে লক করে দাঁড়িয়ে কাটার আধুনিক বটি।
             </p>
           </div>
 
           <div class="mt-4 pt-3 border-t border-gray-100">
             <div class="flex items-baseline justify-between mb-3">
               <div class="flex items-baseline space-x-1.5">
-                <span class="text-lg sm:text-xl font-extrabold text-green-deep">৳৮৯০</span>
-                <span class="text-xs line-through text-gray-400">৳১,২৫০</span>
+                <span class="text-lg sm:text-xl font-extrabold text-green-deep">৳১,৩৯০</span>
+                <span class="text-xs line-through text-gray-400">৳১,৯০০</span>
               </div>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">সেভ ৳৩৬০</span>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">সেভ ৳৫১০</span>
             </div>
             <button data-variant="boti_large" class="btn-select-variant btn-navbar-cta w-full py-2.5 px-3 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center space-x-1 group/b">
               <span>অর্ডার করুন</span>
@@ -945,18 +945,18 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="product-selection-grid">
               
-              <!-- ১. ছোট সাইজের বটি -->
-              <div class="product-item-card p-3.5 rounded-xl border-2 border-gray-200 bg-stone-50 hover:border-gray-300 transition-all cursor-pointer select-none" data-product="boti_small" data-price="690" data-name="ছোট সাইজের বটি">
+              <!-- ১. ফ্লোর মহারানী বটি -->
+              <div class="product-item-card p-3.5 rounded-xl border-2 border-gray-200 bg-stone-50 hover:border-gray-300 transition-all cursor-pointer select-none" data-product="boti_small" data-price="1490" data-name="12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-3">
                     <input type="checkbox" class="product-item-checkbox rounded text-green-600 focus:ring-green-500 h-4 w-4 pointer-events-none" data-target="boti_small">
                     <div>
-                      <div class="font-bold text-sm text-gray-900">ছোট সাইজের বটি</div>
-                      <div class="text-xs text-gray-500">শাকসবজি ও সালাদ কাটার জন্য</div>
+                      <div class="font-bold text-sm text-gray-900">12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি</div>
+                      <div class="text-xs text-gray-500">মেঝেতে বসে আরামে কাটার জন্য</div>
                     </div>
                   </div>
                   <div class="text-right">
-                    <div class="font-extrabold text-green-deep text-base">৳৬৯০</div>
+                    <div class="font-extrabold text-green-deep text-base">৳১,৪৯০</div>
                   </div>
                 </div>
 
@@ -971,18 +971,18 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
                 </div>
               </div>
 
-              <!-- ২. বড় সাইজের বটি -->
-              <div class="product-item-card p-3.5 rounded-xl border-2 border-gray-200 bg-stone-50 hover:border-gray-300 transition-all cursor-pointer select-none" data-product="boti_large" data-price="890" data-name="বড় সাইজের বটি">
+              <!-- ২. টেবিল ক্ল্যাম্প মহারানী বটি -->
+              <div class="product-item-card p-3.5 rounded-xl border-2 border-gray-200 bg-stone-50 hover:border-gray-300 transition-all cursor-pointer select-none" data-product="boti_large" data-price="1390" data-name="ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center space-x-3">
                     <input type="checkbox" class="product-item-checkbox rounded text-green-600 focus:ring-green-500 h-4 w-4 pointer-events-none" data-target="boti_large">
                     <div>
-                      <div class="font-bold text-sm text-gray-900">বড় সাইজের বটি</div>
-                      <div class="text-xs text-gray-500">মাছ, মাংস ও তরকারি কাটার জন্য</div>
+                      <div class="font-bold text-sm text-gray-900">ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]</div>
+                      <div class="text-xs text-gray-500">টেবিলে ক্ল্যাম্প লক করে কাটার জন্য</div>
                     </div>
                   </div>
                   <div class="text-right">
-                    <div class="font-extrabold text-green-deep text-base">৳৮৯০</div>
+                    <div class="font-extrabold text-green-deep text-base">৳১,৩৯০</div>
                   </div>
                 </div>
 
