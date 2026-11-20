@@ -734,8 +734,8 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
         <div class="bg-stone-50/80 rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-sm flex flex-col justify-between hover:border-green-300 transition-all duration-200">
           <div>
             <!-- প্রোডাক্ট ইমেজ -->
-            <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-100 border border-stone-200/70 mb-4 group">
-              <img src="assets/images/use-ruti-step.jpg" alt="রুটি মেকার ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+            <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 border border-stone-200/70 mb-4 group">
+              <img src="assets/images/use-ruti-step.jpg?v=2" alt="রুটি মেকার ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
             </div>
 
             <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
@@ -774,8 +774,8 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
         <div class="bg-stone-50/80 rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-sm flex flex-col justify-between hover:border-green-300 transition-all duration-200">
           <div>
             <!-- প্রোডাক্ট ইমেজ -->
-            <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-100 border border-stone-200/70 mb-4 group">
-              <img src="assets/images/use-boti-step.jpg" alt="মডার্ন বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+            <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 border border-stone-200/70 mb-4 group">
+              <img src="assets/images/use-boti-step.jpg?v=2" alt="মডার্ন বটি ব্যবহারের পদ্ধতি" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
             </div>
 
             <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-3 flex items-center space-x-2">
