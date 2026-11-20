@@ -373,7 +373,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <!-- ইমেজ (ক): বটি ছাড়া কাটাকাটির ঝামেলা -->
             <div class="group relative rounded-2xl overflow-hidden border border-red-200 bg-stone-900 shadow-md">
               <div class="aspect-[16/11] overflow-hidden">
-                <img src="assets/images/boti-problem-cutting.jpg?v=4" alt="বটি ছাড়া কাটাকাটির ঝামেলা" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                <img src="assets/images/boti-problem-cutting.jpg?v=5" alt="বটি ছাড়া কাটাকাটির ঝামেলা" class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500 opacity-90">
               </div>
               <!-- টপ ব্যাজ -->
               <div class="absolute top-3.5 left-3.5">
