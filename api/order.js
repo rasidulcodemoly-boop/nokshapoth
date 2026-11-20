@@ -59,7 +59,7 @@ module.exports = async (req, res) => {
       }
     }
 
-    const delivery = data.delivery_zone === 'outside' ? 120 : 60;
+    const delivery = data.delivery_zone === 'outside' ? 150 : 80;
     const total = price + delivery;
 
     res.status(200).json({

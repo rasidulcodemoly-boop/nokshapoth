@@ -872,7 +872,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             <svg class="faq-icon w-4 h-4 text-gray-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </div>
           <div class="faq-content px-4 sm:px-5 pb-3.5 text-xs md:text-sm text-gray-600 leading-relaxed border-t border-stone-200/60 pt-2.5 bg-white">
-            ঢাকার ভেতরে ডেলিভারি চার্জ মাত্র ৬০ টাকা (১-২ দিনে ডেলিভারি) এবং ঢাকার বাইরে ১২০ টাকা (২-৩ দিনে সারা দেশের জেলা/উপজেলা পর্যায়ে ডেলিভারি)।
+            ঢাকার ভেতরে ডেলিভারি চার্জ মাত্র ৮০ টাকা (১-২ দিনে ডেলিভারি) এবং ঢাকার বাইরে ১৫০ টাকা (২-৩ দিনে সারা দেশের জেলা/উপজেলা পর্যায়ে ডেলিভারি)।
           </div>
         </div>
 
@@ -1041,7 +1041,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
                   <input type="radio" name="delivery_zone" value="inside" checked class="text-green-600 focus:ring-green-500">
                   <span class="font-medium text-gray-800">ঢাকার ভেতরে</span>
                 </div>
-                <span class="font-bold text-gray-900">৳৬০</span>
+                <span class="font-bold text-gray-900">৳৮০</span>
               </label>
 
               <label class="flex items-center justify-between p-3.5 rounded-xl border border-gray-300 hover:border-green-500 cursor-pointer text-sm">
@@ -1049,7 +1049,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
                   <input type="radio" name="delivery_zone" value="outside" class="text-green-600 focus:ring-green-500">
                   <span class="font-medium text-gray-800">ঢাকার বাইরে (সারা দেশ)</span>
                 </div>
-                <span class="font-bold text-gray-900">৳১২০</span>
+                <span class="font-bold text-gray-900">৳১৫০</span>
               </label>
             </div>
           </div>
@@ -1076,11 +1076,11 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
             </div>
             <div class="flex justify-between text-gray-600">
               <span>ডেলিভারি চার্জ:</span>
-              <span id="summary-delivery-charge" class="font-semibold text-gray-900">৳৬০</span>
+              <span id="summary-delivery-charge" class="font-semibold text-gray-900">৳৮০</span>
             </div>
             <div class="border-t border-gray-200 pt-2 flex justify-between text-base font-bold text-gray-900">
               <span>সর্বমোট প্রদেয়:</span>
-              <span id="summary-total-amount" class="text-xl font-extrabold text-green-deep">৳১,৫৫০</span>
+              <span id="summary-total-amount" class="text-xl font-extrabold text-green-deep">৳১,৫৭০</span>
             </div>
             <div class="text-[11px] text-gray-500 pt-1 text-center">
               (পণ্য হাতে পাওয়ার পর ডেলিভারিম্যানকে এই টাকা পরিশোধ করবেন)
@@ -1150,7 +1150,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
       <div class="text-xs text-green-100 space-x-4">
         <span>হটলাইন: <?php echo STORE_PHONE; ?></span>
         <span>•</span>
-        <span>হোয়াটসঅ্যাপ: <?php echo STORE_WHATSAPP; ?></span>
+        <span>হোয়াটসঅ্যাপ: <?php echo STORE_WHATSAPP_DISPLAY; ?></span>
       </div>
       <div class="text-xs text-gray-300">
         © <?php echo date('Y'); ?> Nokshapoth. সর্বস্বত্ব সংরক্ষিত।

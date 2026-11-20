@@ -25,9 +25,10 @@ define('DB_NAME', 'your_nokshapoth_main_db');
 // ৪. স্টোর ও ডেলিভারি তথ্য
 define('STORE_NAME', 'নকশাপথ');
 define('STORE_PHONE', '01707856728');
-define('STORE_WHATSAPP', '8801356012857');
-define('DELIVERY_CHARGE_INSIDE_DHAKA', 60);
-define('DELIVERY_CHARGE_OUTSIDE_DHAKA', 120);
+define('STORE_WHATSAPP', '8801707856728');
+define('STORE_WHATSAPP_DISPLAY', '01707856728');
+define('DELIVERY_CHARGE_INSIDE_DHAKA', 80);
+define('DELIVERY_CHARGE_OUTSIDE_DHAKA', 150);
 
 // ৫. ব্যাকআপ স্টোরেজ ফোল্ডার (যদি ডাটাবেজে সাময়িক কোনো ত্রুটি থাকে, তবুও যেন কোনো অর্ডার মিস না হয়)
 define('BACKUP_ORDERS_DIR', __DIR__ . '/data/orders/');

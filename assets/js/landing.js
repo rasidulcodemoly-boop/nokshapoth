@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const deliveryCharges = {
-        inside: 60,
-        outside: 120
+        inside: 80,
+        outside: 150
     };
 
     // কার্ট স্টেট: { productId: quantity }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // ডেলিভারি ও সর্বমোট হিসাব
-        const deliveryCharge = deliveryCharges[currentZone] || 60;
+        const deliveryCharge = deliveryCharges[currentZone] || 80;
         const total = productSubtotal > 0 ? (productSubtotal + deliveryCharge) : 0;
 
         // সামারি টেক্সট আপডেট
