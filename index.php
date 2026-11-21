@@ -1090,7 +1090,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
               <span id="summary-delivery-charge" class="font-semibold text-gray-900">৳৮০</span>
             </div>
             <div class="border-t border-gray-200 pt-2 flex justify-between text-base font-bold text-gray-900">
-              <span>সর্বমোট প্রদেয়:</span>
+              <span>সর্বমোট মূল্য:</span>
               <span id="summary-total-amount" class="text-xl font-extrabold text-green-deep">৳১,৫৭০</span>
             </div>
             <div class="text-[11px] text-gray-500 pt-1 text-center">
