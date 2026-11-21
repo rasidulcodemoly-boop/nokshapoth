@@ -23,7 +23,7 @@
   <header class="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <a href="/" class="flex items-center space-x-2">
+        <a href="./" class="flex items-center space-x-2">
           <img src="assets/images/logo.png" alt="নকশাপথ লোগো" class="h-9 w-auto">
           <div>
             <span class="text-lg font-bold text-stone-900 block leading-tight">নকশাপথ ব্যাকএন্ড</span>
@@ -41,7 +41,7 @@
           <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
           CSV এক্সপোর্ট
         </button>
-        <a href="/" target="_blank" class="inline-flex items-center px-3 py-1.5 border border-stone-200 rounded-lg text-xs font-semibold text-stone-600 bg-stone-100 hover:bg-stone-200 transition">
+        <a href="./" target="_blank" class="inline-flex items-center px-3 py-1.5 border border-stone-200 rounded-lg text-xs font-semibold text-stone-600 bg-stone-100 hover:bg-stone-200 transition">
           মূল সাইট দেখুন &rarr;
         </a>
       </div>
@@ -221,10 +221,15 @@
 
     async function loadAllData() {
       try {
-        const [ordersRes, leadsRes] = await Promise.all([
-          fetch('/api/admin/orders').then(r => r.json()).catch(() => ({ orders: [] })),
-          fetch('/api/admin/leads').then(r => r.json()).catch(() => ({ leads: [] }))
-        ]);
+        const fetchOrders = () => fetch('api/admin/orders')
+          .then(r => r.ok ? r.json() : fetch('api/admin.php?type=orders').then(res => res.json()))
+          .catch(() => fetch('api/admin.php?type=orders').then(res => res.json()).catch(() => ({ orders: [] })));
+
+        const fetchLeads = () => fetch('api/admin/leads')
+          .then(r => r.ok ? r.json() : fetch('api/admin.php?type=leads').then(res => res.json()))
+          .catch(() => fetch('api/admin.php?type=leads').then(res => res.json()).catch(() => ({ leads: [] })));
+
+        const [ordersRes, leadsRes] = await Promise.all([fetchOrders(), fetchLeads()]);
 
         globalOrders = ordersRes.orders || [];
         globalLeads = leadsRes.leads || [];
