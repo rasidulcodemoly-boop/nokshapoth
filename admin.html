@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নকশাপথ - ব্যাকএন্ড অর্ডার ও লিড ম্যানেজমেন্ট</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; }
+    .bg-green-brand { background-color: #39681A; }
+    .text-green-brand { color: #39681A; }
+    .border-green-brand { border-color: #39681A; }
+  </style>
+</head>
+<body class="text-stone-800 antialiased min-h-screen flex flex-col">
+
+  <!-- হেডার / ন্যাভবার -->
+  <header class="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-2">
+          <img src="assets/images/logo.png" alt="নকশাপথ লোগো" class="h-9 w-auto">
+          <div>
+            <span class="text-lg font-bold text-stone-900 block leading-tight">নকশাপথ ব্যাকএন্ড</span>
+            <span class="text-[11px] text-stone-500 block">অর্ডার ও কাস্টমার ডেটা মনিটর</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <button onclick="loadAllData()" class="inline-flex items-center px-3 py-1.5 border border-stone-300 rounded-lg text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 transition cursor-pointer">
+          <svg class="w-4 h-4 mr-1 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          রিফ্রেশ
+        </button>
+        <button onclick="exportOrdersToCSV()" class="inline-flex items-center px-3 py-1.5 border border-green-700 bg-green-brand text-white rounded-lg text-xs font-semibold hover:bg-green-800 transition cursor-pointer shadow-sm">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          CSV এক্সপোর্ট
+        </button>
+        <a href="/" target="_blank" class="inline-flex items-center px-3 py-1.5 border border-stone-200 rounded-lg text-xs font-semibold text-stone-600 bg-stone-100 hover:bg-stone-200 transition">
+          মূল সাইট দেখুন &rarr;
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- মূল কন্টেন্ট -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ইনফো নোটিশ -->
+    <div class="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start space-x-3 text-sm text-amber-900">
+      <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <div>
+        <span class="font-bold">ব্যাকএন্ড ডেটা স্টোরেজ অবস্থান:</span> প্রতিটি অর্ডারের পূর্ণাঙ্গ ডেটা আপনার লোকাল প্রোজেক্টের <code class="bg-amber-100 px-1.5 py-0.5 rounded font-mono text-xs font-bold text-amber-950">data/orders/</code> ডিরেক্টরিতে প্রতিটি অর্ডারের আইডি অনুযায়ী JSON ফরম্যাটে সংরক্ষিত হয়। নিচে সমস্ত ডেটা স্বয়ংক্রিয়ভাবে তালিকাভুক্ত রয়েছে।
+      </div>
+    </div>
+
+    <!-- স্ট্যাটস কার্ডস -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+        <span class="text-xs font-semibold text-stone-500 block">মোট অর্ডার</span>
+        <span id="stat-total-orders" class="text-2xl sm:text-3xl font-extrabold text-stone-900 mt-1 block">০</span>
+        <span class="text-[11px] text-green-700 font-medium mt-1 block">সফলভাবে প্রাপ্ত অর্ডার</span>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+        <span class="text-xs font-semibold text-stone-500 block">মোট বিক্রয় মূল্য</span>
+        <span id="stat-total-revenue" class="text-2xl sm:text-3xl font-extrabold text-green-brand mt-1 block">৳০</span>
+        <span class="text-[11px] text-stone-500 font-medium mt-1 block">ডেলিভারি চার্জ সহ মোট প্রদেয়</span>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+        <span class="text-xs font-semibold text-stone-500 block">আজকের অর্ডার</span>
+        <span id="stat-today-orders" class="text-2xl sm:text-3xl font-extrabold text-blue-600 mt-1 block">০</span>
+        <span class="text-[11px] text-stone-500 font-medium mt-1 block">গত ২৪ ঘণ্টায় প্রাপ্ত</span>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
+        <span class="text-xs font-semibold text-stone-500 block">অসম্পূর্ণ লিডস (কার্ট ড্রপ)</span>
+        <span id="stat-total-leads" class="text-2xl sm:text-3xl font-extrabold text-amber-600 mt-1 block">০</span>
+        <span class="text-[11px] text-stone-500 font-medium mt-1 block">নম্বর দিয়ে অর্ডার সম্পন্ন করেনি</span>
+      </div>
+    </div>
+
+    <!-- ট্যাব ও ফিল্টার কন্ট্রোল -->
+    <div class="bg-white rounded-xl border border-stone-200 shadow-xs mb-6 p-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <!-- ট্যাব বাটন -->
+        <div class="flex items-center space-x-2">
+          <button id="tab-orders-btn" onclick="switchTab('orders')" class="px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-green-brand text-white shadow-xs transition">
+            📦 নিশ্চিত অর্ডার (<span id="badge-orders-count">০</span>)
+          </button>
+          <button id="tab-leads-btn" onclick="switchTab('leads')" class="px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-stone-100 text-stone-700 hover:bg-stone-200 transition">
+            📋 ড্রপড-অফ লিডস (<span id="badge-leads-count">০</span>)
+          </button>
+        </div>
+
+        <!-- সার্চ বক্স -->
+        <div class="relative w-full sm:w-72">
+          <input type="text" id="search-input" onkeyup="filterTable()" placeholder="নাম, মোবাইল বা অর্ডার আইডি খুঁজুন..." class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent">
+          <svg class="w-4 h-4 text-stone-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ১. অর্ডার টেবিল সেকশন -->
+    <div id="section-orders" class="bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-stone-50 border-b border-stone-200 text-stone-600 font-bold uppercase text-[11px] tracking-wider">
+              <th class="py-3 px-4">অর্ডার আইডি</th>
+              <th class="py-3 px-4">তারিখ ও সময়</th>
+              <th class="py-3 px-4">কাস্টমার</th>
+              <th class="py-3 px-4">ঠিকানা</th>
+              <th class="py-3 px-4">অর্ডারকৃত পণ্য</th>
+              <th class="py-3 px-4">ডেলিভারি চার্জ</th>
+              <th class="py-3 px-4 text-right">সর্বমোট মূল্য</th>
+              <th class="py-3 px-4 text-center">ডেটা ভিউ</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body" class="divide-y divide-stone-100">
+            <tr>
+              <td colspan="8" class="text-center py-8 text-stone-400">অর্ডার লোড হচ্ছে...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ২. লিডস টেবিল সেকশন (কার্ট রিকভারি) -->
+    <div id="section-leads" class="hidden bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-stone-50 border-b border-stone-200 text-stone-600 font-bold uppercase text-[11px] tracking-wider">
+              <th class="py-3 px-4">মোবাইল নম্বর</th>
+              <th class="py-3 px-4">কাস্টমারের নাম</th>
+              <th class="py-3 px-4">আংশিক ঠিকানা</th>
+              <th class="py-3 px-4">নির্বাচিত প্রোডাক্ট</th>
+              <th class="py-3 px-4">সর্বশেষ টাইপ করার সময়</th>
+              <th class="py-3 px-4 text-center">রিকভারি অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body" class="divide-y divide-stone-100">
+            <tr>
+              <td colspan="6" class="text-center py-8 text-stone-400">লিডস লোড হচ্ছে...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ডেটা ডিটেইলস মডাল (JSON Viewer) -->
+  <div id="detail-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="px-5 py-4 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+        <div>
+          <h3 class="font-bold text-stone-900 text-base" id="modal-title">অর্ডার ব্যাকএন্ড পেলোড</h3>
+          <p class="text-xs text-stone-500" id="modal-subtitle">JSON ডেটা ও প্যারামিটার স্পেসিফিকেশন</p>
+        </div>
+        <button onclick="closeModal()" class="text-stone-400 hover:text-stone-700 p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4">
+        <!-- ফিল্ডস সামারি কার্ড -->
+        <div class="grid grid-cols-2 gap-3 text-xs bg-stone-50 p-3 rounded-xl border border-stone-200" id="modal-fields-summary">
+          <!-- ডায়নামিকালি লোড হবে -->
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-stone-700">র' ব্যাকএন্ড JSON (Raw Backend Data):</span>
+            <button onclick="copyRawJson()" class="text-xs font-semibold text-green-700 hover:underline inline-flex items-center">
+              <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              কপি করুন
+            </button>
+          </div>
+          <pre id="modal-json-content" class="bg-stone-900 text-stone-100 p-3.5 rounded-xl text-xs font-mono overflow-x-auto max-h-64 leading-relaxed"></pre>
+        </div>
+      </div>
+
+      <div class="px-5 py-3 border-t border-stone-200 bg-stone-50 flex justify-end">
+        <button onclick="closeModal()" class="px-4 py-2 bg-stone-800 text-white rounded-lg text-xs font-bold hover:bg-stone-900 transition">
+          বন্ধ করুন
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- স্ক্রিপ্টস -->
+  <script>
+    let globalOrders = [];
+    let globalLeads = [];
+    let activeTab = 'orders';
+    let currentModalJson = '';
+
+    function toBn(number) {
+      if (number === undefined || number === null) return '';
+      const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return number.toString().replace(/[0-9]/g, d => bnDigits[d]);
+    }
+
+    function formatDate(isoStr) {
+      if (!isoStr) return 'N/A';
+      try {
+        const d = new Date(isoStr);
+        return d.toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' }) + ' ' + d.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit' });
+      } catch (e) {
+        return isoStr;
+      }
+    }
+
+    async function loadAllData() {
+      try {
+        const [ordersRes, leadsRes] = await Promise.all([
+          fetch('/api/admin/orders').then(r => r.json()).catch(() => ({ orders: [] })),
+          fetch('/api/admin/leads').then(r => r.json()).catch(() => ({ leads: [] }))
+        ]);
+
+        globalOrders = ordersRes.orders || [];
+        globalLeads = leadsRes.leads || [];
+
+        renderStats();
+        renderOrdersTable(globalOrders);
+        renderLeadsTable(globalLeads);
+      } catch (err) {
+        console.error('Data load error:', err);
+      }
+    }
+
+    function renderStats() {
+      document.getElementById('stat-total-orders').innerText = toBn(globalOrders.length);
+      document.getElementById('badge-orders-count').innerText = toBn(globalOrders.length);
+      document.getElementById('badge-leads-count').innerText = toBn(globalLeads.length);
+      document.getElementById('stat-total-leads').innerText = toBn(globalLeads.length);
+
+      let totalRevenue = 0;
+      let todayCount = 0;
+      const today = new Date().toDateString();
+
+      globalOrders.forEach(o => {
+        totalRevenue += (Number(o.total_amount) || 0);
+        if (o.created_at && new Date(o.created_at).toDateString() === today) {
+          todayCount++;
+        }
+      });
+
+      document.getElementById('stat-total-revenue').innerText = '৳' + toBn(totalRevenue.toLocaleString('en-US'));
+      document.getElementById('stat-today-orders').innerText = toBn(todayCount);
+    }
+
+    function renderOrdersTable(orders) {
+      const tbody = document.getElementById('orders-table-body');
+      if (!orders || orders.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-stone-400">এখনো কোনো অর্ডার ডেটা নেই।</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = orders.map((o, idx) => {
+        const orderId = o.order_id || 'N/A';
+        const name = o.customer_name || 'নাম উল্লেখ নেই';
+        const phone = o.customer_phone || 'N/A';
+        const address = o.customer_address || 'ঠিকানা দেওয়া হয়নি';
+        const zone = o.delivery_zone || (o.delivery_charge == 150 ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে');
+        const product = o.product_name || o.product_title || 'বড় সাইজের রুটি মেকার';
+        const deliveryCharge = o.delivery_charge || 80;
+        const total = o.total_amount || 1570;
+        const time = formatDate(o.created_at);
+
+        return `
+          <tr class="hover:bg-stone-50 transition border-b border-stone-100">
+            <td class="py-3 px-4 font-mono font-bold text-stone-900">${orderId}</td>
+            <td class="py-3 px-4 text-stone-500 whitespace-nowrap text-xs">${time}</td>
+            <td class="py-3 px-4">
+              <span class="font-bold text-stone-900 block">${name}</span>
+              <a href="tel:${phone}" class="text-green-brand font-mono hover:underline text-xs">${phone}</a>
+            </td>
+            <td class="py-3 px-4 text-stone-600 max-w-xs truncate" title="${address}">
+              <span class="block">${address}</span>
+              <span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[10px] font-semibold ${zone.includes('বাইরে') ? 'bg-amber-100 text-amber-800' : 'bg-green-100 text-green-800'}">${zone}</span>
+            </td>
+            <td class="py-3 px-4 text-stone-800 font-medium">${product}</td>
+            <td class="py-3 px-4 text-stone-600 font-semibold font-mono">৳${toBn(deliveryCharge)}</td>
+            <td class="py-3 px-4 text-right font-extrabold text-green-brand font-mono text-base">৳${toBn(total.toLocaleString('en-US'))}</td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <button onclick='viewOrderDetails(${JSON.stringify(o).replace(/'/g, "&apos;")})' class="inline-flex items-center px-2.5 py-1 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded text-xs font-semibold transition cursor-pointer">
+                🔍 বিস্তারিত
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderLeadsTable(leads) {
+      const tbody = document.getElementById('leads-table-body');
+      if (!leads || leads.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center py-8 text-stone-400">কোনো ড্রপড-অফ লিড পাওয়া যায়নি।</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = leads.map(l => {
+        const phone = l.customer_phone || 'N/A';
+        const name = l.customer_name || 'নাম লিখেননি';
+        const address = l.customer_address || 'ঠিকানা দেননি';
+        const variant = l.product_variant || 'big';
+        const time = formatDate(l.updated_at);
+        const waMsg = encodeURIComponent(`আসসালামু আলাইকুম ${name !== 'নাম লিখেননি' ? name : ''}, নকশাপথ থেকে যোগাযোগ করছি। আপনি রুটি মেকার অর্ডার করার চেষ্টা করছিলেন। আপনার কোনো সাহায্য প্রয়োজন আছে কি?`);
+
+        return `
+          <tr class="hover:bg-amber-50/50 transition border-b border-stone-100">
+            <td class="py-3 px-4 font-mono font-bold text-stone-900">${phone}</td>
+            <td class="py-3 px-4 font-medium text-stone-800">${name}</td>
+            <td class="py-3 px-4 text-stone-500">${address}</td>
+            <td class="py-3 px-4 font-mono text-xs">${variant}</td>
+            <td class="py-3 px-4 text-stone-500 text-xs">${time}</td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <a href="https://wa.me/88${phone.replace(/[^0-9]/g, '')}?text=${waMsg}" target="_blank" class="inline-flex items-center px-2.5 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-xs font-semibold transition">
+                WhatsApp মেসেজ
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function switchTab(tab) {
+      activeTab = tab;
+      const ordersBtn = document.getElementById('tab-orders-btn');
+      const leadsBtn = document.getElementById('tab-leads-btn');
+      const ordersSec = document.getElementById('section-orders');
+      const leadsSec = document.getElementById('section-leads');
+
+      if (tab === 'orders') {
+        ordersBtn.className = 'px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-green-brand text-white shadow-xs transition';
+        leadsBtn.className = 'px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+        ordersSec.classList.remove('hidden');
+        leadsSec.classList.add('hidden');
+      } else {
+        leadsBtn.className = 'px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-amber-600 text-white shadow-xs transition';
+        ordersBtn.className = 'px-4 py-2 rounded-lg font-bold text-xs sm:text-sm bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+        leadsSec.classList.remove('hidden');
+        ordersSec.classList.add('hidden');
+      }
+      filterTable();
+    }
+
+    function filterTable() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      if (activeTab === 'orders') {
+        const filtered = globalOrders.filter(o => {
+          return (o.order_id && o.order_id.toLowerCase().includes(q)) ||
+                 (o.customer_name && o.customer_name.toLowerCase().includes(q)) ||
+                 (o.customer_phone && o.customer_phone.includes(q)) ||
+                 (o.customer_address && o.customer_address.toLowerCase().includes(q));
+        });
+        renderOrdersTable(filtered);
+      } else {
+        const filtered = globalLeads.filter(l => {
+          return (l.customer_phone && l.customer_phone.includes(q)) ||
+                 (l.customer_name && l.customer_name.toLowerCase().includes(q));
+        });
+        renderLeadsTable(filtered);
+      }
+    }
+
+    function viewOrderDetails(order) {
+      currentModalJson = JSON.stringify(order, null, 2);
+      document.getElementById('modal-title').innerText = `অর্ডার বিস্তারিত: ${order.order_id || ''}`;
+      document.getElementById('modal-subtitle').innerText = `তারিখ: ${formatDate(order.created_at)}`;
+      document.getElementById('modal-json-content').innerText = currentModalJson;
+
+      const summaryHtml = `
+        <div><span class="text-stone-500">নাম:</span> <span class="font-bold text-stone-800">${order.customer_name || 'N/A'}</span></div>
+        <div><span class="text-stone-500">মোবাইল:</span> <span class="font-bold font-mono text-green-brand">${order.customer_phone || 'N/A'}</span></div>
+        <div class="col-span-2"><span class="text-stone-500">ঠিকানা:</span> <span class="font-medium text-stone-800">${order.customer_address || 'N/A'}</span></div>
+        <div class="col-span-2"><span class="text-stone-500">পণ্য:</span> <span class="font-bold text-stone-800">${order.product_name || order.product_title || 'N/A'}</span></div>
+        <div><span class="text-stone-500">ডেলিভারি চার্জ:</span> <span class="font-bold font-mono">৳${toBn(order.delivery_charge || 80)}</span></div>
+        <div><span class="text-stone-500">সর্বমোট মূল্য:</span> <span class="font-bold font-mono text-green-brand text-sm">৳${toBn(order.total_amount || 0)}</span></div>
+        <div><span class="text-stone-500">পেমেন্ট মেথড:</span> <span class="font-medium">Cash on Delivery (COD)</span></div>
+        <div><span class="text-stone-500">স্ট্যাটাস:</span> <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">Processing</span></div>
+      `;
+      document.getElementById('modal-fields-summary').innerHTML = summaryHtml;
+
+      document.getElementById('detail-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.add('hidden');
+    }
+
+    function copyRawJson() {
+      navigator.clipboard.writeText(currentModalJson).then(() => {
+        alert('অর্ডার JSON সফলভাবে ক্লিপবোর্ডে কপি হয়েছে!');
+      });
+    }
+
+    function exportOrdersToCSV() {
+      if (!globalOrders.length) {
+        alert('এক্সপোর্ট করার মতো কোনো অর্ডার নেই।');
+        return;
+      }
+
+      const headers = ['Order ID', 'Date', 'Customer Name', 'Phone', 'Address', 'Delivery Zone', 'Product Name', 'Product Price', 'Delivery Charge', 'Total Amount', 'Payment Method'];
+      const rows = globalOrders.map(o => [
+        `"${o.order_id || ''}"`,
+        `"${o.created_at || ''}"`,
+        `"${(o.customer_name || '').replace(/"/g, '""')}"`,
+        `"${o.customer_phone || ''}"`,
+        `"${(o.customer_address || '').replace(/"/g, '""')}"`,
+        `"${o.delivery_zone || ''}"`,
+        `"${(o.product_name || o.product_title || '').replace(/"/g, '""')}"`,
+        `"${o.product_price || ''}"`,
+        `"${o.delivery_charge || ''}"`,
+        `"${o.total_amount || ''}"`,
+        `"${o.payment_method || 'Cash on Delivery'}"`
+      ]);
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `nokshapoth-orders-${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // প্রথম লোড
+    document.addEventListener('DOMContentLoaded', loadAllData);
+  </script>
+</body>
+</html>

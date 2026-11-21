@@ -9,6 +9,9 @@ DirectoryIndex index.php index.html
     # Rewrite clean API routes for cPanel / LiteSpeed Apache
     RewriteRule ^api/order/?$ api/order.php [L,QSA]
     RewriteRule ^api/autosave/?$ api/autosave.php [L,QSA]
+    RewriteRule ^api/admin/orders/?$ api/admin.php?type=orders [L,QSA]
+    RewriteRule ^api/admin/leads/?$ api/admin.php?type=leads [L,QSA]
+    RewriteRule ^admin/?$ admin.html [L]
 
     # Enforce HTTPS (optional, recommended for live SSL)
     RewriteCond %{HTTPS} off

@@ -156,6 +156,7 @@ const server = http.createServer(async (req, res) => {
         customer_name: data.customer_name,
         customer_phone: data.customer_phone,
         customer_address: data.customer_address,
+        delivery_zone: data.delivery_zone === 'outside' ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
         product_name: variantTitle,
         items: items.length > 0 ? items : [{ name: variantTitle, qty: 1, price: price }],
         product_price: price,
@@ -196,6 +197,61 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ status: 'autosaved' }));
       return;
+    }
+
+    // 2.1 Admin API: Get all orders
+    if ((pathname === '/api/admin/orders' || pathname === '/api/admin/orders.php') && req.method === 'GET') {
+      const ordersDir = path.join(PUBLIC_DIR, 'data', 'orders');
+      const orders = [];
+      if (fs.existsSync(ordersDir)) {
+        const files = fs.readdirSync(ordersDir);
+        for (const file of files) {
+          if (file.endsWith('.json')) {
+            try {
+              const content = JSON.parse(fs.readFileSync(path.join(ordersDir, file), 'utf8'));
+              orders.push(content);
+            } catch (e) {}
+          }
+        }
+      }
+      orders.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ success: true, count: orders.length, orders }));
+      return;
+    }
+
+    // 2.2 Admin API: Get all leads
+    if ((pathname === '/api/admin/leads' || pathname === '/api/admin/leads.php') && req.method === 'GET') {
+      const leadsDir = path.join(PUBLIC_DIR, 'data', 'leads');
+      const leads = [];
+      if (fs.existsSync(leadsDir)) {
+        const files = fs.readdirSync(leadsDir);
+        for (const file of files) {
+          if (file.endsWith('.json')) {
+            try {
+              const content = JSON.parse(fs.readFileSync(path.join(leadsDir, file), 'utf8'));
+              leads.push(content);
+            } catch (e) {}
+          }
+        }
+      }
+      leads.sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0));
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ success: true, count: leads.length, leads }));
+      return;
+    }
+
+    // 2.3 Serve Admin Dashboard
+    if (pathname === '/admin' || pathname === '/admin/' || pathname === '/admin.html') {
+      const adminPath = path.join(PUBLIC_DIR, 'admin.html');
+      if (fs.existsSync(adminPath)) {
+        res.writeHead(200, {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Cache-Control': 'no-cache, no-store, must-revalidate'
+        });
+        fs.createReadStream(adminPath).pipe(res);
+        return;
+      }
     }
 
     // 3. Serve root / index
