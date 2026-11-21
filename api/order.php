@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $name          = trim($_POST['customer_name'] ?? '');
 $phone         = trim($_POST['customer_phone'] ?? '');
 $address       = trim($_POST['customer_address'] ?? '');
-$variant       = trim($_POST['product_variant'] ?? 'small');
+$variant       = trim($_POST['product_variant'] ?? 'boti_small');
 $zone          = trim($_POST['delivery_zone'] ?? 'inside');
 $eventId       = trim($_POST['event_id'] ?? ('FRc_' . bin2hex(random_bytes(6)) . '_' . time()));
 $fbpCookie     = $_COOKIE['_fbp'] ?? '';
@@ -65,13 +65,13 @@ if (is_array($items) && count($items) > 0) {
     }
     $variantTitle = implode(' + ', $titleParts);
 } else {
-    $variantTitle = 'বড় সাইজের রুটি মেকার';
+    $variantTitle = '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি';
     $productPrice = 1490;
     if ($variant === 'small') {
         $variantTitle = 'ছোট সাইজের রুটি মেকার';
         $productPrice = 1390;
-    } elseif ($variant === 'boti_small' || $variant === 'boti_floor') {
-        $variantTitle = '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি';
+    } elseif ($variant === 'big') {
+        $variantTitle = 'বড় সাইজের রুটি মেকার';
         $productPrice = 1490;
     } elseif ($variant === 'boti_large' || $variant === 'boti_clamp') {
         $variantTitle = 'ফোল্ডিং প্রিমিয়াম মহারানী বটি [ 12” ইঞ্চি ]';

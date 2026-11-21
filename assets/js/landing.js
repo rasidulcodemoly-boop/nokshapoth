@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // কার্ট স্টেট: { productId: quantity }
-    // ডিফল্টভাবে বড় সাইজের রুটি মেকার ১টি সিলেক্টেড থাকবে
-    let selectedItems = { big: 1 };
+    // ডিফল্টভাবে ১২" ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি ১টি সিলেক্টেড থাকবে (৳১,৪৯০)
+    let selectedItems = { boti_small: 1 };
     let currentZone = 'inside';
 
     // বাংলা সংখ্যা কনভার্টার
@@ -203,11 +203,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.btn-select-variant').forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetVariant = this.dataset.variant;
+            const targetVariant = this.dataset.variant || 'boti_small';
             if (targetVariant && productCatalog[targetVariant]) {
-                if (!selectedItems[targetVariant]) {
-                    selectedItems[targetVariant] = 1;
-                }
+                selectedItems = { [targetVariant]: 1 };
                 updateOrderSummary();
                 // Meta Pixel AddToCart Event
                 if (typeof fbq === 'function') {
@@ -218,22 +216,40 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 }
             }
-            scrollToCheckout();
+            scrollToCheckout(targetVariant);
         });
     });
 
     // স্ক্রোল টু চেকআউট
-    window.scrollToCheckout = function () {
+    window.scrollToCheckout = function (variant) {
+        const targetVariant = variant || 'boti_small';
+        if (targetVariant && productCatalog[targetVariant]) {
+            selectedItems = { [targetVariant]: 1 };
+            updateOrderSummary();
+        }
+
         // Meta Pixel InitiateCheckout Event
         if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', {
                 content_category: 'Kitchen Essentials',
-                currency: 'BDT'
+                content_name: productCatalog[targetVariant] ? productCatalog[targetVariant].name : '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি',
+                currency: 'BDT',
+                value: productCatalog[targetVariant] ? productCatalog[targetVariant].price : 1490
             });
         }
         const target = document.getElementById('order-form-section');
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
+
+            // সিলেক্টেড কার্ড হাইলাইট অ্যানিমেশন
+            setTimeout(() => {
+                const targetCard = document.querySelector(`.product-item-card[data-product="${targetVariant}"]`);
+                if (targetCard) {
+                    targetCard.classList.add('ring-4', 'ring-green-400');
+                    setTimeout(() => targetCard.classList.remove('ring-4', 'ring-green-400'), 1500);
+                }
+            }, 400);
+
             // নাম ফিল্ডে অটো ফোকাস
             setTimeout(() => {
                 const nameInput = document.getElementById('customer_name');
@@ -288,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('customer_phone', phone);
             formData.append('customer_name', nameInput ? nameInput.value.trim() : '');
             formData.append('customer_address', addressInput ? addressInput.value.trim() : '');
-            formData.append('product_variant', Object.keys(selectedItems).join(',') || 'big');
+            formData.append('product_variant', Object.keys(selectedItems).join(',') || 'boti_small');
             formData.append('items_json', JSON.stringify(selectedItems));
 
             const bodyParams = new URLSearchParams(formData);
@@ -395,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // ফর্ম রিসেট
                     orderForm.reset();
-                    selectedItems = { big: 1 };
+                    selectedItems = { boti_small: 1 };
                     updateOrderSummary();
                 } else {
                     alert(data.message || 'অর্ডারে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
