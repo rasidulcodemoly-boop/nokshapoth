@@ -1194,7 +1194,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
           <span id="modal-phone" class="font-bold text-gray-900">#</span>
         </div>
         <div class="flex justify-between border-t border-gray-200 pt-1.5 font-bold">
-          <span class="text-gray-900">সর্বমোট প্রদেয় (COD):</span>
+          <span class="text-gray-900">সর্বমোট মূল্য:</span>
           <span id="modal-total-amount" class="text-green-deep text-sm">৳#</span>
         </div>
       </div>
