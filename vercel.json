@@ -22,6 +22,8 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/order", "destination": "/api/order.js" },
+    { "source": "/api/autosave", "destination": "/api/autosave.js" },
     { "source": "/api/order.php", "destination": "/api/order.js" },
     { "source": "/api/autosave.php", "destination": "/api/autosave.js" }
   ]

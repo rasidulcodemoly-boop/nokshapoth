@@ -102,8 +102,8 @@ const server = http.createServer(async (req, res) => {
     const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
     let pathname = parsedUrl.pathname;
 
-    // 1. API: Order submission (/api/order.php)
-    if (pathname === '/api/order.php' && req.method === 'POST') {
+    // 1. API: Order submission (/api/order or /api/order.php)
+    if ((pathname === '/api/order' || pathname === '/api/order.php') && req.method === 'POST') {
       const data = await parseBody(req);
       const orderId = 'NP-' + Date.now().toString().slice(-6) + '-' + Math.floor(1000 + Math.random() * 9000);
       
@@ -143,7 +143,7 @@ const server = http.createServer(async (req, res) => {
         }
       }
 
-      const delivery = data.delivery_zone === 'outside' ? 120 : 60;
+      const delivery = data.delivery_zone === 'outside' ? 150 : 80;
       const total = price + delivery;
 
       const ordersDir = path.join(PUBLIC_DIR, 'data', 'orders');
@@ -179,8 +179,8 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    // 2. API: Abandoned Cart Autosave (/api/autosave.php)
-    if (pathname === '/api/autosave.php' && req.method === 'POST') {
+    // 2. API: Abandoned Cart Autosave (/api/autosave or /api/autosave.php)
+    if ((pathname === '/api/autosave' || pathname === '/api/autosave.php') && req.method === 'POST') {
       const data = await parseBody(req);
       const leadsDir = path.join(PUBLIC_DIR, 'data', 'leads');
       if (!fs.existsSync(leadsDir)) {

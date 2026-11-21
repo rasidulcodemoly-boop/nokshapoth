@@ -6,6 +6,10 @@ DirectoryIndex index.php index.html
     RewriteEngine On
     RewriteBase /
 
+    # Rewrite clean API routes for cPanel / LiteSpeed Apache
+    RewriteRule ^api/order/?$ api/order.php [L,QSA]
+    RewriteRule ^api/autosave/?$ api/autosave.php [L,QSA]
+
     # Enforce HTTPS (optional, recommended for live SSL)
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

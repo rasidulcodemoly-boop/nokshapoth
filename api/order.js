@@ -18,7 +18,15 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const data = req.body || {};
+    let data = req.body || {};
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) {
+        const querystring = require('querystring');
+        data = querystring.parse(data);
+      }
+    }
     const orderId = 'NP-' + Date.now().toString().slice(-6) + '-' + Math.floor(1000 + Math.random() * 9000);
 
     let items = [];

@@ -291,10 +291,14 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('product_variant', Object.keys(selectedItems).join(',') || 'big');
             formData.append('items_json', JSON.stringify(selectedItems));
 
-            fetch('api/autosave.php', {
+            const bodyParams = new URLSearchParams(formData);
+
+            fetch('api/autosave', {
                 method: 'POST',
-                body: formData
-            }).catch(() => {});
+                body: bodyParams
+            }).catch(() => {
+                fetch('api/autosave.php', { method: 'POST', body: bodyParams }).catch(() => {});
+            });
         }
     }
 
@@ -352,17 +356,23 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
 
             const formData = new FormData(orderForm);
+            const bodyParams = new URLSearchParams(formData);
             const eventId = document.getElementById('fb_event_id')?.value || ('FRc_' + Date.now());
 
             let totalItemsCount = 0;
             Object.values(selectedItems).forEach(qty => { totalItemsCount += qty; });
 
-            // AJAX অর্ডার রিকোয়েস্ট
-            fetch('api/order.php', {
+            // AJAX অর্ডার রিকোয়েস্ট (Vercel ও cPanel উভয় প্ল্যাটফর্মের জন্য রেজিলিয়েন্ট ডাবল-রাউট)
+            fetch('api/order', {
                 method: 'POST',
-                body: formData
+                body: bodyParams
             })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok && res.status !== 400 && res.status !== 422) {
+                    return fetch('api/order.php', { method: 'POST', body: bodyParams }).then(r => r.json());
+                }
+                return res.json();
+            })
             .then(data => {
                 if (data.success) {
                     // ফেসবুক পিক্সেল ক্লায়েন্ট-সাইড Purchase Event ফায়ার করা
