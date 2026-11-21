@@ -24,7 +24,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>বটি অ্যান্ড রুটি মেকার - নকশাপথ কিচেন এসেনশিয়ালস</title>
-  <meta name="description" content="রুটি বানানোর ঝামেলা এবার অর্ধেক সময়ে শেষ! বটি অ্যান্ড রুটি মেকার দিয়ে তৈরি করুন নরম তুলতুলে গোল রুটি। ক্যাশ অন ডেলিভারি সারা দেশে।">
+  <meta name="description" content="কাটাকাটি ও রুটি বানানোর ঝামেলা এবার অর্ধেক সময়ে শেষ! বটি অ্যান্ড রুটি মেকার দিয়ে তৈরি করুন নরম তুলতুলে গোল রুটি ও দ্রুত কাটিং। ক্যাশ অন ডেলিভারি সারা দেশে।">
 
   <!-- Favicon Links (Browser Tab & Mobile Bookmark) -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -299,7 +299,7 @@ $og_image_url = $site_protocol . $site_host . '/assets/images/og-share-banner.jp
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight drop-shadow-lg">
-          রুটি বানানোর ঝামেলা <br class="hidden sm:inline">
+          কাটাকাটি ও রুটি বানানোর ঝামেলা <br class="hidden sm:inline">
           <span class="text-[#bef264]">এবার অর্ধেক সময়ে শেষ!</span>
         </h1>
 
