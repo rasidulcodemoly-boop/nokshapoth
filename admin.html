@@ -11,16 +11,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    html, body { overflow-x: hidden; max-width: 100vw; }
     body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; }
     .bg-green-brand { background-color: #39681A; }
     .text-green-brand { color: #39681A; }
     .border-green-brand { border-color: #39681A; }
   </style>
 </head>
-<body class="text-stone-800 antialiased min-h-screen flex flex-col">
+<body class="text-stone-800 antialiased min-h-screen flex flex-col overflow-x-hidden">
 
   <!-- হেডার / ন্যাভবার -->
-  <header class="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-sm">
+  <header class="w-full bg-white border-b border-stone-200 sticky top-0 z-30 shadow-sm">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between flex-wrap gap-2.5">
       <div class="flex items-center space-x-2.5 sm:space-x-3">
         <a href="./" class="flex items-center space-x-2 sm:space-x-2.5 group">
@@ -54,7 +55,7 @@
   </header>
 
   <!-- মূল কন্টেন্ট -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <main class="flex-1 max-w-7xl w-full min-w-0 mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
 
     <!-- ইনফো নোটিশ -->
     <div class="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start space-x-3 text-sm text-amber-900">
@@ -113,8 +114,8 @@
     </div>
 
     <!-- ১. অর্ডার টেবিল সেকশন -->
-    <div id="section-orders" class="bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
-      <div class="overflow-x-auto">
+    <div id="section-orders" class="w-full min-w-0 bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
+      <div class="w-full overflow-x-auto">
         <table class="w-full text-left border-collapse text-xs sm:text-sm">
           <thead>
             <tr class="bg-stone-50 border-b border-stone-200 text-stone-600 font-bold uppercase text-[11px] tracking-wider">
@@ -138,8 +139,8 @@
     </div>
 
     <!-- ২. লিডস টেবিল সেকশন (কার্ট রিকভারি) -->
-    <div id="section-leads" class="hidden bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
-      <div class="overflow-x-auto">
+    <div id="section-leads" class="hidden w-full min-w-0 bg-white rounded-xl border border-stone-200 shadow-xs overflow-hidden">
+      <div class="w-full overflow-x-auto">
         <table class="w-full text-left border-collapse text-xs sm:text-sm">
           <thead>
             <tr class="bg-stone-50 border-b border-stone-200 text-stone-600 font-bold uppercase text-[11px] tracking-wider">
