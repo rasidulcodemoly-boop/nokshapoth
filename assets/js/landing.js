@@ -428,6 +428,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         localStorage.setItem('nokshapoth_orders', JSON.stringify(existingOrders.slice(0, 100)));
                     } catch(e) {}
 
+                    // গুগল শিট রিয়েল-টাইম অটো-সিঙ্ক (যদি ক্লায়েন্ট-সাইডে URL সেভ করা থাকে)
+                    try {
+                        const gsheetUrl = localStorage.getItem('nokshapoth_gsheet_url') || (window.NOKSHAPOTH_CONFIG && window.NOKSHAPOTH_CONFIG.gsheet_url);
+                        if (gsheetUrl) {
+                            fetch(gsheetUrl, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    order_id: data.order_id,
+                                    date: new Date().toLocaleString('bn-BD', { timeZone: 'Asia/Dhaka' }),
+                                    customer_name: formData.get('customer_name') || '',
+                                    customer_phone: data.phone || formData.get('customer_phone') || '',
+                                    customer_address: formData.get('customer_address') || '',
+                                    delivery_zone: formData.get('delivery_zone') === 'outside' ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
+                                    product_name: data.product_name,
+                                    product_price: data.total_amount - (formData.get('delivery_zone') === 'outside' ? 150 : 80),
+                                    delivery_charge: formData.get('delivery_zone') === 'outside' ? 150 : 80,
+                                    total_amount: data.total_amount,
+                                    payment_method: 'Cash on Delivery (COD)'
+                                })
+                            }).catch(() => {});
+                        }
+                    } catch(e) {}
+
                     // ফর্ম রিসেট
                     orderForm.reset();
                     selectedItems = { boti_small: 1 };

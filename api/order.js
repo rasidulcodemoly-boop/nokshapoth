@@ -90,6 +90,29 @@ module.exports = async (req, res) => {
     // Save order persistently across Vercel serverless executions
     await store.saveOrder(orderData);
 
+    // Google Sheets Webhook Sync (if environment variable set)
+    if (process.env.GOOGLE_SHEET_WEBHOOK_URL) {
+      try {
+        fetch(process.env.GOOGLE_SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            order_id: orderId,
+            date: new Date().toLocaleString('bn-BD', { timeZone: 'Asia/Dhaka' }),
+            customer_name: data.customer_name || 'নাম উল্লেখ নেই',
+            customer_phone: data.customer_phone || '',
+            customer_address: data.customer_address || '',
+            delivery_zone: orderData.delivery_zone,
+            product_name: variantTitle,
+            product_price: price,
+            delivery_charge: delivery,
+            total_amount: total,
+            payment_method: 'Cash on Delivery (COD)'
+          })
+        }).catch(err => console.error('Google Sheet Sync Error:', err));
+      } catch (e) {}
+    }
+
     res.status(200).json({
       success: true,
       order_id: orderId,

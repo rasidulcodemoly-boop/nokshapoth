@@ -30,7 +30,11 @@ define('STORE_WHATSAPP_DISPLAY', '01707856728');
 define('DELIVERY_CHARGE_INSIDE_DHAKA', 80);
 define('DELIVERY_CHARGE_OUTSIDE_DHAKA', 150);
 
-// ৫. ব্যাকআপ স্টোরেজ ফোল্ডার (যদি ডাটাবেজে সাময়িক কোনো ত্রুটি থাকে, তবুও যেন কোনো অর্ডার মিস না হয়)
+// ৫. গুগল শিট রিয়েল-টাইম অটো-সিঙ্ক (Google Sheets Webhook URL)
+// গুগল শিটের Extensions > Apps Script থেকে পাওয়া Web App URL এখানে বসান
+define('GOOGLE_SHEET_WEBHOOK_URL', '');
+
+// ৬. ব্যাকআপ স্টোরেজ ফোল্ডার (যদি ডাটাবেজে সাময়িক কোনো ত্রুটি থাকে, তবুও যেন কোনো অর্ডার মিস না হয়)
 define('BACKUP_ORDERS_DIR', __DIR__ . '/data/orders/');
 if (!is_dir(BACKUP_ORDERS_DIR)) {
     mkdir(BACKUP_ORDERS_DIR, 0755, true);

@@ -146,6 +146,23 @@ if (defined('FB_CAPI_ACCESS_TOKEN') && FB_CAPI_ACCESS_TOKEN !== 'YOUR_META_CONVE
     ]);
 }
 
+// ৬. গুগল শিটে অর্ডার অটো-সিঙ্ক (Google Sheets Webhook Sync)
+if (defined('GOOGLE_SHEET_WEBHOOK_URL') && !empty(GOOGLE_SHEET_WEBHOOK_URL)) {
+    dispatchGoogleSheetSync(GOOGLE_SHEET_WEBHOOK_URL, [
+        'order_id'        => $orderId,
+        'date'            => date('d M Y, h:i A'),
+        'customer_name'   => $name,
+        'customer_phone'  => $cleanPhone,
+        'customer_address'=> $address,
+        'delivery_zone'   => ($zone === 'outside') ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
+        'product_name'    => $variantTitle,
+        'product_price'   => $productPrice,
+        'delivery_charge' => $deliveryCharge,
+        'total_amount'    => $totalAmount,
+        'payment_method'  => 'Cash on Delivery (COD)'
+    ]);
+}
+
 // রেসপন্স প্রদান
 echo json_encode([
     'success'      => true,
@@ -156,6 +173,25 @@ echo json_encode([
     'message'      => 'আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে! আমাদের প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করবেন।'
 ]);
 exit;
+
+/**
+ * গুগল শিটে অর্ডার ডেটা পুশ করার হেল্পার ফাংশন
+ */
+function dispatchGoogleSheetSync($webhookUrl, $payload) {
+    if (empty($webhookUrl)) return;
+    try {
+        $ch = curl_init($webhookUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_exec($ch);
+        curl_close($ch);
+    } catch (Exception $e) {}
+}
 
 /**
  * Facebook Graph API-তে সার্ভার-সাইড Purchase ইভেন্ট পাঠানো
