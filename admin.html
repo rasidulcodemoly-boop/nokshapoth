@@ -128,6 +128,7 @@
               <th class="py-3 px-4">কাস্টমার</th>
               <th class="py-3 px-4">ঠিকানা</th>
               <th class="py-3 px-4">অর্ডারকৃত পণ্য</th>
+              <th class="py-3 px-4 text-center">অর্ডার স্ট্যাটাস</th>
               <th class="py-3 px-4">ডেলিভারি চার্জ</th>
               <th class="py-3 px-4 text-right">সর্বমোট মূল্য</th>
               <th class="py-3 px-4 text-center">ডেটা ভিউ</th>
@@ -135,7 +136,7 @@
           </thead>
           <tbody id="orders-table-body" class="divide-y divide-stone-100">
             <tr>
-              <td colspan="8" class="text-center py-8 text-stone-400">অর্ডার লোড হচ্ছে...</td>
+              <td colspan="9" class="text-center py-8 text-stone-400">অর্ডার লোড হচ্ছে...</td>
             </tr>
           </tbody>
         </table>
@@ -296,6 +297,15 @@
         globalOrders = Array.from(mergedOrdersMap.values());
         globalOrders.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
 
+        // সেভ করা স্ট্যাটাস মার্জ করা
+        let savedStatuses = {};
+        try { savedStatuses = JSON.parse(localStorage.getItem('nokshapoth_order_statuses') || '{}'); } catch(e) {}
+        globalOrders.forEach(o => {
+          if (o && o.order_id && savedStatuses[o.order_id]) {
+            o.order_status = savedStatuses[o.order_id];
+          }
+        });
+
         globalLeads = serverLeads;
 
         renderStats();
@@ -339,20 +349,36 @@
     function renderOrdersTable(orders) {
       const tbody = document.getElementById('orders-table-body');
       if (!orders || orders.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-stone-400">এখনো কোনো অর্ডার ডেটা নেই।</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="9" class="text-center py-8 text-stone-400">এখনো কোনো অর্ডার ডেটা নেই।</td></tr>';
         return;
       }
 
+      let savedStatuses = {};
+      try { savedStatuses = JSON.parse(localStorage.getItem('nokshapoth_order_statuses') || '{}'); } catch(e) {}
+
       tbody.innerHTML = orders.map((o, idx) => {
         const orderId = o.order_id || 'N/A';
-        const name = o.customer_name || 'নাম উল্লেখ নেই';
+        let name = (o.customer_name || '').trim();
+        // কাস্টমারের নামের জায়গায় প্রোডাক্টের নাম থাকলে হ্যান্ডেল করা
+        if (!name || name.includes('বটি') || name.includes('রুটি মেকার') || (o.product_name && name === o.product_name) || (o.product_title && name === o.product_title)) {
+          name = 'নাম উল্লেখ নেই';
+        }
         const phone = o.customer_phone || 'N/A';
         const address = o.customer_address || 'ঠিকানা দেওয়া হয়নি';
         const zone = o.delivery_zone || (o.delivery_charge == 150 ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে');
-        const product = o.product_name || o.product_title || 'বড় সাইজের রুটি মেকার';
+        const product = o.product_name || o.product_title || '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি';
         const deliveryCharge = o.delivery_charge || 80;
         const total = o.total_amount || 1570;
         const time = formatDate(o.created_at);
+
+        // অর্ডার স্ট্যাটাস (কনফার্ম / পেমেন্ট পেন্ডিং / ক্যানসেল)
+        const status = savedStatuses[orderId] || o.order_status || 'পেমেন্ট পেন্ডিং';
+        let statusStyle = 'background-color: #FEF3C7; color: #92400E; border-color: #FCD34D;';
+        if (status === 'কনফার্ম') {
+          statusStyle = 'background-color: #D1FAE5; color: #065F46; border-color: #6EE7B7;';
+        } else if (status === 'ক্যানসেল') {
+          statusStyle = 'background-color: #FFE4E6; color: #9F1239; border-color: #FDA4AF;';
+        }
 
         return `
           <tr class="hover:bg-stone-50 transition border-b border-stone-100">
@@ -367,6 +393,13 @@
               <span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[10px] font-semibold ${zone.includes('বাইরে') ? 'bg-amber-100 text-amber-800' : 'bg-green-100 text-green-800'}">${zone}</span>
             </td>
             <td class="py-3 px-4 text-stone-800 font-medium">${product}</td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <select onchange="updateOrderStatus('${orderId}', this.value)" style="${statusStyle}" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border cursor-pointer outline-none transition shadow-2xs">
+                <option value="কনফার্ম" ${status === 'কনফার্ম' ? 'selected' : ''}>✅ কনফার্ম</option>
+                <option value="পেমেন্ট পেন্ডিং" ${status === 'পেমেন্ট পেন্ডিং' ? 'selected' : ''}>⏳ পেমেন্ট পেন্ডিং</option>
+                <option value="ক্যানসেল" ${status === 'ক্যানসেল' ? 'selected' : ''}>❌ ক্যানসেল</option>
+              </select>
+            </td>
             <td class="py-3 px-4 text-stone-600 font-semibold font-mono">৳${toBn(deliveryCharge)}</td>
             <td class="py-3 px-4 text-right font-extrabold text-green-brand font-mono text-base">৳${toBn(total.toLocaleString('en-US'))}</td>
             <td class="py-3 px-4 text-center whitespace-nowrap">
@@ -377,6 +410,34 @@
           </tr>
         `;
       }).join('');
+    }
+
+    function updateOrderStatus(orderId, newStatus) {
+      const order = globalOrders.find(o => o.order_id === orderId);
+      if (order) {
+        order.order_status = newStatus;
+      }
+
+      try {
+        const statusMap = JSON.parse(localStorage.getItem('nokshapoth_order_statuses') || '{}');
+        statusMap[orderId] = newStatus;
+        localStorage.setItem('nokshapoth_order_statuses', JSON.stringify(statusMap));
+      } catch (e) {}
+
+      const payload = JSON.stringify({ action: 'update_status', order_id: orderId, status: newStatus });
+      fetch('api/admin.php?action=update_status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload
+      }).catch(() => {
+        fetch('api/admin', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload
+        }).catch(() => {});
+      });
+
+      renderOrdersTable(globalOrders);
     }
 
     function renderLeadsTable(leads) {
@@ -457,15 +518,30 @@
       document.getElementById('modal-subtitle').innerText = `তারিখ: ${formatDate(order.created_at)}`;
       document.getElementById('modal-json-content').innerText = currentModalJson;
 
+      let name = (order.customer_name || '').trim();
+      if (!name || name.includes('বটি') || name.includes('রুটি মেকার') || (order.product_name && name === order.product_name)) {
+        name = 'নাম উল্লেখ নেই';
+      }
+      let savedStatuses = {};
+      try { savedStatuses = JSON.parse(localStorage.getItem('nokshapoth_order_statuses') || '{}'); } catch(e) {}
+      const status = savedStatuses[order.order_id] || order.order_status || 'পেমেন্ট পেন্ডিং';
+
+      let statusBadge = '<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">⏳ পেমেন্ট পেন্ডিং</span>';
+      if (status === 'কনফার্ম') {
+        statusBadge = '<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">✅ কনফার্ম</span>';
+      } else if (status === 'ক্যানসেল') {
+        statusBadge = '<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-[10px] font-bold">❌ ক্যানসেল</span>';
+      }
+
       const summaryHtml = `
-        <div><span class="text-stone-500">নাম:</span> <span class="font-bold text-stone-800">${order.customer_name || 'N/A'}</span></div>
+        <div><span class="text-stone-500">নাম:</span> <span class="font-bold text-stone-800">${name}</span></div>
         <div><span class="text-stone-500">মোবাইল:</span> <span class="font-bold font-mono text-green-brand">${order.customer_phone || 'N/A'}</span></div>
         <div class="col-span-2"><span class="text-stone-500">ঠিকানা:</span> <span class="font-medium text-stone-800">${order.customer_address || 'N/A'}</span></div>
         <div class="col-span-2"><span class="text-stone-500">পণ্য:</span> <span class="font-bold text-stone-800">${order.product_name || order.product_title || 'N/A'}</span></div>
         <div><span class="text-stone-500">ডেলিভারি চার্জ:</span> <span class="font-bold font-mono">৳${toBn(order.delivery_charge || 80)}</span></div>
         <div><span class="text-stone-500">সর্বমোট মূল্য:</span> <span class="font-bold font-mono text-green-brand text-sm">৳${toBn(order.total_amount || 0)}</span></div>
         <div><span class="text-stone-500">পেমেন্ট মেথড:</span> <span class="font-medium">Cash on Delivery (COD)</span></div>
-        <div><span class="text-stone-500">স্ট্যাটাস:</span> <span class="px-2 py-0.5 rounded bg-green-100 text-green-800 text-[10px] font-bold">Processing</span></div>
+        <div><span class="text-stone-500">অর্ডার স্ট্যাটাস:</span> ${statusBadge}</div>
       `;
       document.getElementById('modal-fields-summary').innerHTML = summaryHtml;
 
@@ -529,20 +605,32 @@
         return;
       }
 
-      const headers = ['Order ID', 'Date', 'Customer Name', 'Phone', 'Address', 'Delivery Zone', 'Product Name', 'Product Price', 'Delivery Charge', 'Total Amount', 'Payment Method'];
-      const rows = globalOrders.map(o => [
-        `"${o.order_id || ''}"`,
-        `"${o.created_at || ''}"`,
-        `"${(o.customer_name || '').replace(/"/g, '""')}"`,
-        `"${o.customer_phone || ''}"`,
-        `"${(o.customer_address || '').replace(/"/g, '""')}"`,
-        `"${o.delivery_zone || ''}"`,
-        `"${(o.product_name || o.product_title || '').replace(/"/g, '""')}"`,
-        `"${o.product_price || ''}"`,
-        `"${o.delivery_charge || ''}"`,
-        `"${o.total_amount || ''}"`,
-        `"${o.payment_method || 'Cash on Delivery'}"`
-      ]);
+      const headers = ['Order ID', 'Date', 'Customer Name', 'Phone', 'Address', 'Delivery Zone', 'Product Name', 'Order Status', 'Product Price', 'Delivery Charge', 'Total Amount', 'Payment Method'];
+      let savedStatuses = {};
+      try { savedStatuses = JSON.parse(localStorage.getItem('nokshapoth_order_statuses') || '{}'); } catch(e) {}
+
+      const rows = globalOrders.map(o => {
+        let name = (o.customer_name || '').trim();
+        if (!name || name.includes('বটি') || name.includes('রুটি মেকার') || (o.product_name && name === o.product_name)) {
+          name = 'নাম উল্লেখ নেই';
+        }
+        const status = savedStatuses[o.order_id] || o.order_status || 'পেমেন্ট পেন্ডিং';
+
+        return [
+          `"${o.order_id || ''}"`,
+          `"${o.created_at || ''}"`,
+          `"${name.replace(/"/g, '""')}"`,
+          `"${o.customer_phone || ''}"`,
+          `"${(o.customer_address || '').replace(/"/g, '""')}"`,
+          `"${o.delivery_zone || ''}"`,
+          `"${(o.product_name || o.product_title || '').replace(/"/g, '""')}"`,
+          `"${status}"`,
+          `"${o.product_price || ''}"`,
+          `"${o.delivery_charge || ''}"`,
+          `"${o.total_amount || ''}"`,
+          `"${o.payment_method || 'Cash on Delivery'}"`
+        ];
+      });
 
       const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

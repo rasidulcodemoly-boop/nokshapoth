@@ -18,12 +18,22 @@ module.exports = async (req, res) => {
   const url = req.url || '';
   const query = req.query || {};
 
-  // POST: Sync orders from client
+  // POST: Sync orders from client or update status
   if (req.method === 'POST') {
     try {
       let data = req.body || {};
       if (typeof data === 'string') {
         try { data = JSON.parse(data); } catch (e) {}
+      }
+
+      if (data.action === 'update_status' && data.order_id) {
+        const orders = await store.getOrders();
+        const target = orders.find(o => o.order_id === data.order_id);
+        if (target) {
+          target.order_status = data.status || 'পেমেন্ট পেন্ডিং';
+          await store.saveOrder(target);
+          return res.status(200).json({ success: true, order_id: data.order_id, status: target.order_status });
+        }
       }
 
       if (Array.isArray(data.orders)) {

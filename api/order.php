@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ইনপুট স্যানিটাইজেশন
-$name          = trim($_POST['customer_name'] ?? '');
+$customerName  = trim($_POST['customer_name'] ?? '');
 $phone         = trim($_POST['customer_phone'] ?? '');
 $address       = trim($_POST['customer_address'] ?? '');
 $variant       = trim($_POST['product_variant'] ?? 'boti_small');
@@ -26,7 +26,7 @@ $fbpCookie     = $_COOKIE['_fbp'] ?? '';
 $fbcCookie     = $_COOKIE['_fbc'] ?? '';
 
 // ১. ভ্যালিডেশন
-if (empty($name)) {
+if (empty($customerName)) {
     echo json_encode(['success' => false, 'message' => 'অনুগ্রহ করে আপনার নাম লিখুন।']);
     exit;
 }
@@ -59,9 +59,9 @@ if (is_array($items) && count($items) > 0) {
     foreach ($items as $item) {
         $qty = isset($item['qty']) ? intval($item['qty']) : 1;
         $price = isset($item['price']) ? intval($item['price']) : 0;
-        $name = isset($item['name']) ? $item['name'] : 'পণ্য';
+        $itemName = isset($item['name']) ? $item['name'] : 'পণ্য';
         $productPrice += ($price * $qty);
-        $titleParts[] = "{$name} ({$qty}টি)";
+        $titleParts[] = "{$itemName} ({$qty}টি)";
     }
     $variantTitle = implode(' + ', $titleParts);
 } else {
@@ -98,7 +98,7 @@ if ($pdo) {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'Pending', 'Processing', ?)
         ");
         $stmt->execute([
-            $orderId, $name, $cleanPhone, $address, $variantTitle, $productPrice, $deliveryCharge, $totalAmount, $orderTime
+            $orderId, $customerName, $cleanPhone, $address, $variantTitle, $productPrice, $deliveryCharge, $totalAmount, $orderTime
         ]);
         $savedToDb = true;
     } catch (Exception $e) {
@@ -110,7 +110,7 @@ if ($pdo) {
 // ৪. ব্যাকআপ JSON ফাইল সেভ (যাতে কখনোই কোনো অর্ডার মিস না হয়)
 $orderData = [
     'order_id'        => $orderId,
-    'customer_name'   => $name,
+    'customer_name'   => $customerName,
     'customer_phone'  => $cleanPhone,
     'customer_address'=> $address,
     'variant'         => $variant,
@@ -121,6 +121,7 @@ $orderData = [
     'delivery_charge' => $deliveryCharge,
     'total_amount'    => $totalAmount,
     'payment_method'  => 'Cash on Delivery (COD)',
+    'order_status'    => 'পেমেন্ট পেন্ডিং',
     'event_id'        => $eventId,
     'client_ip'       => $_SERVER['REMOTE_ADDR'] ?? '',
     'user_agent'      => $_SERVER['HTTP_USER_AGENT'] ?? '',
@@ -137,7 +138,7 @@ if (defined('FB_CAPI_ACCESS_TOKEN') && FB_CAPI_ACCESS_TOKEN !== 'YOUR_META_CONVE
         'client_ip'      => $_SERVER['REMOTE_ADDR'] ?? '',
         'user_agent'     => $_SERVER['HTTP_USER_AGENT'] ?? '',
         'phone'          => '88' . $cleanPhone, // E.164 ফরম্যাটে বাংলাদেশ কোড সহ
-        'name'           => $name,
+        'name'           => $customerName,
         'fbp'            => $fbpCookie,
         'fbc'            => $fbcCookie,
         'value'          => (float)$totalAmount,
@@ -151,7 +152,7 @@ if (defined('GOOGLE_SHEET_WEBHOOK_URL') && !empty(GOOGLE_SHEET_WEBHOOK_URL)) {
     dispatchGoogleSheetSync(GOOGLE_SHEET_WEBHOOK_URL, [
         'order_id'        => $orderId,
         'date'            => date('d M Y, h:i A'),
-        'customer_name'   => $name,
+        'customer_name'   => $customerName,
         'customer_phone'  => $cleanPhone,
         'customer_address'=> $address,
         'delivery_zone'   => ($zone === 'outside') ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
@@ -159,7 +160,8 @@ if (defined('GOOGLE_SHEET_WEBHOOK_URL') && !empty(GOOGLE_SHEET_WEBHOOK_URL)) {
         'product_price'   => $productPrice,
         'delivery_charge' => $deliveryCharge,
         'total_amount'    => $totalAmount,
-        'payment_method'  => 'Cash on Delivery (COD)'
+        'payment_method'  => 'Cash on Delivery (COD)',
+        'order_status'    => 'পেমেন্ট পেন্ডিং'
     ]);
 }
 
