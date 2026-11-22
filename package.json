@@ -1,0 +1,25 @@
+{
+  "name": "nokshapoth",
+  "version": "1.0.0",
+  "description": "এই প্রজেক্টটি **নকশাপথ (nokshapoth.com)**-এর একটি ডেডিকেটেড সাবডোমেইন (যেমন: `offer.nokshapoth.com` বা `deal.nokshapoth.com`)-এ হোস্ট করার জন্য বিশেষভাবে তৈরি করা একটি আল্ট্রা-ফাস্ট, হাই-কনভার্টিং সেলস ল্যান্ডিং পেজ।",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasidulcodemoly-boop/nokshapoth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rasidulcodemoly-boop/nokshapoth/issues"
+  },
+  "homepage": "https://github.com/rasidulcodemoly-boop/nokshapoth#readme",
+  "dependencies": {
+    "@vercel/blob": "^2.9.0"
+  }
+}

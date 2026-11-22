@@ -145,6 +145,19 @@ async function saveOrder(order) {
     fs.writeFileSync(path.join(staticOrdersDir, `${order.order_id}.json`), JSON.stringify(order, null, 2), 'utf8');
   } catch (e) {}
 
+  // 3. Persist to Vercel Blob if token available (guarantees cross-instance sync on Vercel)
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const { put } = require('@vercel/blob');
+      await put(`orders/${order.order_id}.json`, JSON.stringify(order, null, 2), {
+        access: 'public',
+        addRandomSuffix: false
+      });
+    } catch (e) {
+      console.error('Vercel Blob saveOrder error:', e);
+    }
+  }
+
   return order;
 }
 
@@ -180,6 +193,25 @@ async function getOrders() {
   readDir(altStaticOrdersDir);
   readDir(tmpOrdersDir);
 
+  // 3. Read from Vercel Blob if token available
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const { list } = require('@vercel/blob');
+      const { blobs } = await list({ prefix: 'orders/' });
+      await Promise.all((blobs || []).map(async (b) => {
+        try {
+          const res = await fetch(b.url);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.order_id) ordersMap.set(data.order_id, data);
+          }
+        } catch (e) {}
+      }));
+    } catch (e) {
+      console.error('Vercel Blob getOrders error:', e);
+    }
+  }
+
   const list = Array.from(ordersMap.values());
   list.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
   return list;
@@ -200,6 +232,19 @@ async function saveLead(lead) {
     ensureDir(staticLeadsDir);
     fs.writeFileSync(path.join(staticLeadsDir, `${phone}.json`), JSON.stringify(lead, null, 2), 'utf8');
   } catch (e) {}
+
+  // Persist to Vercel Blob if token available
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const { put } = require('@vercel/blob');
+      await put(`leads/${phone}.json`, JSON.stringify(lead, null, 2), {
+        access: 'public',
+        addRandomSuffix: false
+      });
+    } catch (e) {
+      console.error('Vercel Blob saveLead error:', e);
+    }
+  }
 
   return lead;
 }
@@ -233,6 +278,26 @@ async function getLeads() {
   readDir(staticLeadsDir);
   readDir(altStaticLeadsDir);
   readDir(tmpLeadsDir);
+
+  // Read from Vercel Blob if token available
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const { list } = require('@vercel/blob');
+      const { blobs } = await list({ prefix: 'leads/' });
+      await Promise.all((blobs || []).map(async (b) => {
+        try {
+          const res = await fetch(b.url);
+          if (res.ok) {
+            const data = await res.json();
+            const phone = (data.customer_phone || '').replace(/[^0-9]/g, '');
+            if (phone) leadsMap.set(phone, data);
+          }
+        } catch (e) {}
+      }));
+    } catch (e) {
+      console.error('Vercel Blob getLeads error:', e);
+    }
+  }
 
   const list = Array.from(leadsMap.values());
   list.sort((a, b) => new Date(b.updated_at || b.created_at || 0) - new Date(a.updated_at || a.created_at || 0));
