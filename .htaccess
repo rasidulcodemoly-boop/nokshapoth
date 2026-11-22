@@ -4,7 +4,6 @@ DirectoryIndex index.php index.html
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
 
     # Rewrite clean API routes for cPanel / LiteSpeed Apache
     RewriteRule ^api/order/?$ api/order.php [L,QSA]
