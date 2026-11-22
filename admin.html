@@ -227,13 +227,45 @@
 
     async function loadAllData() {
       try {
-        const fetchOrders = () => fetch('api/admin/orders')
-          .then(r => r.ok ? r.json() : fetch('api/admin.php?type=orders').then(res => res.json()))
-          .catch(() => fetch('api/admin.php?type=orders').then(res => res.json()).catch(() => ({ orders: [] })));
+        const fetchOrders = async () => {
+          const endpoints = [
+            'api/admin?type=orders',
+            '/api/admin?type=orders',
+            'api/admin/orders',
+            '/api/admin/orders',
+            'api/admin.php?type=orders'
+          ];
+          for (const ep of endpoints) {
+            try {
+              const res = await fetch(ep);
+              if (res.ok) {
+                const data = await res.json();
+                if (data && Array.isArray(data.orders)) return data;
+              }
+            } catch (e) {}
+          }
+          return { orders: [] };
+        };
 
-        const fetchLeads = () => fetch('api/admin/leads')
-          .then(r => r.ok ? r.json() : fetch('api/admin.php?type=leads').then(res => res.json()))
-          .catch(() => fetch('api/admin.php?type=leads').then(res => res.json()).catch(() => ({ leads: [] })));
+        const fetchLeads = async () => {
+          const endpoints = [
+            'api/admin?type=leads',
+            '/api/admin?type=leads',
+            'api/admin/leads',
+            '/api/admin/leads',
+            'api/admin.php?type=leads'
+          ];
+          for (const ep of endpoints) {
+            try {
+              const res = await fetch(ep);
+              if (res.ok) {
+                const data = await res.json();
+                if (data && Array.isArray(data.leads)) return data;
+              }
+            } catch (e) {}
+          }
+          return { leads: [] };
+        };
 
         const [ordersRes, leadsRes] = await Promise.all([fetchOrders(), fetchLeads()]);
 

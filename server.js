@@ -200,7 +200,8 @@ const server = http.createServer(async (req, res) => {
     }
 
     // 2.1 Admin API: Get all orders
-    if ((pathname === '/api/admin/orders' || pathname === '/api/admin/orders.php') && req.method === 'GET') {
+    const typeParam = parsedUrl.searchParams.get('type') || '';
+    if ((pathname === '/api/admin/orders' || pathname === '/api/admin/orders.php' || ((pathname === '/api/admin' || pathname === '/api/admin.php') && (typeParam === 'orders' || !typeParam))) && req.method === 'GET') {
       const ordersDir = path.join(PUBLIC_DIR, 'data', 'orders');
       const orders = [];
       if (fs.existsSync(ordersDir)) {
@@ -241,7 +242,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // 2.2 Admin API: Get all leads
-    if ((pathname === '/api/admin/leads' || pathname === '/api/admin/leads.php') && req.method === 'GET') {
+    if ((pathname === '/api/admin/leads' || pathname === '/api/admin/leads.php' || ((pathname === '/api/admin' || pathname === '/api/admin.php') && typeParam === 'leads')) && req.method === 'GET') {
       const leadsDir = path.join(PUBLIC_DIR, 'data', 'leads');
       const leads = [];
       if (fs.existsSync(leadsDir)) {

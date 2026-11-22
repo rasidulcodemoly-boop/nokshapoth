@@ -1,6 +1,11 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "functions": {
+    "api/*.js": {
+      "includeFiles": "data/**"
+    }
+  },
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -22,14 +27,13 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/admin/orders", "destination": "/api/admin.js" },
-    { "source": "/api/admin/leads", "destination": "/api/admin.js" },
-    { "source": "/api/admin/(.*)", "destination": "/api/admin.js" },
-    { "source": "/api/admin", "destination": "/api/admin.js" },
-    { "source": "/api/order", "destination": "/api/order.js" },
-    { "source": "/api/autosave", "destination": "/api/autosave.js" },
-    { "source": "/api/order.php", "destination": "/api/order.js" },
-    { "source": "/api/autosave.php", "destination": "/api/autosave.js" },
-    { "source": "/api/admin.php", "destination": "/api/admin.js" }
+    { "source": "/api/admin/orders", "destination": "/api/admin?type=orders" },
+    { "source": "/api/admin/leads", "destination": "/api/admin?type=leads" },
+    { "source": "/api/admin/(.*)", "destination": "/api/admin" },
+    { "source": "/api/order", "destination": "/api/order" },
+    { "source": "/api/autosave", "destination": "/api/autosave" },
+    { "source": "/api/order.php", "destination": "/api/order" },
+    { "source": "/api/autosave.php", "destination": "/api/autosave" },
+    { "source": "/api/admin.php", "destination": "/api/admin" }
   ]
 }
