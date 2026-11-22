@@ -220,6 +220,26 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    // 2.1b Admin API: Sync orders
+    if ((pathname === '/api/admin' || pathname === '/api/admin/') && req.method === 'POST') {
+      const data = await parseBody(req);
+      if (data && data.orders) {
+        try {
+          const orders = typeof data.orders === 'string' ? JSON.parse(data.orders) : data.orders;
+          const ordersDir = path.join(PUBLIC_DIR, 'data', 'orders');
+          if (!fs.existsSync(ordersDir)) fs.mkdirSync(ordersDir, { recursive: true });
+          for (const o of orders) {
+            if (o && o.order_id) {
+              fs.writeFileSync(path.join(ordersDir, `${o.order_id}.json`), JSON.stringify(o, null, 2), 'utf8');
+            }
+          }
+        } catch (e) {}
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ success: true, message: 'Synced' }));
+      return;
+    }
+
     // 2.2 Admin API: Get all leads
     if ((pathname === '/api/admin/leads' || pathname === '/api/admin/leads.php') && req.method === 'GET') {
       const leadsDir = path.join(PUBLIC_DIR, 'data', 'leads');

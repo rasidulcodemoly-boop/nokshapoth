@@ -409,6 +409,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('modal-phone').innerText = data.phone;
                     thankYouModal.classList.remove('hidden');
 
+                    // ব্রাউজার লোকাল স্টোরেজে ব্যাকআপ (এডমিন প্যানেলে তাৎক্ষণিক পাওয়ার জন্য)
+                    try {
+                        const localOrder = {
+                            order_id: data.order_id,
+                            customer_name: formData.get('customer_name') || 'নাম উল্লেখ নেই',
+                            customer_phone: data.phone || formData.get('customer_phone') || '',
+                            customer_address: formData.get('customer_address') || '',
+                            delivery_zone: formData.get('delivery_zone') === 'outside' ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
+                            product_name: data.product_name,
+                            delivery_charge: formData.get('delivery_zone') === 'outside' ? 150 : 80,
+                            total_amount: data.total_amount,
+                            payment_method: 'Cash on Delivery (COD)',
+                            created_at: new Date().toISOString()
+                        };
+                        const existingOrders = JSON.parse(localStorage.getItem('nokshapoth_orders') || '[]');
+                        existingOrders.unshift(localOrder);
+                        localStorage.setItem('nokshapoth_orders', JSON.stringify(existingOrders.slice(0, 100)));
+                    } catch(e) {}
+
                     // ফর্ম রিসেট
                     orderForm.reset();
                     selectedItems = { boti_small: 1 };

@@ -1,3 +1,5 @@
+const store = require('./store');
+
 module.exports = async (req, res) => {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -70,6 +72,24 @@ module.exports = async (req, res) => {
     const delivery = data.delivery_zone === 'outside' ? 150 : 80;
     const total = price + delivery;
 
+    const orderData = {
+      order_id: orderId,
+      customer_name: data.customer_name || 'নাম উল্লেখ নেই',
+      customer_phone: data.customer_phone || '',
+      customer_address: data.customer_address || '',
+      delivery_zone: data.delivery_zone === 'outside' ? 'ঢাকার বাইরে' : 'ঢাকার ভেতরে',
+      product_name: variantTitle,
+      items: items.length > 0 ? items : [{ name: variantTitle, qty: 1, price: price }],
+      product_price: price,
+      delivery_charge: delivery,
+      total_amount: total,
+      payment_method: 'Cash on Delivery (COD)',
+      created_at: new Date().toISOString()
+    };
+
+    // Save order persistently across Vercel serverless executions
+    await store.saveOrder(orderData);
+
     res.status(200).json({
       success: true,
       order_id: orderId,
@@ -79,7 +99,7 @@ module.exports = async (req, res) => {
       message: 'আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!'
     });
   } catch (error) {
-    console.error('Vercel order function error:', error);
+    console.error('Order function error:', error);
     res.status(500).json({ success: false, message: 'অর্ডারে ত্রুটি হয়েছে।' });
   }
 };
