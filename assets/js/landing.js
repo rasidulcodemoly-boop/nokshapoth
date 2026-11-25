@@ -4,9 +4,42 @@
  * - Dynamic price & variant calculation
  * - Smooth scroll & quick actions
  * - Abandoned cart lead autosave
- * - Facebook Pixel client-side event tracking
+ * - Meta Pixel & CAPI High Event Match Quality tracking (_fbc, _fbp, fbclid)
  * - AJAX checkout form submission & Thank You modal
  */
+
+// Meta Click ID (fbclid) & Cookie Capture (High Event Match Quality)
+(function() {
+    try {
+        function getCookie(name) {
+            const v = `; ${document.cookie}`;
+            const parts = v.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return '';
+        }
+        function setCookie(name, val, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${val};path=/;expires=${d.toUTCString()};SameSite=Lax`;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const fbclid = urlParams.get('fbclid');
+        if (fbclid) {
+            sessionStorage.setItem('meta_fbclid', fbclid);
+            localStorage.setItem('meta_fbclid', fbclid);
+            const fbcVal = `fb.1.${Date.now()}.${fbclid}`;
+            setCookie('_fbc', fbcVal, 90);
+            sessionStorage.setItem('meta_fbc', fbcVal);
+        }
+
+        let fbp = getCookie('_fbp');
+        if (!fbp) {
+            fbp = `fb.1.${Date.now()}.${Math.floor(1000000000 + Math.random() * 9000000000)}`;
+            setCookie('_fbp', fbp, 90);
+        }
+    } catch(e) {}
+})();
 
 document.addEventListener('DOMContentLoaded', function () {
     // ১. ক্যাটালগ ও ডাটা ডেফিনিশন
@@ -372,8 +405,30 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
 
             const formData = new FormData(orderForm);
+            
+            // ইউনিক মেটা ইভেন্ট আইডি ও ট্র্যাকিং প্যারামিটার নিশ্চিত করা (High Event Match Quality)
+            let eventId = document.getElementById('fb_event_id')?.value;
+            if (!eventId) {
+                eventId = 'FRc_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
+                const eventIdEl = document.getElementById('fb_event_id');
+                if (eventIdEl) eventIdEl.value = eventId;
+            }
+            formData.set('event_id', eventId);
+
+            // কুকি বা সেশন স্টোরেজ থেকে fbp, fbc ও fbclid রিড করে পাঠানো
+            function readCookieVal(name) {
+                const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? match[2] : '';
+            }
+            const fbpVal = readCookieVal('_fbp');
+            const fbcVal = readCookieVal('_fbc') || sessionStorage.getItem('meta_fbc') || '';
+            const fbclidVal = sessionStorage.getItem('meta_fbclid') || new URLSearchParams(window.location.search).get('fbclid') || '';
+
+            if (fbpVal) formData.set('fbp', fbpVal);
+            if (fbcVal) formData.set('fbc', fbcVal);
+            if (fbclidVal) formData.set('fbclid', fbclidVal);
+
             const bodyParams = new URLSearchParams(formData);
-            const eventId = document.getElementById('fb_event_id')?.value || ('FRc_' + Date.now());
 
             let totalItemsCount = 0;
             Object.values(selectedItems).forEach(qty => { totalItemsCount += qty; });

@@ -22,8 +22,16 @@ $address       = trim($_POST['customer_address'] ?? '');
 $variant       = trim($_POST['product_variant'] ?? 'boti_small');
 $zone          = trim($_POST['delivery_zone'] ?? 'inside');
 $eventId       = trim($_POST['event_id'] ?? ('FRc_' . bin2hex(random_bytes(6)) . '_' . time()));
-$fbpCookie     = $_COOKIE['_fbp'] ?? '';
-$fbcCookie     = $_COOKIE['_fbc'] ?? '';
+
+// Meta Click ID (fbc) এবং Browser ID (fbp) নিশ্চিত করা
+$fbpCookie     = trim($_POST['fbp'] ?? $_COOKIE['_fbp'] ?? '');
+$fbcCookie     = trim($_POST['fbc'] ?? $_COOKIE['_fbc'] ?? '');
+$fbclidParam   = trim($_POST['fbclid'] ?? $_GET['fbclid'] ?? '');
+
+// যদি সরাসরি fbclid আসে তবে স্ট্যান্ডার্ড fbc ফরম্যাট (fb.1.{time}.{fbclid}) তৈরি করা
+if (empty($fbcCookie) && !empty($fbclidParam)) {
+    $fbcCookie = 'fb.1.' . time() . '.' . $fbclidParam;
+}
 
 // ১. ভ্যালিডেশন
 if (empty($customerName)) {
@@ -139,6 +147,7 @@ if (defined('FB_CAPI_ACCESS_TOKEN') && FB_CAPI_ACCESS_TOKEN !== 'YOUR_META_CONVE
         'user_agent'     => $_SERVER['HTTP_USER_AGENT'] ?? '',
         'phone'          => '88' . $cleanPhone, // E.164 ফরম্যাটে বাংলাদেশ কোড সহ
         'name'           => $customerName,
+        'delivery_zone'  => $orderData['delivery_zone'],
         'fbp'            => $fbpCookie,
         'fbc'            => $fbcCookie,
         'value'          => (float)$totalAmount,
@@ -203,17 +212,33 @@ function dispatchFacebookCapiPurchase($data) {
 
     // নরম্যালাইজ ও হ্যাশ করা
     $hashedPhone = hash('sha256', trim($data['phone']));
-    $hashedName  = hash('sha256', mb_strtolower(trim($data['name']), 'UTF-8'));
     $hashedCountry = hash('sha256', 'bd');
+
+    // First Name ও Last Name আলাদা করে হ্যাশ করা (High EMQ)
+    $nameParts = preg_split('/\s+/', trim($data['name'] ?? ''));
+    $fn = !empty($nameParts[0]) ? hash('sha256', mb_strtolower($nameParts[0], 'UTF-8')) : null;
+    $ln = count($nameParts) > 1 ? hash('sha256', mb_strtolower(end($nameParts), 'UTF-8')) : null;
+
+    // শহর ডিটেকশন (ঢাকা / আউটসাইড ঢাকা)
+    $city = (isset($data['delivery_zone']) && $data['delivery_zone'] === 'ঢাকার ভেতরে') ? 'dhaka' : '';
+    $hashedCity = !empty($city) ? hash('sha256', $city) : null;
 
     $userData = [
         'ph'                => [$hashedPhone],
-        'fn'                => [$hashedName],
         'country'           => [$hashedCountry],
         'client_ip_address' => $data['client_ip'],
         'client_user_agent' => $data['user_agent']
     ];
 
+    if ($fn) {
+        $userData['fn'] = [$fn];
+    }
+    if ($ln) {
+        $userData['ln'] = [$ln];
+    }
+    if ($hashedCity) {
+        $userData['ct'] = [$hashedCity];
+    }
     if (!empty($data['fbp'])) {
         $userData['fbp'] = $data['fbp'];
     }
@@ -245,7 +270,8 @@ function dispatchFacebookCapiPurchase($data) {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 4);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $response = curl_exec($ch);
     curl_close($ch);
     return $response;
