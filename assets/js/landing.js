@@ -248,6 +248,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         value: productCatalog[targetVariant].price
                     });
                 }
+                // GA4 add_to_cart Event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'add_to_cart', {
+                        currency: 'BDT',
+                        value: productCatalog[targetVariant].price,
+                        items: [{
+                            item_id: targetVariant,
+                            item_name: productCatalog[targetVariant].name,
+                            price: productCatalog[targetVariant].price,
+                            quantity: 1
+                        }]
+                    });
+                }
             }
             scrollToCheckout(targetVariant);
         });
@@ -268,6 +281,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 content_name: productCatalog[targetVariant] ? productCatalog[targetVariant].name : '12” ফোল্ডিং ফ্লোর প্রিমিয়াম মহারানী বটি',
                 currency: 'BDT',
                 value: productCatalog[targetVariant] ? productCatalog[targetVariant].price : 1490
+            });
+        }
+        // GA4 begin_checkout Event
+        if (typeof gtag === 'function') {
+            const checkoutItem = productCatalog[targetVariant] || productCatalog.boti_small;
+            gtag('event', 'begin_checkout', {
+                currency: 'BDT',
+                value: checkoutItem.price,
+                items: [{
+                    item_id: targetVariant,
+                    item_name: checkoutItem.name,
+                    price: checkoutItem.price,
+                    quantity: 1
+                }]
             });
         }
         const target = document.getElementById('order-form-section');
@@ -291,11 +318,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Meta Pixel Contact Event (WhatsApp & Hotline)
+    // Meta Pixel & GA4 Contact Event (WhatsApp & Hotline)
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
         link.addEventListener('click', function () {
             if (typeof fbq === 'function') {
                 fbq('track', 'Contact', { channel: 'WhatsApp' });
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', { method: 'WhatsApp' });
             }
         });
     });
@@ -303,6 +333,9 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function () {
             if (typeof fbq === 'function') {
                 fbq('track', 'Contact', { channel: 'Phone Hotline' });
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', { method: 'Phone Hotline' });
             }
         });
     });
@@ -455,6 +488,23 @@ document.addEventListener('DOMContentLoaded', function () {
                             currency: 'BDT',
                             num_items: totalItemsCount
                         }, { eventID: eventId });
+                    }
+
+                    // GA4 purchase Event ফায়ার করা
+                    if (typeof gtag === 'function') {
+                        const gaItems = Object.keys(selectedItems).map(pId => ({
+                            item_id: pId,
+                            item_name: productCatalog[pId]?.name || data.product_name,
+                            price: productCatalog[pId]?.price || data.total_amount,
+                            quantity: selectedItems[pId]
+                        }));
+                        gtag('event', 'purchase', {
+                            transaction_id: data.order_id,
+                            value: data.total_amount,
+                            currency: 'BDT',
+                            shipping: formData.get('delivery_zone') === 'outside' ? 150 : 80,
+                            items: gaItems
+                        });
                     }
 
                     // থ্যাংক ইউ মোডাল পপআপ
